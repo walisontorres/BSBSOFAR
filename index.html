@@ -7,110 +7,178 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        body { background-color: #f8f9fa; color: #1a1a1a; font-family: 'Inter', sans-serif; }
-        .dark-card { background: #ffffff; border: 1px solid #e5e7eb; transition: all 0.3s ease; box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff; }
-        .dark-card:hover { transform: translateY(-10px); border-color: #8b5cf6; box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        body { 
+            background-color: #fcfcfc; 
+            color: #1a1a1a; 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth;
+        }
+
+        /* Estilo Dark White com Neumorfismo leve */
+        .dark-card { 
+            background: #ffffff; 
+            border: 1px solid #efefef;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 6px 6px 12px #e2e2e2, -6px -6px 12px #ffffff;
+        }
+
+        .dark-card:hover { 
+            transform: translateY(-12px); 
+            border-color: #8b5cf6; 
+            box-shadow: 0 20px 30px rgba(0,0,0,0.05);
+        }
+
         .stat-number { color: #8b5cf6; font-weight: 800; }
-        .hero-gradient { background: linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%); }
+        
+        .hero-gradient { 
+            background: radial-gradient(circle at top, #ffffff 0%, #f3f4f6 100%); 
+        }
+
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Animação de brilho para os números */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px rgba(139, 92, 246, 0.2); }
+            50% { text-shadow: 0 0 15px rgba(139, 92, 246, 0.5); }
+            100% { text-shadow: 0 0 5px rgba(139, 92, 246, 0.2); }
+        }
+        .glow-text { animation: glow 2s infinite; }
     </style>
 </head>
 <body>
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 py-4">
+    <nav class="sticky top-0 z-50 nav-blur border-b border-gray-100 py-4">
         <div class="container mx-auto flex justify-between items-center px-6">
-            <h1 class="text-2xl font-black tracking-tighter italic">BSB SÓ FAR</h1>
-            <div class="space-x-6 font-bold uppercase text-sm">
+            <h1 class="text-2xl font-black italic tracking-tighter">BSB SÓ FAR</h1>
+            <div class="hidden md:flex space-x-8 font-bold uppercase text-xs tracking-widest text-gray-600">
                 <a href="#inicio" class="hover:text-purple-600 transition">Início</a>
                 <a href="#clube" class="hover:text-purple-600 transition">O Clube</a>
                 <a href="#elenco" class="hover:text-purple-600 transition">Elenco</a>
                 <a href="#stats" class="hover:text-purple-600 transition">Estatísticas</a>
-                <a href="#trofeus" class="hover:text-purple-600 transition">Troféus</a>
+                <a href="#noticias" class="hover:text-purple-600 transition">Notícias</a>
             </div>
         </div>
     </nav>
 
-    <section id="inicio" class="hero-gradient min-h-[60vh] flex items-center justify-center text-center px-4">
+    <section id="inicio" class="hero-gradient min-h-[70vh] flex items-center justify-center text-center px-4">
         <div class="animate__animated animate__fadeIn">
-            <h2 class="text-6xl font-black mb-4 uppercase tracking-tighter">Onde a bola chora <br><span class="text-purple-600">e o lag domina.</span></h2>
-            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic">
-                "Bem-vindo ao BSB SÓ FAR. Nossa tática é simples: se o Walison não carregar, a gente não ganha. 
-                Corremos menos que fogão de lenha e temos a precisão de um stormtrooper vesgo. Se você está aqui pela qualidade, errou de aba."
+            <span class="text-purple-600 font-bold uppercase tracking-[0.3em] text-sm">Pro Clubs Legend</span>
+            <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter mt-2">O MAESTRO <br>DA <span class="text-gray-400">VARZEA.</span></h2>
+            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">
+                "Bem-vindo ao portal oficial do BSB SÓ FAR. Onde a qualidade é duvidosa, mas a resenha é de elite. 
+                Nossa tática principal é tocar no Walison e rezar para o servidor da EA não cair. Se o Luigi não estiver impedido, algo está errado."
             </p>
+            <div class="mt-10">
+                <a href="#elenco" class="bg-black text-white px-8 py-4 rounded-full font-bold uppercase text-sm hover:bg-purple-700 transition shadow-xl">Ver os Bagres</a>
+            </div>
         </div>
     </section>
 
-    <section id="clube" class="py-20 bg-white">
+    <section id="clube" class="py-24 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h3 class="text-4xl font-black mb-6 uppercase italic">Nossa História</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Fundado sob o lema "Só o básico", o BSB SÓ FAR é mais que um clube, é um teste de paciência. Nascemos na capital federal com o objetivo de dominar os gramados virtuais, mas acabamos dominando apenas a arte de errar passes de dois metros.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Nossos troféus? Estão todos na aba de "processamento", aguardando uma conexão de internet estável e um atacante que não chute o chão.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="h-40 bg-gray-100 rounded-2xl flex items-center justify-center text-3xl font-black text-gray-200 uppercase">Resenha</div>
+                <div class="h-40 bg-purple-50 rounded-2xl flex items-center justify-center text-3xl font-black text-purple-200 uppercase italic">Lag</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="elenco" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
-            <h3 class="text-3xl font-black mb-8 uppercase">A História</h3>
-            <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Fundado entre um rage quit e uma pizza gelada, o BSB SÓ FAR nasceu para provar que a amizade é mais importante que o PD (Pontos de Habilidade). 
-                Nossos fundadores decidiram que ganhar era secundário; o importante era cornetar o erro do companheiro no grupo do WhatsApp logo após a partida.
-            </p>
-        </div>
-    </section>
-
-    <section id="elenco" class="py-20 bg-gray-50 text-center">
-        <h3 class="text-3xl font-black mb-12 uppercase">Nosso Elenco (Lendas?)</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 container mx-auto px-6">
-            <div class="dark-card p-6 rounded-2xl">
-                <div class="h-64 bg-gray-200 rounded-xl mb-4 overflow-hidden">
-                   <img src="URL_DA_IMAGEM_WALISON" alt="Walison" class="w-full h-full object-cover">
+            <h3 class="text-4xl font-black mb-16 uppercase">O Elenco</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="dark-card p-4 rounded-3xl">
+                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden">
+                        <img src="walison.png" alt="Walison" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-2xl font-black italic uppercase">Walison</h4>
+                    <span class="text-purple-600 font-bold">Nº 10</span>
                 </div>
-                <h4 class="text-xl font-bold italic">WALISON #10</h4>
-                <p class="text-purple-500 font-bold uppercase text-xs">O Maestro</p>
-            </div>
-            <div class="dark-card p-6 rounded-2xl">
-                <div class="h-64 bg-gray-200 rounded-xl mb-4 overflow-hidden">
-                    <img src="URL_DA_IMAGEM_NICOLAS" alt="Nicolas" class="w-full h-full object-cover">
+                <div class="dark-card p-4 rounded-3xl">
+                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden">
+                        <img src="nicolas.png" alt="Nicolas" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-2xl font-black italic uppercase">Nicolas</h4>
+                    <span class="text-green-500 font-bold">Nº 92</span>
                 </div>
-                <h4 class="text-xl font-bold italic">NICOLAS #92</h4>
-                <p class="text-green-500 font-bold uppercase text-xs">O Criador</p>
-            </div>
-            <div class="dark-card p-6 rounded-2xl">
-                <div class="h-64 bg-gray-200 rounded-xl mb-4 overflow-hidden">
-                    <img src="URL_DA_IMAGEM_LUIGI" alt="Luigi" class="w-full h-full object-cover">
+                <div class="dark-card p-4 rounded-3xl">
+                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden">
+                        <img src="luigi.png" alt="Luigi" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-2xl font-black italic uppercase">Luigi</h4>
+                    <span class="text-blue-500 font-bold">Nº 69</span>
                 </div>
-                <h4 class="text-xl font-bold italic">LUIGI #69</h4>
-                <p class="text-blue-500 font-bold uppercase text-xs">O Bruxo / Atacante</p>
             </div>
         </div>
     </section>
 
-    <section id="stats" class="py-20 bg-white">
+    <section id="stats" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-black mb-12 text-center uppercase tracking-widest">Desempenho Profissional</h3>
+            <h3 class="text-4xl font-black mb-16 text-center uppercase italic">Dados de Desempenho</h3>
             <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
+                <table class="w-full text-left">
                     <thead>
-                        <tr class="border-b-2 border-gray-100 uppercase text-sm">
-                            <th class="py-4 px-2">Atleta</th>
-                            <th class="py-4 px-2 text-center">Jogos</th>
-                            <th class="py-4 px-2 text-center">Gols</th>
-                            <th class="py-4 px-2 text-center">Assists</th>
-                            <th class="py-4 px-2 text-center">Melhor em Campo</th>
+                        <tr class="border-b-2 border-gray-100 text-xs uppercase tracking-widest text-gray-400">
+                            <th class="py-6">Atleta</th>
+                            <th class="py-6 text-center">Partidas</th>
+                            <th class="py-6 text-center">Gols</th>
+                            <th class="py-6 text-center">Assistências</th>
+                            <th class="py-6 text-center">Best in Match</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100">
-                        <tr>
-                            <td class="py-6 flex items-center gap-4 font-bold uppercase">Walison</td>
-                            <td class="text-center font-mono">300</td>
-                            <td class="text-center stat-number">201</td>
-                            <td class="text-center stat-number">342</td>
-                            <td class="text-center text-yellow-600 font-bold">120</td>
+                    <tbody class="divide-y divide-gray-50">
+                        <tr class="group hover:bg-gray-50 transition">
+                            <td class="py-8 flex items-center gap-6">
+                                <img src="walison.png" class="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg">
+                                <div>
+                                    <p class="font-black text-xl uppercase italic">Walison</p>
+                                    <p class="text-xs text-gray-400 uppercase font-bold">Meio-Campo</p>
+                                </div>
+                            </td>
+                            <td class="text-center font-bold text-xl">300</td>
+                            <td class="text-center stat-number text-2xl">201</td>
+                            <td class="text-center stat-number text-2xl">342</td>
+                            <td class="text-center"><span class="bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full font-black text-sm italic">120x</span></td>
                         </tr>
-                        <tr>
-                            <td class="py-6 flex items-center gap-4 font-bold uppercase">Luigi</td>
-                            <td class="text-center font-mono">189</td>
-                            <td class="text-center stat-number">358</td>
-                            <td class="text-center stat-number">93</td>
-                            <td class="text-center text-yellow-600 font-bold">44</td>
+                        <tr class="group hover:bg-gray-50 transition">
+                            <td class="py-8 flex items-center gap-6">
+                                <img src="luigi.png" class="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg">
+                                <div>
+                                    <p class="font-black text-xl uppercase italic">Luigi</p>
+                                    <p class="text-xs text-gray-400 uppercase font-bold">Atacante</p>
+                                </div>
+                            </td>
+                            <td class="text-center font-bold text-xl">189</td>
+                            <td class="text-center stat-number text-2xl">358</td>
+                            <td class="text-center stat-number text-2xl">93</td>
+                            <td class="text-center"><span class="bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full font-black text-sm italic">44x</span></td>
                         </tr>
-                        <tr>
-                            <td class="py-6 flex items-center gap-4 font-bold uppercase">Nicolas</td>
-                            <td class="text-center font-mono">211</td>
-                            <td class="text-center stat-number">103</td>
-                            <td class="text-center stat-number">97</td>
-                            <td class="text-center text-yellow-600 font-bold">6</td>
+                        <tr class="group hover:bg-gray-50 transition">
+                            <td class="py-8 flex items-center gap-6">
+                                <img src="nicolas.png" class="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg">
+                                <div>
+                                    <p class="font-black text-xl uppercase italic">Nicolas</p>
+                                    <p class="text-xs text-gray-400 uppercase font-bold">Criador</p>
+                                </div>
+                            </td>
+                            <td class="text-center font-bold text-xl">211</td>
+                            <td class="text-center stat-number text-2xl">103</td>
+                            <td class="text-center stat-number text-2xl">97</td>
+                            <td class="text-center"><span class="bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full font-black text-sm italic">6x</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -118,8 +186,28 @@
         </div>
     </section>
 
-    <footer class="py-10 border-t border-gray-100 text-center text-gray-400 text-xs uppercase tracking-widest">
-        &copy; 2026 BSB SÓ FAR - Sem fins lucrativos (porque ninguém pagaria pra ver isso).
+    <section id="noticias" class="py-24 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-black mb-12 uppercase italic text-center">Plantão BSB SÓ FAR</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border-l-4 border-purple-500 pl-6 py-4">
+                    <span class="text-purple-500 text-xs font-bold uppercase">Urgente</span>
+                    <h5 class="text-xl font-bold mt-2 italic">Walison cogita pedir adicional de periculosidade por carregar o time nas costas.</h5>
+                </div>
+                <div class="border-l-4 border-red-500 pl-6 py-4">
+                    <span class="text-red-500 text-xs font-bold uppercase">Mercado</span>
+                    <h5 class="text-xl font-bold mt-2 italic">Nicolas é sondado por time da 4ª divisão da Mongólia; BSB SÓ FAR aceita uma coxinha em troca.</h5>
+                </div>
+                <div class="border-l-4 border-blue-500 pl-6 py-4">
+                    <span class="text-blue-500 text-xs font-bold uppercase">Saúde</span>
+                    <h5 class="text-xl font-bold mt-2 italic">Luigi é diagnosticado com "Alergia ao Impedimento"; Atacante não consegue ficar em linha.</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-gray-400 text-xs uppercase tracking-[0.4em] font-bold">
+        &copy; 2026 BSB SÓ FAR - Onde o importante é competir (porque ganhar tá difícil).
     </footer>
 
 </body>
