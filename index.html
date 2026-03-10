@@ -9,6 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { background-color: #fcfcfc; color: #1a1a1a; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
         .dark-card { 
             background: #ffffff; 
             border: 1px solid #efefef;
@@ -16,11 +17,18 @@
             box-shadow: 6px 6px 12px #e2e2e2, -6px -6px 12px #ffffff;
         }
         .dark-card:hover { transform: translateY(-10px); border-color: #8b5cf6; box-shadow: 0 15px 30px rgba(139, 92, 246, 0.1); }
+        
         .stat-number { color: #8b5cf6; font-weight: 800; }
         .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; font-style: italic; margin-bottom: 3rem; text-align: center; }
         .highlight-box { background: #f8f9fa; border-left: 4px solid #8b5cf6; padding: 1.5rem; }
         .nav-blur { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+        
+        /* Modal da Galeria */
+        .modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
+        
+        /* News Pulse */
+        .news-pulse { border-left: 4px solid #25D366; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { border-color: #25D366; } 50% { border-color: #128C7E; } 100% { border-color: #25D366; } }
     </style>
 </head>
 <body>
@@ -38,50 +46,55 @@
         </div>
     </nav>
 
-    <section id="inicio" class="min-h-[70vh] flex items-center justify-center text-center px-4 bg-white">
+    <section id="inicio" class="min-h-[60vh] flex items-center justify-center text-center px-4 bg-white">
         <div class="animate__animated animate__fadeIn">
-            <span class="text-purple-600 font-bold uppercase tracking-[0.4em] text-xs">Elite da Várzea</span>
+            <span class="text-purple-600 font-bold uppercase tracking-[0.4em] text-xs">Elite da Várzea Virtual</span>
             <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter mt-4">QUALIDADE <br><span class="text-gray-300 italic">DUVIDOSA.</span></h2>
             <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">
-                "Bem-vindo ao BSB SÓ FAR. Onde a bola não rola, ela sobrevive. Nossa tática é baseada na esperança: esperamos que o adversário caia e que o Walison faça um milagre."
+                "Onde a bola não rola, ela sobrevive. Nossa tática é baseada na esperança: esperamos que o adversário caia e que o Walison faça um milagre."
             </p>
         </div>
     </section>
 
-    <section id="clube" class="py-24 bg-gray-50">
+    <section id="clube" class="py-24 bg-gray-50 border-y">
         <div class="container mx-auto px-6 max-w-5xl">
             <h3 class="section-title">O Clube & A Tática</h3>
-            <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
                 <div>
                     <h4 class="text-2xl font-black mb-4 uppercase italic">História</h4>
-                    <p class="text-gray-600 mb-4">Fundado entre um rage quit e uma pizza gelada, o BSB SÓ FAR nasceu para provar que a amizade é mais importante que o talento.</p>
-                    <p class="text-gray-600 font-bold italic">A estratégia é inspirada no urbanismo de Brasília: parece linda no papel, mas se você errar uma tesourinha, vai parar no lugar errado e demorar 20 minutos pra dar a volta.</p>
+                    <p class="text-gray-600 mb-6 font-medium leading-relaxed">Fundado entre um rage quit e uma pizza gelada, o BSB SÓ FAR nasceu para provar que a amizade é mais importante que o talento.</p>
+                    <div class="highlight-box">
+                        <p class="italic text-gray-800 text-sm">
+                            "A estratégia é inspirada no urbanismo de Brasília: parece linda no papel, mas se você errar uma tesourinha, vai parar no lugar errado e demorar 20 minutos pra dar a volta."
+                        </p>
+                    </div>
                 </div>
-                <div class="space-y-4">
-                    <div class="highlight-box"><h5 class="font-black text-xs uppercase">Tiki-Taka de Tartaruga</h5><p class="text-xs text-gray-500">Transição lenta que dá tempo do zagueiro casar e ter dois filhos.</p></div>
-                    <div class="highlight-box"><h5 class="font-black text-xs uppercase">Marcação "Céu de Brasília"</h5><p class="text-xs text-gray-500">Espaço tão aberto que o adversário passa por desorientação.</p></div>
-                    <div class="highlight-box"><h5 class="font-black text-xs uppercase">Zaga de Drywall</h5><p class="text-xs text-gray-500">Parece sólida de longe, mas se o atacante soprar, ela esfarela.</p></div>
+                <div class="space-y-4 text-xs">
+                    <div class="p-4 bg-white border rounded-xl shadow-sm"><strong>🐢 Tiki-Taka de Tartaruga:</strong> Transição tão lenta que o zagueiro adversário casa e tem filhos antes da bola chegar.</div>
+                    <div class="p-4 bg-white border rounded-xl shadow-sm"><strong>☁️ Marcação Céu de Brasília:</strong> Espaço tão aberto que o rival passa por desorientação, não por mérito.</div>
+                    <div class="p-4 bg-white border rounded-xl shadow-sm"><strong>🧱 Zaga de Drywall:</strong> Parece sólida de longe, mas se o atacante soprar ou der um stepover, ela esfarela.</div>
                 </div>
             </div>
             
-            <div class="mt-12 p-8 border border-gray-200 rounded-3xl bg-white">
-                <h4 class="text-xl font-black mb-6 uppercase italic">🤡 Qualidade "Padrão Licitação"</h4>
-                <div class="space-y-4 text-sm text-gray-600">
-                    <p>• <strong>Atacantes "Fome Zero":</strong> Alergia severa ao botão de passe. Visão de jogo de cavalo com viseira.</p>
-                    <p>• <strong>Meio-Campo "Tesouro Nacional":</strong> Ninguém sabe onde está ou o que faz o patrimônio (a bola).</p>
-                    <p>• <strong>O "Meta" do Caos:</strong> Enquanto pro-players usam L1, nós usamos a técnica do "Segura o dedo e reza".</p>
+            <div class="p-8 border border-gray-200 rounded-3xl bg-white text-sm text-gray-600 shadow-sm">
+                <h4 class="text-xl font-black mb-6 uppercase italic text-black">🤡 Qualidade "Padrão Licitação"</h4>
+                <div class="grid md:grid-cols-2 gap-6 leading-relaxed">
+                    <p>• <strong>Atacantes "Fome Zero":</strong> Alergia severa ao passe. Visão de jogo de cavalo com viseira: só enxergam a rede (e acertam a bandeirinha).</p>
+                    <p>• <strong>Meio-Campo "Tesouro Nacional":</strong> Ninguém sabe onde está ou o que faz o patrimônio (a bola). O MEI tem a agilidade de um monumento de concreto.</p>
+                    <p>• <strong>O "Meta" do Caos:</strong> Enquanto pro-players usam L1, nós usamos a técnica milenar do "Segura o dedo e reza".</p>
+                    <p>• <strong>Zaga do Bot:</strong> O maior destaque da defesa costuma ser a IA, o único que sabe o objetivo do jogo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="trofeus" class="py-24 bg-white text-center border-y border-gray-100">
+    <section id="trofeus" class="py-20 bg-white text-center">
         <h3 class="section-title">Sala de Troféus</h3>
-        <div class="flex flex-wrap justify-center gap-8 opacity-30">
-            <div class="w-24 h-24 bg-gray-100 rounded-full border-4 border-dashed border-gray-300 flex items-center justify-center font-black">?</div>
-            <div class="w-24 h-24 bg-gray-100 rounded-full border-4 border-dashed border-gray-300 flex items-center justify-center font-black">?</div>
+        <div class="flex justify-center gap-8 opacity-20 grayscale">
+            <div class="w-24 h-24 bg-gray-200 rounded-full border-4 border-dashed border-gray-400 flex items-center justify-center font-black">?</div>
+            <div class="w-24 h-24 bg-gray-200 rounded-full border-4 border-dashed border-gray-400 flex items-center justify-center font-black italic text-xs">LICITAÇÃO</div>
         </div>
-        <p class="mt-6 text-gray-400 italic">"Troféu prometido, mas a obra está atrasada (Padrão Licitação)."</p>
+        <p class="mt-8 text-gray-400 italic text-sm">"Prometidos para 2027 (sujeito a atrasos na obra)."</p>
     </section>
 
     <section id="elenco" class="py-24 bg-gray-50">
@@ -89,28 +102,28 @@
             <h3 class="section-title">O Elenco</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="dark-card p-6 rounded-3xl">
-                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden">
+                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden border border-gray-200">
                         <img src="nicolas.png" alt="Nicolas" class="w-full h-full object-cover">
                     </div>
                     <h4 class="text-2xl font-black italic uppercase">Nicolas</h4>
-                    <span class="text-purple-600 font-bold text-sm block mb-4 uppercase tracking-widest">Nº 10 - Criador</span>
-                    <button onclick="openModal('nicolas_vid.mp4')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg">Highlights</button>
+                    <span class="text-purple-600 font-bold text-sm block mb-4 uppercase tracking-widest">Nº 10 - O Criador</span>
+                    <button onclick="openGallery('nicolas')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg tracking-widest">Highlights</button>
                 </div>
                 <div class="dark-card p-6 rounded-3xl">
-                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden">
+                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden border border-gray-200">
                         <img src="walison.png" alt="Walison" class="w-full h-full object-cover">
                     </div>
                     <h4 class="text-2xl font-black italic uppercase">Walison</h4>
-                    <span class="text-purple-600 font-bold text-sm block mb-4 uppercase tracking-widest">Nº 92 - Maestro</span>
-                    <button onclick="openModal('walison_vid.mp4')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg">Highlights</button>
+                    <span class="text-purple-600 font-bold text-sm block mb-4 uppercase tracking-widest">Nº 92 - O Maestro</span>
+                    <button onclick="openGallery('walison')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg tracking-widest">Highlights</button>
                 </div>
                 <div class="dark-card p-6 rounded-3xl">
-                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden">
+                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden border border-gray-200">
                         <img src="luigi.png" alt="Luigi" class="w-full h-full object-cover">
                     </div>
                     <h4 class="text-2xl font-black italic uppercase">Luigi</h4>
                     <span class="text-blue-500 font-bold text-sm block mb-4 uppercase tracking-widest">Nº 69 - Atacante</span>
-                    <button onclick="openModal('luigi_vid.mp4')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg">Highlights</button>
+                    <button onclick="openGallery('luigi')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg tracking-widest">Highlights</button>
                 </div>
             </div>
         </div>
@@ -119,10 +132,10 @@
     <section id="stats" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <h3 class="section-title">Estatísticas Reais</h3>
-            <div class="overflow-x-auto bg-white rounded-3xl border border-gray-100">
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm bg-white">
                 <table class="w-full text-left">
-                    <thead>
-                        <tr class="border-b border-gray-50 text-[10px] uppercase text-gray-400 font-bold">
+                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold">
+                        <tr>
                             <th class="py-6 px-8">Atleta</th>
                             <th class="py-6 text-center">Jogos</th>
                             <th class="py-6 text-center">Gols</th>
@@ -132,25 +145,16 @@
                     </thead>
                     <tbody class="divide-y divide-gray-50">
                         <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="walison.png" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500 shadow-md"> Walison</td>
-                            <td class="text-center">300</td>
-                            <td class="text-center stat-number text-xl">201</td>
-                            <td class="text-center stat-number text-xl">342</td>
-                            <td class="text-center font-black text-yellow-600 italic">120</td>
+                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="walison.png" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500"> Walison</td>
+                            <td class="text-center font-bold">300</td><td class="text-center stat-number text-xl">201</td><td class="text-center stat-number text-xl">342</td><td class="text-center font-black text-yellow-600 italic">120</td>
                         </tr>
                         <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="luigi.png" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500 shadow-md"> Luigi</td>
-                            <td class="text-center">189</td>
-                            <td class="text-center stat-number text-xl">358</td>
-                            <td class="text-center stat-number text-xl">93</td>
-                            <td class="text-center font-black text-yellow-600 italic">44</td>
+                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="luigi.png" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500"> Luigi</td>
+                            <td class="text-center font-bold">189</td><td class="text-center stat-number text-xl">358</td><td class="text-center stat-number text-xl">93</td><td class="text-center font-black text-yellow-600 italic">44</td>
                         </tr>
                         <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="nicolas.png" class="w-12 h-12 rounded-full object-cover border-2 border-green-500 shadow-md"> Nicolas</td>
-                            <td class="text-center">211</td>
-                            <td class="text-center stat-number text-xl">103</td>
-                            <td class="text-center stat-number text-xl">97</td>
-                            <td class="text-center font-black text-yellow-600 italic">6</td>
+                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="nicolas.png" class="w-12 h-12 rounded-full object-cover border-2 border-green-500"> Nicolas</td>
+                            <td class="text-center font-bold">211</td><td class="text-center stat-number text-xl">103</td><td class="text-center stat-number text-xl">97</td><td class="text-center font-black text-yellow-600 italic">6</td>
                         </tr>
                     </tbody>
                 </table>
@@ -160,47 +164,83 @@
 
     <section id="noticias" class="py-24 bg-black text-white">
         <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-black mb-12 uppercase italic text-center">Plantão BSB SÓ FAR</h3>
-            <div class="grid md:grid-cols-3 gap-8 text-sm">
-                <div class="p-6 border-l-2 border-purple-500 bg-gray-900/50">
-                    <span class="text-purple-500 font-bold uppercase text-[9px]">Urgente</span>
-                    <h5 class="font-bold mt-2">Walison é flagrado carregando o time; médicos alertam para risco de hérnia virtual.</h5>
+            <h3 class="text-3xl font-black mb-12 uppercase italic text-center tracking-widest">Plantão BSB SÓ FAR</h3>
+            <div class="max-w-2xl mx-auto">
+                <div id="zap-feed" class="news-pulse p-8 bg-gray-900/80 rounded-3xl italic text-xl text-center leading-relaxed border border-gray-800">
+                    "Carregando a última polêmica do WhatsApp..."
                 </div>
-                <div class="p-6 border-l-2 border-red-500 bg-gray-900/50">
-                    <span class="text-red-500 font-bold uppercase text-[9px]">Mercado</span>
-                    <h5 class="font-bold mt-2">Nicolas recebe proposta de um saco de salgadinho da Mongólia; BSB SÓ FAR pede dois.</h5>
-                </div>
-                <div class="p-6 border-l-2 border-blue-500 bg-gray-900/50">
-                    <span class="text-blue-500 font-bold uppercase text-[9px]">Saúde</span>
-                    <h5 class="font-bold mt-2">Luigi diagnosticado com "Alergia ao Impedimento"; atacante não vê a linha da zaga.</h5>
+                <div class="mt-8 grid md:grid-cols-3 gap-6 text-[10px] uppercase font-bold text-gray-500 text-center">
+                    <div class="p-4 border border-gray-800 rounded-xl">Walison pede adicional de periculosidade.</div>
+                    <div class="p-4 border border-gray-800 rounded-xl">Nicolas trocado por um salgadinho.</div>
+                    <div class="p-4 border border-gray-800 rounded-xl">Luigi banido da linha da zaga.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="vModal" class="modal" onclick="closeModal()">
-        <div class="relative w-[90%] max-w-4xl mx-auto mt-20 animate__animated animate__zoomIn">
-            <button class="absolute -top-10 right-0 text-white font-black uppercase text-xs" onclick="closeModal()">Fechar [X]</button>
-            <video id="p" controls class="w-full rounded-2xl shadow-2xl bg-black border border-gray-800">
-                <source id="s" src="" type="video/mp4">
-            </video>
+    <div id="galleryModal" class="modal">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex justify-between items-center mb-10 border-b border-gray-800 pb-4">
+                <h4 id="galleryTitle" class="text-white text-3xl font-black italic uppercase tracking-tighter">Highlights</h4>
+                <button onclick="closeGallery()" class="text-white bg-red-600 px-6 py-2 rounded-full font-black text-[10px] uppercase hover:bg-red-700 transition">Fechar X</button>
+            </div>
+            <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                </div>
         </div>
     </div>
 
     <script>
-        function openModal(f) {
-            document.getElementById('s').src = f;
-            document.getElementById('p').load();
-            document.getElementById('vModal').style.display = 'block';
+        // CONFIGURAÇÃO DOS VÍDEOS POR PASTAS
+        const videosData = {
+            nicolas: ["videos/nicolas/clip1.mp4", "videos/nicolas/clip2.mp4"], 
+            walison: ["videos/walison/gol1.mp4", "videos/walison/gol2.mp4"], 
+            luigi: ["videos/luigi/video1.mp4"]
+        };
+
+        // Função da Galeria
+        function openGallery(player) {
+            const modal = document.getElementById('galleryModal');
+            const grid = document.getElementById('videoGrid');
+            const title = document.getElementById('galleryTitle');
+            title.innerText = "Destaques: " + player;
+            grid.innerHTML = ""; 
+
+            if(videosData[player]) {
+                videosData[player].forEach(url => {
+                    grid.innerHTML += `
+                        <div class="bg-gray-900 p-3 rounded-3xl border border-gray-800 shadow-2xl">
+                            <video controls class="w-full rounded-2xl">
+                                <source src="${url}" type="video/mp4">
+                                Seu navegador não suporta vídeos.
+                            </video>
+                            <p class="text-gray-500 text-[10px] mt-4 uppercase font-bold text-center tracking-widest italic">${url.split('/').pop()}</p>
+                        </div>`;
+                });
+            }
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
-        function closeModal() {
-            document.getElementById('vModal').style.display = 'none';
-            document.getElementById('p').pause();
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.querySelectorAll('video').forEach(v => v.pause());
         }
+
+        // Função de Notícias (Lê o arquivo zap_news.txt)
+        function fetchNews() {
+            fetch('zap_news.txt?t=' + Math.random())
+                .then(r => r.text())
+                .then(t => { if(t.trim()) document.getElementById('zap-feed').innerText = t; })
+                .catch(() => { document.getElementById('zap-feed').innerText = "O time está em silêncio (provavelmente pelo lag)."; });
+        }
+        fetchNews();
+        setInterval(fetchNews, 60000); // Atualiza a cada 1 minuto
     </script>
 
-    <footer class="py-12 bg-white text-center text-gray-400 text-[9px] uppercase tracking-[0.4em] font-bold">
-        &copy; 2026 BSB SÓ FAR - Urbanismo Virtual e Caos Aplicado.
+    <footer class="py-16 bg-white border-t text-center">
+        <p class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400">BSB SÓ FAR &copy; 2026 | Urbanismo Virtual e Caos Aplicado</p>
     </footer>
+
 </body>
 </html>
