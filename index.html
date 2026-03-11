@@ -3,244 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSB SÓ FAR | Site Oficial</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>BSB SÓFAR - Oficial</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { background-color: #fcfcfc; color: #1a1a1a; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        /* Mantendo seus estilos originais */
+        body { background-color: #000; color: #fff; font-family: sans-serif; margin: 0; text-align: center; }
+        .header { padding: 50px; background: #111; border-bottom: 2px solid #ffcc00; }
+        h1 { color: #ffcc00; font-size: 3.5rem; margin: 0; }
         
-        .dark-card { 
-            background: #ffffff; 
-            border: 1px solid #efefef;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 6px 6px 12px #e2e2e2, -6px -6px 12px #ffffff;
+        /* NOVO: Estilo do Letreiro de Notícias */
+        .news-section {
+            background: #222;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
         }
-        .dark-card:hover { transform: translateY(-10px); border-color: #8b5cf6; box-shadow: 0 15px 30px rgba(139, 92, 246, 0.1); }
-        
-        .stat-number { color: #8b5cf6; font-weight: 800; }
-        .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; font-style: italic; margin-bottom: 3rem; text-align: center; }
-        .highlight-box { background: #f8f9fa; border-left: 4px solid #8b5cf6; padding: 1.5rem; }
-        .nav-blur { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-        
-        /* Modal da Galeria */
-        .modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
-        
-        /* News Pulse */
-        .news-pulse { border-left: 4px solid #25D366; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { border-color: #25D366; } 50% { border-color: #128C7E; } 100% { border-color: #25D366; } }
+        .ticker-wrapper {
+            width: 100%;
+            overflow: hidden;
+            background: #ffcc00;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 0;
+            font-size: 1.1rem;
+        }
+        .ticker-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: ticker 40s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* Mantendo seus cards e galeria */
+        .gallery { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 40px; }
+        .player-card { background: #1a1a1a; border: 1px solid #444; border-radius: 15px; width: 280px; padding: 15px; }
+        .player-card img { width: 100%; border-radius: 10px; border: 2px solid #ffcc00; }
+        .player-card h3 { color: #ffcc00; margin: 15px 0 5px 0; }
+        .player-card p { font-size: 0.9rem; color: #bbb; }
     </style>
 </head>
 <body>
 
-    <nav class="sticky top-0 z-50 nav-blur border-b border-gray-100 py-4">
-        <div class="container mx-auto flex justify-between items-center px-6">
-            <h1 class="text-2xl font-black italic tracking-tighter uppercase">BSB SÓ FAR</h1>
-            <div class="hidden md:flex space-x-6 font-bold uppercase text-[10px] tracking-[0.2em] text-gray-500">
-                <a href="#inicio" class="hover:text-purple-600 transition">Início</a>
-                <a href="#clube" class="hover:text-purple-600 transition">O Clube</a>
-                <a href="#trofeus" class="hover:text-purple-600 transition">Troféus</a>
-                <a href="#elenco" class="hover:text-purple-600 transition">Elenco</a>
-                <a href="#stats" class="hover:text-purple-600 transition">Estatísticas</a>
-            </div>
-        </div>
-    </nav>
+    <div class="header">
+        <h1>BSB SÓFAR</h1>
+        <p>A elite do futebol virtual (ou quase isso).</p>
+    </div>
 
-    <section id="inicio" class="min-h-[60vh] flex items-center justify-center text-center px-4 bg-white">
-        <div class="animate__animated animate__fadeIn">
-            <span class="text-purple-600 font-bold uppercase tracking-[0.4em] text-xs">Elite da Várzea Virtual</span>
-            <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter mt-4">QUALIDADE <br><span class="text-gray-300 italic">DUVIDOSA.</span></h2>
-            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">
-                "Onde a bola não rola, ela sobrevive. Nossa tática é baseada na esperança: esperamos que o adversário caia e que o Walison faça um milagre."
-            </p>
-        </div>
-    </section>
-
-    <section id="clube" class="py-24 bg-gray-50 border-y">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <h3 class="section-title">O Clube & A Tática</h3>
-            <div class="grid md:grid-cols-2 gap-12 mb-16">
-                <div>
-                    <h4 class="text-2xl font-black mb-4 uppercase italic">História</h4>
-                    <p class="text-gray-600 mb-6 font-medium leading-relaxed">Fundado entre um rage quit e uma pizza gelada, o BSB SÓ FAR nasceu para provar que a amizade é mais importante que o talento.</p>
-                    <div class="highlight-box">
-                        <p class="italic text-gray-800 text-sm">
-                            "A estratégia é inspirada no urbanismo de Brasília: parece linda no papel, mas se você errar uma tesourinha, vai parar no lugar errado e demorar 20 minutos pra dar a volta."
-                        </p>
-                    </div>
-                </div>
-                <div class="space-y-4 text-xs">
-                    <div class="p-4 bg-white border rounded-xl shadow-sm"><strong>🐢 Tiki-Taka de Tartaruga:</strong> Transição tão lenta que o zagueiro adversário casa e tem filhos antes da bola chegar.</div>
-                    <div class="p-4 bg-white border rounded-xl shadow-sm"><strong>☁️ Marcação Céu de Brasília:</strong> Espaço tão aberto que o rival passa por desorientação, não por mérito.</div>
-                    <div class="p-4 bg-white border rounded-xl shadow-sm"><strong>🧱 Zaga de Drywall:</strong> Parece sólida de longe, mas se o atacante soprar ou der um stepover, ela esfarela.</div>
-                </div>
+    <div class="news-section">
+        <h2 style="color: #ffcc00; font-size: 1.2rem; margin-bottom: 10px;">🔥 ÚLTIMAS NOTÍCIAS 🔥</h2>
+        <div class="ticker-wrapper">
+            <div class="ticker-text">
+                🚨 BOLETIM DE OCORRÊNCIA: Luigi (Magician) guardou 8 gols e arrancou o botão de passe do controle! | 
+                Walison (Insanity) cansou de ser garçom e meteu 4 gols em um jogo só! | 
+                Nicolas (Maestro) subiu o Overall no PC, mas tá com a concentração de uma capivara atravessando o Eixo Monumental em horário de pico... | 
+                O avatar tá upado no máximo, mas o piloto tá dando tela azul! Seguimos com o Padrão Licitação. 🚨
             </div>
-            
-            <div class="p-8 border border-gray-200 rounded-3xl bg-white text-sm text-gray-600 shadow-sm">
-                <h4 class="text-xl font-black mb-6 uppercase italic text-black">🤡 Qualidade "Padrão Licitação"</h4>
-                <div class="grid md:grid-cols-2 gap-6 leading-relaxed">
-                    <p>• <strong>Atacantes "Fome Zero":</strong> Alergia severa ao passe. Visão de jogo de cavalo com viseira: só enxergam a rede (e acertam a bandeirinha).</p>
-                    <p>• <strong>Meio-Campo "Tesouro Nacional":</strong> Ninguém sabe onde está ou o que faz o patrimônio (a bola). O MEI tem a agilidade de um monumento de concreto.</p>
-                    <p>• <strong>O "Meta" do Caos:</strong> Enquanto pro-players usam L1, nós usamos a técnica milenar do "Segura o dedo e reza".</p>
-                    <p>• <strong>Zaga do Bot:</strong> O maior destaque da defesa costuma ser a IA, o único que sabe o objetivo do jogo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="trofeus" class="py-20 bg-white text-center">
-        <h3 class="section-title">Sala de Troféus</h3>
-        <div class="flex justify-center gap-8 opacity-20 grayscale">
-            <div class="w-24 h-24 bg-gray-200 rounded-full border-4 border-dashed border-gray-400 flex items-center justify-center font-black">?</div>
-            <div class="w-24 h-24 bg-gray-200 rounded-full border-4 border-dashed border-gray-400 flex items-center justify-center font-black italic text-xs">LICITAÇÃO</div>
-        </div>
-        <p class="mt-8 text-gray-400 italic text-sm">"Prometidos para 2027 (sujeito a atrasos na obra)."</p>
-    </section>
-
-    <section id="elenco" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="section-title">O Elenco</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="dark-card p-6 rounded-3xl">
-                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden border border-gray-200">
-                        <img src="nicolas.png" alt="Nicolas" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-2xl font-black italic uppercase">Nicolas</h4>
-                    <span class="text-purple-600 font-bold text-sm block mb-4 uppercase tracking-widest">Nº 10 - O Criador</span>
-                    <button onclick="openGallery('nicolas')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg tracking-widest">Highlights</button>
-                </div>
-                <div class="dark-card p-6 rounded-3xl">
-                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden border border-gray-200">
-                        <img src="walison.png" alt="Walison" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-2xl font-black italic uppercase">Walison</h4>
-                    <span class="text-purple-600 font-bold text-sm block mb-4 uppercase tracking-widest">Nº 92 - O Maestro</span>
-                    <button onclick="openGallery('walison')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg tracking-widest">Highlights</button>
-                </div>
-                <div class="dark-card p-6 rounded-3xl">
-                    <div class="aspect-[4/5] bg-gray-100 rounded-2xl mb-6 overflow-hidden border border-gray-200">
-                        <img src="luigi.png" alt="Luigi" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-2xl font-black italic uppercase">Luigi</h4>
-                    <span class="text-blue-500 font-bold text-sm block mb-4 uppercase tracking-widest">Nº 69 - Atacante</span>
-                    <button onclick="openGallery('luigi')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition shadow-lg tracking-widest">Highlights</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="stats" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h3 class="section-title">Estatísticas Reais</h3>
-            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm bg-white">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold">
-                        <tr>
-                            <th class="py-6 px-8">Atleta</th>
-                            <th class="py-6 text-center">Jogos</th>
-                            <th class="py-6 text-center">Gols</th>
-                            <th class="py-6 text-center">Assists</th>
-                            <th class="py-6 text-center">Melhor em Campo</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-50">
-                        <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="walison.png" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500"> Walison</td>
-                            <td class="text-center font-bold">300</td><td class="text-center stat-number text-xl">201</td><td class="text-center stat-number text-xl">342</td><td class="text-center font-black text-yellow-600 italic">120</td>
-                        </tr>
-                        <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="luigi.png" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500"> Luigi</td>
-                            <td class="text-center font-bold">189</td><td class="text-center stat-number text-xl">358</td><td class="text-center stat-number text-xl">93</td><td class="text-center font-black text-yellow-600 italic">44</td>
-                        </tr>
-                        <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="nicolas.png" class="w-12 h-12 rounded-full object-cover border-2 border-green-500"> Nicolas</td>
-                            <td class="text-center font-bold">211</td><td class="text-center stat-number text-xl">103</td><td class="text-center stat-number text-xl">97</td><td class="text-center font-black text-yellow-600 italic">6</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section id="noticias" class="py-24 bg-black text-white">
-        <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-black mb-12 uppercase italic text-center tracking-widest">Plantão BSB SÓ FAR</h3>
-            <div class="max-w-2xl mx-auto">
-                <div id="zap-feed" class="news-pulse p-8 bg-gray-900/80 rounded-3xl italic text-xl text-center leading-relaxed border border-gray-800">
-                    "Carregando a última polêmica do WhatsApp..."
-                </div>
-                <div class="mt-8 grid md:grid-cols-3 gap-6 text-[10px] uppercase font-bold text-gray-500 text-center">
-                    <div class="p-4 border border-gray-800 rounded-xl">Walison pede adicional de periculosidade.</div>
-                    <div class="p-4 border border-gray-800 rounded-xl">Nicolas trocado por um salgadinho.</div>
-                    <div class="p-4 border border-gray-800 rounded-xl">Luigi banido da linha da zaga.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="galleryModal" class="modal">
-        <div class="max-w-5xl mx-auto">
-            <div class="flex justify-between items-center mb-10 border-b border-gray-800 pb-4">
-                <h4 id="galleryTitle" class="text-white text-3xl font-black italic uppercase tracking-tighter">Highlights</h4>
-                <button onclick="closeGallery()" class="text-white bg-red-600 px-6 py-2 rounded-full font-black text-[10px] uppercase hover:bg-red-700 transition">Fechar X</button>
-            </div>
-            <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                </div>
         </div>
     </div>
 
-    <script>
-        // CONFIGURAÇÃO DOS VÍDEOS POR PASTAS
-        const videosData = {
-            nicolas: ["videos/nicolas/clip1.mp4", "videos/nicolas/clip2.mp4"], 
-            walison: ["videos/walison/gol1.mp4", "videos/walison/gol2.mp4"], 
-            luigi: ["videos/luigi/video1.mp4"]
-        };
+    <div class="gallery">
+        <div class="player-card">
+            <img src="FOTO_DO_LUIGI.jpg" alt="Luigi">
+            <h3>Luigi (Magician)</h3>
+            <p>Especialista em ignorar o botão de passe.</p>
+        </div>
 
-        // Função da Galeria
-        function openGallery(player) {
-            const modal = document.getElementById('galleryModal');
-            const grid = document.getElementById('videoGrid');
-            const title = document.getElementById('galleryTitle');
-            title.innerText = "Destaques: " + player;
-            grid.innerHTML = ""; 
+        <div class="player-card">
+            <img src="FOTO_DO_WALISON.jpg" alt="Walison">
+            <h3>Walison (Insanity)</h3>
+            <p>O garçom que decidiu comer a gorjeta.</p>
+        </div>
 
-            if(videosData[player]) {
-                videosData[player].forEach(url => {
-                    grid.innerHTML += `
-                        <div class="bg-gray-900 p-3 rounded-3xl border border-gray-800 shadow-2xl">
-                            <video controls class="w-full rounded-2xl">
-                                <source src="${url}" type="video/mp4">
-                                Seu navegador não suporta vídeos.
-                            </video>
-                            <p class="text-gray-500 text-[10px] mt-4 uppercase font-bold text-center tracking-widest italic">${url.split('/').pop()}</p>
-                        </div>`;
-                });
-            }
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeGallery() {
-            document.getElementById('galleryModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.querySelectorAll('video').forEach(v => v.pause());
-        }
-
-        // Função de Notícias (Lê o arquivo zap_news.txt)
-        function fetchNews() {
-            fetch('zap_news.txt?t=' + Math.random())
-                .then(r => r.text())
-                .then(t => { if(t.trim()) document.getElementById('zap-feed').innerText = t; })
-                .catch(() => { document.getElementById('zap-feed').innerText = "O time está em silêncio (provavelmente pelo lag)."; });
-        }
-        fetchNews();
-        setInterval(fetchNews, 60000); // Atualiza a cada 1 minuto
-    </script>
-
-    <footer class="py-16 bg-white border-t text-center">
-        <p class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400">BSB SÓ FAR &copy; 2026 | Urbanismo Virtual e Caos Aplicado</p>
-    </footer>
+        <div class="player-card">
+            <img src="FOTO_DO_NICOLAS.jpg" alt="Nicolas">
+            <h3>Nicolas (Maestro)</h3>
+            <p>Perdido entre o Overall 99 e a parada de ônibus.</p>
+        </div>
+    </div>
 
 </body>
 </html>
