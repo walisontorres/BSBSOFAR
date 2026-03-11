@@ -3,65 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSB SÓFAR - Oficial</title>
+    <title>BSB SÓ FAR | Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        /* MANTENDO SEU ESTILO ORIGINAL */
-        body { background-color: #000; color: #fff; font-family: sans-serif; margin: 0; text-align: center; }
-        .header { padding: 50px; }
-        h1 { color: #ffcc00; font-size: 3rem; }
-        
-        /* Estilo do Letreiro (Ajustado para ser discreto) */
-        .news-ticker {
-            background: #ffcc00;
-            color: #000;
-            padding: 5px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            font-weight: bold;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #fcfcfc; color: #1a1a1a; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .dark-card { 
+            background: #ffffff; 
+            border: 1px solid #efefef;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 6px 6px 12px #e2e2e2;
         }
-        .news-ticker span {
-            display: inline-block;
-            padding-left: 100%;
-            animation: ticker 40s linear infinite;
-        }
-        @keyframes ticker {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
-        }
-
-        .gallery { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px; }
-        .player-card { border: 1px solid #444; border-radius: 10px; width: 250px; padding: 10px; }
-        .player-card img { width: 100%; border-radius: 5px; }
+        .dark-card:hover { transform: translateY(-10px); border-color: #8b5cf6; }
+        .stat-number { color: #8b5cf6; font-weight: 800; }
+        .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; font-style: italic; margin-bottom: 3rem; text-align: center; }
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #8b5cf6; padding: 1.5rem; }
+        .nav-blur { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>BSB SÓFAR</h1>
+    <nav class="sticky top-0 z-50 nav-blur border-b border-gray-100 py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-2xl font-black italic tracking-tighter uppercase">BSB SÓ FAR</h1>
+            <div class="hidden md:flex space-x-6 font-bold uppercase text-[10px] tracking-[0.2em] text-gray-500">
+                <a href="#inicio">Início</a>
+                <a href="#clube">O Clube</a>
+                <a href="#elenco">Elenco</a>
+                <a href="#stats">Estatísticas</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="min-h-[50vh] flex items-center justify-center text-center px-4 bg-white">
+        <div class="animate__animated animate__fadeIn">
+            <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter">BSB SÓ FAR</h2>
+            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">
+                "Qualidade Padrão Licitação: errou a tesourinha, já era."
+            </p>
+        </div>
+    </section>
+
+    <section id="noticias" class="py-16 bg-black text-white text-center border-y border-gray-800">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-black mb-8 uppercase italic text-green-500 tracking-widest">Plantão BSB SÓ FAR (Live)</h3>
+            <div id="news-feed" class="max-w-3xl mx-auto p-10 bg-gray-900 rounded-3xl border border-gray-800 italic text-2xl animate__animated animate__pulse animate__infinite">
+                Carregando última fofoca da planilha...
+            </div>
+            <p class="text-[9px] text-gray-600 mt-4 uppercase tracking-[0.3em]">Sincronizado com Google Sheets</p>
+        </div>
+    </section>
+
+    <section id="clube" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h3 class="section-title">O Clube & A Tática</h3>
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h4 class="text-2xl font-black mb-4 uppercase italic">História</h4>
+                    <p class="text-gray-600 mb-6 font-medium leading-relaxed">Fundado entre um rage quit e uma pizza gelada, o BSB SÓ FAR nasceu para provar que a amizade é o que resta quando falta talento.</p>
+                    <div class="highlight-box">
+                        <p class="italic text-gray-800 text-sm">
+                            "Estratégia inspirada no urbanismo de Brasília: parece lindo no papel, mas se você errar uma tesourinha, demora 20 minutos pra dar a volta."
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-4 text-xs font-bold uppercase">
+                    <div class="p-4 bg-white border rounded-xl shadow-sm">🐢 Tiki-Taka de Tartaruga: Transição lenta que dá tempo do rival casar.</div>
+                    <div class="p-4 bg-white border rounded-xl shadow-sm">☁️ Marcação Céu de Brasília: Espaço aberto que deixa o rival tonto.</div>
+                    <div class="p-4 bg-white border rounded-xl shadow-sm">🧱 Zaga de Drywall: Soprou, esfarelou.</div>
+                </div>
+            </div>
+            <div class="p-8 border border-gray-200 rounded-3xl bg-white text-sm text-gray-600 shadow-sm">
+                <h4 class="text-xl font-black mb-4 uppercase italic text-black">🤡 Qualidade "Padrão Licitação"</h4>
+                <p>• <strong>Atacantes "Fome Zero":</strong> Alergia severa ao passe. Visão de cavalo com viseira.</p>
+                <p class="my-2">• <strong>Meio-Campo "Tesouro Nacional":</strong> Ninguém sabe o que faz o patrimônio (a bola).</p>
+                <p>• <strong>O "Meta" do Caos:</strong> Técnica milenar do "Segura o dedo e reza".</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="elenco" class="py-24 bg-white px-6">
+        <div class="container mx-auto text-center">
+            <h3 class="section-title">O Elenco</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="dark-card p-6 rounded-3xl">
+                    <img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
+                    <h4 class="text-2xl font-black italic">NICOLAS #10</h4>
+                    <button onclick="openGallery('nicolas')" class="w-full mt-4 py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase hover:bg-purple-600 transition tracking-widest">Highlights</button>
+                </div>
+                <div class="dark-card p-6 rounded-3xl">
+                    <img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
+                    <h4 class="text-2xl font-black italic">WALISON #92</h4>
+                    <button onclick="openGallery('walison')" class="w-full mt-4 py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase hover:bg-purple-600 transition tracking-widest">Highlights</button>
+                </div>
+                <div class="dark-card p-6 rounded-3xl">
+                    <img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
+                    <h4 class="text-2xl font-black italic">LUIGI #69</h4>
+                    <button onclick="openGallery('luigi')" class="w-full mt-4 py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase hover:bg-purple-600 transition tracking-widest">Highlights</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="py-24 bg-gray-50 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="section-title">Estatísticas</h3>
+            <div class="bg-white rounded-3xl border overflow-hidden shadow-sm">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50 border-b text-[10px] font-bold uppercase text-gray-400">
+                        <tr><th class="p-6">Atleta</th><th class="p-6 text-center">Jogos</th><th class="p-6 text-center">Gols</th><th class="p-6 text-center">MVP</th></tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-50 uppercase font-black italic">
+                        <tr><td class="p-6 flex items-center gap-4"><img src="walison.png" class="w-10 h-10 rounded-full object-cover border"> Walison</td><td class="text-center">300</td><td class="text-center stat-number text-xl">201</td><td class="text-center text-yellow-600">120</td></tr>
+                        <tr><td class="p-6 flex items-center gap-4"><img src="luigi.png" class="w-10 h-10 rounded-full object-cover border"> Luigi</td><td class="text-center">189</td><td class="text-center stat-number text-xl">358</td><td class="text-center text-yellow-600">44</td></tr>
+                        <tr><td class="p-6 flex items-center gap-4"><img src="nicolas.png" class="w-10 h-10 rounded-full object-cover border"> Nicolas</td><td class="text-center">211</td><td class="text-center stat-number text-xl">103</td><td class="text-center text-yellow-600">6</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <div id="galleryModal" class="modal">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
+                <h4 id="galleryTitle" class="text-white text-2xl font-black italic uppercase">Highlights</h4>
+                <button onclick="closeGallery()" class="text-white bg-red-600 px-4 py-1 rounded text-[10px] font-bold uppercase">Fechar X</button>
+            </div>
+            <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+        </div>
     </div>
 
-    <div class="news-ticker">
-        <span>
-            🚨 BOLETIM DE OCORRÊNCIA: Luigi (Magician) guardou 8 gols e arrancou o botão de passe do controle! | 
-            Walison (Insanity) meteu 4 gols em um jogo só! | 
-            Nicolas (Maestro) tá com a concentração de uma capivara atravessando o Eixo Monumental em horário de pico... 🚨
-        </span>
-    </div>
+    <script>
+        // COLOQUE O LINK DO SEU GOOGLE SHEETS (CSV) AQUI:
+        const sheetURL = 'COLOQUE_SEU_LINK_DO_GOOGLE_AQUI';
 
-    <div class="gallery">
-        <div class="player-card">
-            <img src="https://github.com/Walisonquadrado89/bsb-so-far/blob/main/luigi.jpg?raw=true" alt="Luigi">
-            <h3>Luigi (Magician)</h3>
-        </div>
-        <div class="player-card">
-            <img src="https://github.com/Walisonquadrado89/bsb-so-far/blob/main/walison.jpg?raw=true" alt="Walison">
-            <h3>Walison (Insanity)</h3>
-        </div>
-        <div class="player-card">
-            <img src="https://github.com/Walisonquadrado89/bsb-so-far/blob/main/nicolas.jpg?raw=true" alt="Nicolas">
-            <h3>Nicolas (Maestro)</h3>
-        </div>
-    </div>
+        function fetchNews() {
+            fetch(sheetURL)
+                .then(r => r.text())
+                .then(t => { 
+                    // Pega apenas a primeira linha e primeira célula
+                    const noticia = t.split('\n')[0].split(',')[0];
+                    document.getElementById('news-feed').innerText = noticia; 
+                })
+                .catch(() => { document.getElementById('news-feed').innerText = "Silêncio no vestiário..."; });
+        }
+        setInterval(fetchNews, 5000); 
+        fetchNews();
 
+        // Dados dos Vídeos (Pastas)
+        const videosData = {
+            nicolas: ["videos/nicolas/clip1.mp4"],
+            walison: ["videos/walison/clip1.mp4"],
+            luigi: ["videos/luigi/clip1.mp4"]
+        };
+
+        function openGallery(player) {
+            const modal = document.getElementById('galleryModal');
+            const grid = document.getElementById('videoGrid');
+            const title = document.getElementById('galleryTitle');
+            title.innerText = "Destaques: " + player;
+            grid.innerHTML = ""; 
+            if(videosData[player]) {
+                videosData[player].forEach(url => {
+                    grid.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl border border-gray-800"><video controls class="w-full rounded-xl"><source src="${url}" type="video/mp4"></video></div>`;
+                });
+            }
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.querySelectorAll('video').forEach(v => v.pause());
+        }
+    </script>
+
+    <footer class="py-12 bg-white text-center text-gray-400 text-[9px] uppercase font-bold tracking-[0.4em]">
+        &copy; 2026 BSB SÓ FAR - Urbanismo Virtual e Caos
+    </footer>
 </body>
 </html>
