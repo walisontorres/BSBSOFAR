@@ -24,7 +24,7 @@
 <body>
 
     <nav class="sticky top-0 z-50 nav-blur border-b border-gray-100 py-4">
-        <div class="container mx-auto flex justify-between items-center px-6">
+        <div class="container mx-auto flex justify-between items-center px-6 text-center">
             <h1 class="text-2xl font-black italic tracking-tighter uppercase">BSB SÓ FAR</h1>
             <div class="hidden md:flex space-x-6 font-bold uppercase text-[10px] tracking-[0.2em] text-gray-500">
                 <a href="#inicio" class="hover:text-purple-600">Início</a>
@@ -41,7 +41,7 @@
     </div>
 
     <section id="inicio" class="py-24 flex items-center justify-center text-center px-4 bg-white">
-        <div class="animate__animated animate__fadeIn text-center">
+        <div class="animate__animated animate__fadeIn">
             <span class="text-purple-600 font-bold uppercase tracking-[0.4em] text-xs">Elite da Várzea</span>
             <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter mt-4">QUALIDADE <br><span class="text-gray-300 italic">DUVIDOSA.</span></h2>
             <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="space-y-4 font-bold text-xs uppercase italic text-gray-600">
                     <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Tiki-Taka de Tartaruga: Transição lenta estilo EPTG.</div>
-                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Zaga de Drywall: Parece sólida, mas esfarela.</div>
+                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Zaga de Drywall: Parece sólida, mas esfarela no sopro.</div>
                 </div>
             </div>
             <div class="p-8 border border-gray-200 rounded-[2.5rem] bg-white text-center shadow-sm font-bold uppercase italic text-sm text-gray-500">
@@ -83,36 +83,16 @@
     <section id="jogos" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6 max-w-4xl text-center">
             <h3 class="section-title italic text-center">Jogos Recentes</h3>
-            <div class="overflow-hidden rounded-3xl border border-gray-100 shadow-xl bg-white">
+            <div class="overflow-hidden rounded-3xl border border-gray-100 shadow-xl bg-white font-black italic">
                 <table class="w-full text-center">
                     <thead class="bg-gray-900 text-[10px] uppercase text-gray-400 font-bold">
                         <tr><th class="py-5 px-4 text-left">Data</th><th>Resultado</th><th>Placar</th><th>Oponente</th></tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100 font-bold italic text-sm">
-                        <tr>
-                            <td class="py-5 px-4 text-left text-gray-400">Hoje, 23:45</td>
-                            <td class="status-v">VITÓRIA</td>
-                            <td class="text-black">3 - 1</td>
-                            <td class="uppercase text-gray-500">Catimba e Cia</td>
-                        </tr>
-                        <tr>
-                            <td class="py-5 px-4 text-left text-gray-400">Hoje, 23:10</td>
-                            <td class="status-v">VITÓRIA</td>
-                            <td class="text-black">4 - 0</td>
-                            <td class="uppercase text-gray-500">Tiro Curto FC</td>
-                        </tr>
-                        <tr>
-                            <td class="py-5 px-4 text-left text-gray-400">Hoje, 22:45</td>
-                            <td class="status-d">DERROTA</td>
-                            <td class="text-black">1 - 2</td>
-                            <td class="uppercase text-gray-500">União da EPTG</td>
-                        </tr>
-                        <tr>
-                            <td class="py-5 px-4 text-left text-gray-400">Ontem, 23:00</td>
-                            <td class="status-e">EMPATE</td>
-                            <td class="text-black">1 - 1</td>
-                            <td class="uppercase text-gray-500">Amigos do Eixo Sul</td>
-                        </tr>
+                    <tbody class="divide-y divide-gray-100 text-sm">
+                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 23:45</td><td class="status-v">VITÓRIA</td><td>3 - 1</td><td class="uppercase text-gray-500">Catimba e Cia</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 23:10</td><td class="status-v">VITÓRIA</td><td>4 - 0</td><td class="uppercase text-gray-500">Tiro Curto FC</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 22:45</td><td class="status-d">DERROTA</td><td>1 - 2</td><td class="uppercase text-gray-500">União da EPTG</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 11, 23:00</td><td class="status-e">EMPATE</td><td>1 - 1</td><td class="uppercase text-gray-500">Amigos do Eixo Sul</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -137,24 +117,24 @@
                         <tr><th class="py-6 px-8 text-left uppercase">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
                     <tbody id="tabela-stats" class="divide-y divide-gray-50">
-                        <tr><td colspan="4" class="py-10 text-gray-400 uppercase animate-pulse">Sincronizando com Pro Clubs Head...</td></tr>
+                        <tr><td colspan="4" class="py-10 text-gray-400 uppercase animate-pulse tracking-widest">Sincronizando com Pro Clubs Head...</td></tr>
                     </tbody>
                 </table>
             </div>
             
-            <div class="max-w-2xl mx-auto p-1 bg-gradient-to-r from-purple-500 via-yellow-500 to-blue-500 rounded-[2.5rem] mt-16">
+            <div class="max-w-2xl mx-auto p-1 bg-gradient-to-r from-purple-500 via-yellow-500 to-blue-500 rounded-[2.5rem] mt-16 shadow-2xl">
                 <div class="bg-white rounded-[2.4rem] p-10 text-center">
                     <h4 class="text-xs font-black uppercase tracking-[0.5em] text-gray-400 mb-6 italic">🏆 Jogador do Mês 🏆</h4>
                     <img src="luigi.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mx-auto mb-4">
                     <h5 class="text-3xl font-black italic uppercase">Luigi (Magician)</h5>
-                    <p class="text-gray-500 text-sm mt-2 italic leading-relaxed">"43 gols em um mês. O homem esqueceu o que é um passe."</p>
+                    <p class="text-gray-500 text-sm mt-2 italic leading-relaxed">"O homem esqueceu o que é um passe."</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="noticias" class="py-24 bg-black text-white px-6">
-        <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl italic animate__animated animate__fadeInLeft">
+        <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl italic">
             <h3 class="text-3xl font-black mb-10 uppercase text-center text-purple-500 tracking-widest">Plantão BSB SÓ FAR</h3>
             <span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span>
             <p class="text-gray-300 text-sm mt-4 leading-relaxed">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental na hora do rush. O piloto tá dando tela azul.</p>
@@ -164,16 +144,19 @@
     <div id="galleryModal" class="modal"><div class="max-w-4xl mx-auto mt-20"><div class="flex justify-between items-center mb-6 text-white uppercase font-black italic"><h4 id="galleryTitle">Highlights</h4><button onclick="closeGallery()" class="bg-red-600 px-4 py-1 rounded text-xs">Fechar X</button></div><div id="videoGrid" class="grid gap-6"></div></div></div>
 
     <script>
+        // Função para carregar os dados salvos pelo robô (GitHub Actions)
         async function loadStats() {
             try {
-                const res = await fetch('stats.json');
+                const res = await fetch('stats.json?t=' + new Date().getTime());
                 const data = await res.json();
                 const tabela = document.getElementById('tabela-stats');
                 tabela.innerHTML = ""; 
                 data.jogadores.forEach(p => {
                     tabela.innerHTML += `<tr><td class="py-6 px-8 text-left uppercase font-black">${p.nome}</td><td>${p.pj}</td><td class="stat-number text-xl">${p.gols}</td><td class="stat-number">${p.ast}</td></tr>`;
                 });
-            } catch (e) { console.log("Aguardando arquivo stats.json..."); }
+            } catch (e) { 
+                console.log("Stats.json ainda não gerado ou erro de leitura."); 
+            }
         }
         loadStats();
 
@@ -183,7 +166,7 @@
             luigi: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi.mp4"] 
         };
         function openGallery(p) { const m = document.getElementById('galleryModal'); const g = document.getElementById('videoGrid'); document.getElementById('galleryTitle').innerText = "Highlights: " + p; g.innerHTML = ""; if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video></div>`; }); } m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
-        function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; document.body.style.overflow = 'auto'; const v = document.querySelectorAll('video'); v.forEach(x => x.pause()); }
     </script>
 </body>
 </html>
