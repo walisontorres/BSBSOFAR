@@ -28,7 +28,7 @@
                 <a href="#clube" class="hover:text-purple-600">O Clube</a>
                 <a href="#elenco" class="hover:text-purple-600">Elenco</a>
                 <a href="#stats" class="hover:text-purple-600">Estatísticas</a>
-                <a href="#atual-mes" class="hover:text-purple-600 text-purple-600 font-black">Atual Mês</a>
+                <a href="#atual-mes" class="hover:text-purple-600">Atual Mês</a>
             </div>
         </div>
     </nav>
@@ -66,13 +66,22 @@
                     <div class="p-4 bg-white border rounded-xl"><strong>Zaga de Drywall:</strong> Parece sólida de longe, mas se o atacante soprar, ela esfarela.</div>
                 </div>
             </div>
-            <div class="p-8 border border-gray-200 rounded-3xl bg-white text-sm text-gray-600">
+            <div class="p-8 border border-gray-200 rounded-3xl bg-white text-sm text-gray-600 text-center">
                 <h4 class="text-xl font-black mb-4 uppercase italic text-black">🤡 Qualidade "Padrão Licitação"</h4>
                 <p class="mb-2">• <strong>Atacantes "Fome Zero":</strong> Alergia severa ao passe. Visão de jogo de cavalo com viseira.</p>
                 <p class="mb-2">• <strong>Meio-Campo "Tesouro Nacional":</strong> Ninguém sabe onde está ou o que faz o patrimônio (a bola).</p>
                 <p>• <strong>O "Meta" do Caos:</strong> Enquanto pro-players usam L1, nós usamos a técnica do "Segura o dedo e reza".</p>
             </div>
         </div>
+    </section>
+
+    <section id="trofeus" class="py-20 bg-white text-center">
+        <h3 class="section-title">Sala de Troféus</h3>
+        <div class="flex justify-center gap-8 opacity-20">
+            <div class="w-20 h-20 bg-gray-200 rounded-full border-4 border-dashed border-gray-400"></div>
+            <div class="w-20 h-20 bg-gray-200 rounded-full border-4 border-dashed border-gray-400"></div>
+        </div>
+        <p class="mt-6 text-gray-400 italic">"Obra atrasada. Troféu em fase de licitação."</p>
     </section>
 
     <section id="elenco" class="py-24 bg-gray-50 text-center">
@@ -99,18 +108,18 @@
         </div>
     </section>
 
-    <section id="stats" class="py-24 bg-white">
+    <section id="stats" class="py-24 bg-white text-center font-bold">
         <div class="container mx-auto px-6">
             <h3 class="section-title">Estatísticas Reais (Geral)</h3>
             <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm">
-                <table class="w-full text-left text-center font-bold">
-                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold text-center">
                         <tr><th class="py-6 px-8 text-left">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-50">
-                        <tr><td class="py-6 px-8 text-left italic uppercase font-black">Walison</td><td>320</td><td class="stat-number">224</td><td class="stat-number">373</td></tr>
-                        <tr><td class="py-6 px-8 text-left italic uppercase font-black">Luigi</td><td>202</td><td class="stat-number text-2xl text-blue-600">401</td><td class="stat-number">97</td></tr>
-                        <tr><td class="py-6 px-8 text-left italic uppercase font-black">Nicolas</td><td>229</td><td class="stat-number">110</td><td class="stat-number">114</td></tr>
+                    <tbody class="divide-y divide-gray-50 text-center">
+                        <tr><td class="py-6 px-8 text-left font-black italic uppercase italic">Walison</td><td>320</td><td class="stat-number">224</td><td class="stat-number">373</td></tr>
+                        <tr><td class="py-6 px-8 text-left font-black italic uppercase italic">Luigi</td><td>202</td><td class="stat-number text-2xl text-blue-600">401</td><td class="stat-number">97</td></tr>
+                        <tr><td class="py-6 px-8 text-left font-black italic uppercase italic text-gray-600">Nicolas (Consol.)</td><td>229</td><td class="stat-number">110</td><td class="stat-number">114</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -120,64 +129,43 @@
     <section id="atual-mes" class="py-24 bg-gray-50 border-t border-gray-200">
         <div class="container mx-auto px-6">
             <h3 class="section-title">Atual Mês</h3>
-            <div class="grid md:grid-cols-3 gap-6 mb-12 text-center">
-                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-gray-400 uppercase text-[10px] font-bold">Gols do Mês</span><p class="text-4xl font-black mt-2">73</p></div>
-                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-green-500 uppercase text-[10px] font-bold">Vitórias</span><p class="text-4xl font-black mt-2 text-green-600">6</p></div>
-                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-red-500 uppercase text-[10px] font-bold">Derrotas</span><p class="text-4xl font-black mt-2 text-red-600">2</p></div>
+            <div class="grid md:grid-cols-3 gap-6 mb-12 text-center text-black font-black">
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-gray-400 uppercase text-[10px]">Gols do Mês</span><p class="text-4xl mt-2">73</p></div>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-green-500 uppercase text-[10px]">Vitórias</span><p class="text-4xl mt-2 text-green-600">6</p></div>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-red-500 uppercase text-[10px]">Derrotas</span><p class="text-4xl mt-2 text-red-600">2</p></div>
             </div>
-            <div class="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm mb-16 text-center">
-                <table class="w-full text-left"><thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold text-center"><tr><th class="py-6 px-8 text-left text-purple-600 font-black italic uppercase">Atleta</th><th class="text-purple-600">Gols (Mês)</th><th class="text-purple-600">Assists (Mês)</th></tr></thead>
-                    <tbody class="divide-y divide-gray-50 font-bold">
-                        <tr><td class="py-6 px-8 text-left">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
-                        <tr><td class="py-6 px-8 text-left">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
-                        <tr><td class="py-6 px-8 text-left">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm mb-16 text-center font-bold">
+                <table class="w-full text-left font-bold"><thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold text-center"><tr><th class="py-6 px-8 text-left text-purple-600">Atleta</th><th class="text-purple-600">Gols (Mês)</th><th class="text-purple-600">Assists (Mês)</th></tr></thead>
+                    <tbody class="divide-y divide-gray-50">
+                        <tr><td class="py-6 px-8 text-left uppercase italic">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase italic">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase italic text-gray-600 text-sm">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="max-w-2xl mx-auto p-1 bg-gradient-to-r from-purple-500 via-yellow-500 to-blue-500 rounded-[2rem]">
-                <div class="bg-white rounded-[1.9rem] p-8 text-center"><h4 class="text-xs font-black uppercase tracking-[0.5em] text-gray-400 mb-6">🏆 Jogador do Mês 🏆</h4>
-                    <div class="flex flex-col items-center"><img src="luigi.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mb-4"><h5 class="text-3xl font-black italic uppercase">Luigi (Magician)</h5><p class="text-gray-500 text-sm mt-2 italic">"43 gols em um mês. O homem esqueceu o que é um botão de passe."</p></div>
-                </div>
             </div>
         </div>
     </section>
 
     <section id="noticias" class="py-24 bg-black text-white">
         <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-black mb-12 uppercase italic text-center text-purple-500">Plantão BSB SÓ FAR</h3>
-            <div class="max-w-4xl mx-auto"><div class="p-8 border-l-4 border-purple-600 bg-gray-900/80 rounded-r-3xl animate__animated animate__fadeInLeft"><span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span><h4 class="text-2xl font-black mt-4 mb-6 italic uppercase">Pane no Sistema, Chuva de Gols e um Maestro no Mundo da Lua</h4><div class="space-y-4 text-gray-300 leading-relaxed italic text-sm md:text-base"><p>O servidor da EA quase pediu arrego nesta última rodada. Luigi arrancou o botão de passe (X) com um alicate para não tocar a bola por acidente. Walison resolveu comer a própria gorjeta e meteu 4 gols fominhas. Nicolas (Maestro) viu seu Overall subir absurdamente, mas a cabeça ficou na parada de ônibus da EPTG. O piloto tá dando tela azul. Seguimos.</p></div></div></div>
+            <h3 class="text-3xl font-black mb-12 uppercase italic text-center text-purple-500 tracking-widest">Plantão BSB SÓ FAR</h3>
+            <div class="max-w-4xl mx-auto"><div class="p-8 border-l-4 border-purple-600 bg-gray-900/80 rounded-r-3xl animate__animated animate__fadeInLeft"><span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span><h4 class="text-2xl font-black mt-4 mb-6 italic uppercase">Pane no Sistema, Chuva de Gols e um Maestro no Mundo da Lua</h4><div class="space-y-4 text-gray-300 leading-relaxed italic text-sm md:text-base"><p>O servidor da EA quase pediu arrego nesta última rodada. Luigi arrancou o botão de passe com um alicate para não tocar a bola por acidente. Walison resolveu comer a própria gorjeta e meteu 4 gols fominhas. Nicolas (Maestro) viu seu Overall subir absurdamente no PC, mas a cabeça ficou na parada de ônibus da EPTG em horário de pico. O piloto tá dando tela azul. Seguimos.</p></div></div></div>
         </div>
     </section>
 
-    <div id="galleryModal" class="modal"><div class="max-w-5xl mx-auto"><div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-4"><h4 id="galleryTitle" class="text-white text-2xl font-black italic uppercase text-white">Highlights</h4><button onclick="closeGallery()" class="text-white font-bold bg-red-600 px-4 py-1 rounded text-xs uppercase">Fechar X</button></div><div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div></div></div>
+    <div id="galleryModal" class="modal"><div class="max-w-5xl mx-auto"><div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-4"><h4 id="galleryTitle" class="text-white text-2xl font-black italic uppercase">Highlights</h4><button onclick="closeGallery()" class="text-white font-bold bg-red-600 px-4 py-1 rounded text-xs uppercase">Fechar X</button></div><div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div></div></div>
 
     <script>
-        // LISTA DE VÍDEOS - Altere aqui os nomes conforme subir no GitHub
         const videosData = { 
             nicolas: ["nicolas1.mp4"], 
-            walison: ["walison1.mp4", "walison2.mp4"], 
-            luigi: ["luigi1.mp4"] 
+            walison: ["walison.mp4"], 
+            luigi: ["luigi.mp4"] 
         };
-
-        function openGallery(p) { 
-            const m = document.getElementById('galleryModal'); 
-            const g = document.getElementById('videoGrid'); 
-            document.getElementById('galleryTitle').innerText = "Highlights: " + p; 
-            g.innerHTML = ""; 
-            if(videosData[p]) { 
-                videosData[p].forEach(u => { 
-                    g.innerHTML += `
-                        <div class="bg-gray-900 p-2 rounded-2xl shadow-2xl border border-gray-800">
-                            <video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video>
-                            <p class="text-gray-500 text-[9px] mt-3 uppercase font-bold text-center italic">${u}</p>
-                        </div>`; 
-                }); 
-            } 
-            m.style.display = 'block'; document.body.style.overflow = 'hidden'; 
-        }
+        function openGallery(p) { const m = document.getElementById('galleryModal'); const g = document.getElementById('videoGrid'); document.getElementById('galleryTitle').innerText = "Highlights: " + p; g.innerHTML = ""; if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl shadow-2xl border border-gray-800"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video><p class="text-gray-500 text-[9px] mt-3 uppercase font-bold text-center italic">${u}</p></div>`; }); } m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
         function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; document.body.style.overflow = 'auto'; const v = document.querySelectorAll('video'); v.forEach(x => x.pause()); }
     </script>
 
     <footer class="py-12 bg-white text-center text-gray-400 text-[9px] uppercase tracking-[0.4em] font-bold">&copy; 2026 BSB SÓ FAR - Urbanismo Virtual e Caos.</footer>
 </body>
 </html>
+
