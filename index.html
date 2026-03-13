@@ -17,6 +17,7 @@
         .nav-blur { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
         .status-v { color: #10b981; font-weight: 900; } 
         .status-d { color: #ef4444; font-weight: 900; } 
+        .status-e { color: #f59e0b; font-weight: 900; } 
         .modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
     </style>
 </head>
@@ -59,7 +60,7 @@
                     <div class="p-4 border-l-4 border-purple-500 italic font-bold text-sm text-gray-800 bg-white shadow-sm">"Estratégia inspirada em Brasília: se errar a tesourinha, vai demorar 20 min pra dar a volta."</div>
                 </div>
                 <div class="space-y-4 font-bold text-xs uppercase italic text-gray-600">
-                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Tiki-Taka de Tartaruga: Transição estilo EPTG.</div>
+                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Tiki-Taka de Tartaruga: Transição lenta estilo EPTG.</div>
                     <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Zaga de Drywall: Parece sólida, mas esfarela.</div>
                 </div>
             </div>
@@ -88,8 +89,30 @@
                         <tr><th class="py-5 px-4 text-left">Data</th><th>Resultado</th><th>Placar</th><th>Oponente</th></tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 font-bold italic text-sm">
-                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 23:10</td><td class="status-v">VITÓRIA</td><td class="text-black">4 - 0</td><td class="uppercase text-gray-500">Tiro Curto FC</td></tr>
-                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 22:45</td><td class="status-d">DERROTA</td><td class="text-black">1 - 2</td><td class="uppercase text-gray-500">União da EPTG</td></tr>
+                        <tr>
+                            <td class="py-5 px-4 text-left text-gray-400">Hoje, 23:45</td>
+                            <td class="status-v">VITÓRIA</td>
+                            <td class="text-black">3 - 1</td>
+                            <td class="uppercase text-gray-500">Catimba e Cia</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 px-4 text-left text-gray-400">Hoje, 23:10</td>
+                            <td class="status-v">VITÓRIA</td>
+                            <td class="text-black">4 - 0</td>
+                            <td class="uppercase text-gray-500">Tiro Curto FC</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 px-4 text-left text-gray-400">Hoje, 22:45</td>
+                            <td class="status-d">DERROTA</td>
+                            <td class="text-black">1 - 2</td>
+                            <td class="uppercase text-gray-500">União da EPTG</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 px-4 text-left text-gray-400">Ontem, 23:00</td>
+                            <td class="status-e">EMPATE</td>
+                            <td class="text-black">1 - 1</td>
+                            <td class="uppercase text-gray-500">Amigos do Eixo Sul</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -141,7 +164,6 @@
     <div id="galleryModal" class="modal"><div class="max-w-4xl mx-auto mt-20"><div class="flex justify-between items-center mb-6 text-white uppercase font-black italic"><h4 id="galleryTitle">Highlights</h4><button onclick="closeGallery()" class="bg-red-600 px-4 py-1 rounded text-xs">Fechar X</button></div><div id="videoGrid" class="grid gap-6"></div></div></div>
 
     <script>
-        // Função do Robô do GitHub Actions
         async function loadStats() {
             try {
                 const res = await fetch('stats.json');
