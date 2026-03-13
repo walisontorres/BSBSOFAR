@@ -19,6 +19,25 @@
         .modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
         .graph-container { background: #1a1d21; border-radius: 1.5rem; padding: 20px; border: 1px solid #333; }
         .boletim-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
+        
+        /* Estilos das Medalhas */
+        .medal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        @media (min-width: 640px) { .medal-grid { grid-template-columns: repeat(4, 1fr); } }
+        
+        .medal { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 12px; border-radius: 12px; font-weight: 700; color: #1a1d21; position: relative; }
+        .medal-rarity { position: absolute; top: 4px; right: 4px; font-size: 8px; text-transform: uppercase; color: #fff; padding: 1px 4px; border-radius: 4px; font-weight: 900; }
+        
+        .medal-common { background: #10b981; } /* Verde - Comum */
+        .medal-rare { background: #f97316; } /* Laranja - Raro */
+        .medal-rare .medal-rarity { background: #9a3412; }
+        .medal-epic { background: #facc15; } /* Amarelo - Épico */
+        .medal-epic .medal-rarity { background: #a16207; }
+        .medal-legendary { background: #8b5cf6; } /* Roxo - Lendário */
+        .medal-legendary .medal-rarity { background: #581c87; }
+        
+        .medal-icon { font-size: 24px; margin-bottom: 4px; }
+        .medal-title { font-size: 10px; text-transform: uppercase; font-weight: 900; line-height: 1.1; margin-bottom: 2px; }
+        .medal-desc { font-size: 8px; font-weight: 400; font-style: italic; opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -43,19 +62,19 @@
     <section id="clube" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6 max-w-5xl">
             <h3 class="section-title">O Clube & A Tática</h3>
-            <div class="grid md:grid-cols-2 gap-12 mb-16 items-start text-left">
+            <div class="grid md:grid-cols-2 gap-12 mb-16 items-start text-left text-sm italic">
                 <div>
-                    <h4 class="text-2xl font-black mb-4 uppercase italic">História</h4>
-                    <p class="text-gray-600 mb-6 italic leading-relaxed text-sm">Fundado entre um rage quit e uma pizza gelada para provar que a amizade é mais importante que o talento.</p>
-                    <div class="p-4 border-l-4 border-purple-500 italic font-bold text-xs text-gray-800 bg-white shadow-sm font-black italic">"Estratégia inspirada em Brasília: se errar a tesourinha, vai demorar 20 min pra dar a volta."</div>
+                    <h4 class="text-2xl font-black mb-4 uppercase text-black">História</h4>
+                    <p class="text-gray-600">Fundado entre um rage quit e uma pizza gelada para provar que a amizade é mais importante que o talento.</p>
+                    <div class="p-4 border-l-4 border-purple-500 font-black text-xs text-gray-800 bg-white shadow-sm mt-4">"Estratégia inspirada em Brasília: se errar a tesourinha, vai demorar 20 min pra dar a volta."</div>
                 </div>
-                <div class="space-y-4 font-bold text-[10px] uppercase italic text-gray-600">
-                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm uppercase italic">Tiki-Taka de Tartaruga: Transição lenta estilo EPTG.</div>
-                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm uppercase italic">Zaga de Drywall: Parece sólida, mas esfarela.</div>
+                <div class="space-y-4 font-bold text-[10px] uppercase text-gray-600">
+                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Tiki-Taka de Tartaruga: Transição lenta estilo EPTG.</div>
+                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Zaga de Drywall: Parece sólida, mas esfarela.</div>
                 </div>
             </div>
             <div class="p-8 border border-gray-200 rounded-[2.5rem] bg-white text-center shadow-sm font-bold uppercase italic text-[10px] text-gray-500">
-                <h4 class="text-lg font-black mb-4 text-black italic uppercase">🤡 Qualidade "Padrão Licitação"</h4>
+                <h4 class="text-lg font-black mb-4 text-black uppercase">🤡 Qualidade "Padrão Licitação"</h4>
                 • Atacantes "Fome Zero" | • Meio-Campo "Tesouro Nacional" | • O "Meta" do Caos
             </div>
         </div>
@@ -73,7 +92,7 @@
     <section id="jogos" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6 max-w-5xl text-center font-black italic">
             <h3 class="section-title italic">Jogos Recentes</h3>
-            <div class="overflow-hidden rounded-3xl border border-gray-100 shadow-xl bg-white mb-8">
+            <div class="overflow-hidden rounded-3xl border border-gray-100 shadow-xl bg-white mb-8 relative">
                 <table class="w-full text-center">
                     <thead class="bg-gray-900 text-[10px] uppercase text-gray-400 font-bold">
                         <tr>
@@ -85,16 +104,16 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 text-sm font-black uppercase">
-                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-d">Derrota</td><td>3 - 4</td><td>mundo1123</td><td class="border-l border-gray-100 text-purple-600 px-4">Luigi (3)</td></tr>
-                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-v">Vitória</td><td>3 - 0</td><td>TerrÃveis FC</td><td class="border-l border-gray-100 text-purple-600 px-4">Luigi (2), Walison (1)</td></tr>
-                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-d">Derrota</td><td>4 - 5</td><td>OmmoPlata</td><td class="border-l border-gray-100 text-purple-600 px-4">Luigi (4)</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-d">Derrota</td><td>3 - 4</td><td class="text-gray-500">mundo1123</td><td class="border-l border-gray-100 text-purple-600 px-4 uppercase text-[10px]">Luigi (3)</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-v">Vitória</td><td>3 - 0</td><td class="text-gray-500">TerrÃveis FC</td><td class="border-l border-gray-100 text-purple-600 px-4 uppercase text-[10px]">Luigi (2), Walison (1)</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-d">Derrota</td><td>4 - 5</td><td class="text-gray-500">OmmoPlata</td><td class="border-l border-gray-100 text-purple-600 px-4 uppercase text-[10px]">Luigi (4)</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="max-w-4xl mx-auto bg-slate-900 rounded-[2.5rem] p-8 text-white shadow-2xl border border-slate-700">
                 <div class="flex flex-col md:flex-row justify-around items-center gap-8 mb-10 border-b border-slate-800 pb-10">
-                    <div class="text-center">
+                    <div class="text-center relative">
                         <span class="text-gray-400 uppercase text-[10px] tracking-widest block mb-2 font-bold">Skill Rating</span>
                         <p class="text-5xl font-black text-yellow-500 italic">1635</p>
                         <span class="text-[10px] text-gray-500 uppercase font-bold tracking-tighter">Melhor: Div 5</span>
@@ -102,7 +121,7 @@
                     
                     <div class="text-left bg-slate-800 p-6 rounded-3xl border border-slate-600 w-full md:w-64">
                         <div class="flex justify-between items-center mb-4">
-                            <span class="text-[10px] font-black uppercase text-gray-400">Nota Geral</span>
+                            <span class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Nota Geral</span>
                             <span class="text-2xl font-black text-yellow-500 italic">C</span>
                         </div>
                         <div class="boletim-grid text-[9px] uppercase font-bold italic">
@@ -113,7 +132,7 @@
                             <div class="flex justify-between border-b border-slate-700 pb-1"><span>Mental</span><span class="text-rose-500">F</span></div>
                             <div class="flex justify-between border-b border-slate-700 pb-1"><span>Experiência</span><span class="text-emerald-500">A+</span></div>
                         </div>
-                        <p class="text-[8px] mt-4 text-gray-400 leading-tight lowercase italic">"Mostra potencial, mas precisa de mais disciplina. Continuem praticando!"</p>
+                        <p class="text-[8px] mt-4 text-gray-400 leading-tight lowercase">"Mostra potencial, mas precisa de mais disciplina. Continuem praticando!"</p>
                     </div>
 
                     <div class="flex gap-6 md:gap-8 font-black italic">
@@ -140,32 +159,32 @@
 
     <section id="elenco" class="py-24 bg-white text-center font-black italic">
         <h3 class="section-title">O Elenco</h3>
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-black">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-black relative">
             <div class="dark-card p-6 rounded-3xl"><img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover shadow-sm"><h4 class="text-2xl font-black uppercase">Nicolas</h4>
-                <div class="space-y-2 mt-4">
-                    <button onclick="openGallery('nicolas', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase">Highlights</button>
-                    <button onclick="openStats('nicolas')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg">Stats Individuais</button>
+                <div class="space-y-2 mt-4 relative">
+                    <button onclick="openGallery('nicolas', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase hover:bg-purple-600 transition">Highlights</button>
+                    <button onclick="openStats('nicolas')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg relative">Stats Individuais <span class="bg-yellow-400 text-purple-900 text-[8px] px-2 py-0.5 rounded-full absolute -top-2 -right-2 font-black">NOVO!</span></button>
                 </div>
             </div>
             <div class="dark-card p-6 rounded-3xl"><img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover shadow-sm"><h4 class="text-2xl font-black uppercase">Walison</h4>
-                <div class="space-y-2 mt-4">
-                    <button onclick="openGallery('walison', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase">Highlights</button>
-                    <button onclick="openStats('walison')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg">Stats Individuais</button>
+                <div class="space-y-2 mt-4 relative">
+                    <button onclick="openGallery('walison', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase hover:bg-purple-600 transition">Highlights</button>
+                    <button onclick="openStats('walison')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg relative">Stats Individuais <span class="bg-yellow-400 text-purple-900 text-[8px] px-2 py-0.5 rounded-full absolute -top-2 -right-2 font-black">NOVO!</span></button>
                 </div>
             </div>
             <div class="dark-card p-6 rounded-3xl"><img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover shadow-sm"><h4 class="text-2xl font-black uppercase">Luigi</h4>
-                <div class="space-y-2 mt-4">
-                    <button onclick="openGallery('luigi', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase">Highlights</button>
-                    <button onclick="openStats('luigi')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg">Stats Individuais</button>
+                <div class="space-y-2 mt-4 relative">
+                    <button onclick="openGallery('luigi', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase hover:bg-purple-600 transition">Highlights</button>
+                    <button onclick="openStats('luigi')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg relative">Stats Individuais <span class="bg-yellow-400 text-purple-900 text-[8px] px-2 py-0.5 rounded-full absolute -top-2 -right-2 font-black">NOVO!</span></button>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="atual-mes" class="py-24 bg-gray-50 text-center font-black italic">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6 text-sm">
             <h3 class="section-title">Atual Mês</h3>
-            <div class="grid md:grid-cols-3 gap-6 mb-12 text-black font-black">
+            <div class="grid md:grid-cols-3 gap-6 mb-12 text-black">
                 <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-gray-400 uppercase text-[10px]">Gols do Mês</span><p class="text-4xl mt-2">73</p></div>
                 <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-emerald-500 uppercase text-[10px]">Vitórias</span><p class="text-4xl mt-2 text-emerald-600">6</p></div>
                 <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-rose-500 uppercase text-[10px]">Derrotas</span><p class="text-4xl mt-2 text-rose-600">2</p></div>
@@ -177,15 +196,15 @@
                         <tr><th class="py-6 px-8 text-left uppercase">Atleta</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
-                        <tr><td class="py-6 px-8 text-left uppercase">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
+                        <tr><td class="py-6 px-8 text-left">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
                         <tr><td class="py-6 px-8 text-left uppercase text-xl">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
-                        <tr><td class="py-6 px-8 text-left uppercase">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
+                        <tr><td class="py-6 px-8 text-left">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="max-w-2xl mx-auto p-1 bg-gradient-to-r from-purple-500 via-yellow-500 to-blue-500 rounded-[2.5rem] mt-16 shadow-2xl">
-                <div class="bg-white rounded-[2.4rem] p-10 text-center">
+                <div class="bg-white rounded-[2.4rem] p-10 text-center relative">
                     <h4 class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400 mb-6 italic">🏆 Jogador do Mês 🏆</h4>
                     <img src="luigi.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mx-auto mb-4">
                     <h5 class="text-3xl font-black italic uppercase">Luigi (Magician)</h5>
@@ -214,25 +233,22 @@
     </section>
 
     <section id="noticias" class="py-24 bg-black text-white px-6">
-        <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl italic">
+        <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl italic uppercase font-black">
             <h3 class="text-2xl font-black mb-6 uppercase text-purple-500 tracking-widest text-center italic">Plantão BSB SÓ FAR</h3>
-            <div class="space-y-4">
-                <p class="text-gray-300 text-sm leading-relaxed uppercase font-bold text-[10px] tracking-widest">🚨 URGENTE: BSB SÓ FAR EM CHAMAS – O CAOS É A NOSSA ÚNICA CONSTANTE</p>
-                <p class="text-gray-300 text-[12px] normal-case font-normal leading-relaxed">
-                    A última rodada deixou claro que o time desafia a sanidade. Com uma sequência de duas derrotas amargas e uma vitória contra o Terríveis FC, o clube vive em crise. 
-                    Apesar dos 4 gols de Luigi no 5-4 contra o OmmoPlata, a "Zaga de Drywall" esfarelou. O novo Boletim de Desempenho confirma o perigo: Notas F em Defesa, Mentalidade e Consistência. 
-                </p>
-            </div>
+            <p class="text-gray-300 text-sm leading-relaxed mb-2 text-[10px] tracking-widest relative">🚨 URGENTE: BSB SÓ FAR EM CHAMAS – O CAOS É A NOSSA ÚNICA CONSTANTE 🚨</p>
+            <p class="text-gray-300 text-[12px] normal-case font-normal italic leading-relaxed">
+                A última rodada deixou claro que o time desafia a sanidade. Com uma sequência de duas derrotas amargas e uma vitória contra o Terríveis FC, o clube vive em crise. Apesar dos 4 gols de Luigi no 5-4 contra o OmmoPlata, a "Zaga de Drywall" esfarelou. O novo Boletim de Desempenho confirma o perigo: Notas F em Defesa, Mentalidade e Consistência. "O BSB é como uma tesourinha de Brasília: a gente sabe onde quer chegar, mas dá três voltas no mesmo lugar", afirma o conselho deliberativo.
+            </p>
         </div>
     </section>
 
     <div id="galleryModal" class="modal">
-        <div class="max-w-4xl mx-auto mt-20">
-            <div class="flex justify-between items-center mb-6 text-white uppercase font-black italic">
-                <h4 id="galleryTitle">Stats</h4>
-                <button onclick="closeGallery()" class="bg-red-600 px-4 py-1 rounded text-[10px] font-bold uppercase tracking-widest">Fechar X</button>
+        <div class="max-w-4xl mx-auto mt-12 bg-gray-950 p-6 md:p-10 rounded-[2.5rem] border border-gray-800 shadow-2xl relative">
+            <div class="flex justify-between items-center mb-6 text-white uppercase font-black italic relative">
+                <h4 id="galleryTitle" class="text-xl md:text-2xl tracking-tighter">Stats</h4>
+                <button onclick="closeGallery()" class="bg-red-600 px-4 py-1 rounded text-[10px] font-bold uppercase tracking-widest relative">Fechar X</button>
             </div>
-            <div id="modalContent"></div>
+            <div id="modalContent" class="space-y-8"></div>
         </div>
     </div>
 
@@ -240,13 +256,90 @@
         const videosData = { nicolas: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/nicolas1.mp4"], walison: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/walison.mp4"], luigi: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi.mp4"] };
         const statsGraphs = { walison: "https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/walison_graph.png", nicolas: "https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/nicolas_graph.png", luigi: "https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi_graph.png" };
 
+        /* Dados de Conquistas (Tudo traduzido para PT-BR e com ícones baseados nas fotos) */
+        const medalDescriptions = {
+            'common': {
+                '⚽Primeiros Passos': 'Marque 10 Gols',
+                '🎯Atirador de Elite': 'Marque 25 Gols',
+                '🤝Jogador de Equipe': 'Dê 10 Assistências',
+                '🎁Provedor': 'Dê 25 Assistências',
+                '🧠Criador de Jogadas': 'Dê 50 Assistências',
+                '🎮Regular': 'Jogue 25 Partidas',
+                '⭐Comprometido': 'Jogue 50 Partidas'
+            },
+            'rare': {
+                '🔥Sequência Quente': 'Marque 50 Gols',
+                '🥇Centurião': 'Jogue 100 Partidas',
+                '📈Consistente': 'Nota média de 7.5+',
+                '🏆Vencedor da Partida': 'Receba 5 MOTMs'
+            },
+            'epic': {
+                '💯Clube do Centenário': 'Marque 100 Gols',
+                '🎨Rei das Assistências': 'Dê 100 Assistências',
+                '🛡️Lenda do Clube': 'Jogue 250 Partidas',
+                '🌟Elite': 'Nota média de 8.0+',
+                '💎Jogador Estrela': 'Receba 10 MOTMs'
+            },
+            'legendary': {
+                '👑Máquina de Gols': 'Marque 250 Gols',
+                '🌍Classe Mundial': 'Nota média de 8.5+',
+                '🏆Deus das Assistências': 'Dê 250 Assistências (BLOQUEADO)'
+            }
+        };
+
+        const playerMedals = {
+            'walison': { common: 7, rare: 4, epic: 5, legendary: 1, unlocked: ['Primeiros Passos', 'Atirador de Elite', 'Jogador de Equipe', 'Provedor', 'Criador de Jogadas', 'Regular', 'Comprometido', 'Sequência Quente', 'Centurião', 'Consistente', 'Vencedor da Partida', 'Clube do Centenário', 'Rei das Assistências', 'Lenda do Clube', 'Elite', 'Jogador Estrela', 'Classe Mundial'] },
+            'luigi': { common: 6, rare: 3, epic: 4, legendary: 1, unlocked: ['Primeiros Passos', 'Atirador de Elite', 'Regular', 'Comprometido', 'Sequência Quente', 'Centurião', 'Consistente', 'Clube do Centenário', 'Vencedor da Partida', 'Elite', 'Jogador Estrela', 'Máquina de Gols'] }, // Luigi sem algumas de assistências
+            'nicolas': { common: 7, rare: 3, epic: 1, legendary: 1, unlocked: ['Primeiros Passos', 'Atirador de Elite', 'Jogador de Equipe', 'Provedor', 'Criador de Jogadas', 'Regular', 'Comprometido', 'Sequência Quente', 'Centurião', 'Consistente', 'Clube do Centenário', 'Classe Mundial'] } // Nicolas com assistências, mas sem algumas de gols
+        };
+
+        function generateMedalsHTML(p) {
+            let html = `
+                <div class="mt-8 bg-gray-900 p-6 rounded-3xl border border-gray-800 animate__animated animate__fadeInUp">
+                    <div class="flex justify-between items-center mb-6">
+                        <h5 class="text-xs font-black uppercase tracking-[0.5em] text-gray-400 italic">Quadro de Conquistas</h5>
+                        <div class="flex gap-2">
+                            <span class="medal-legendary text-purple-900 text-[8px] px-3 py-1 rounded-full font-black">${playerMedals[p].unlocked.includes('Máquina de Gols') || playerMedals[p].unlocked.includes('Classe Mundial') ? 'Lendário Unlocked' : 'Lendário Locked'}</span>
+                            <span class="medal-epic text-yellow-900 text-[8px] px-3 py-1 rounded-full font-black">${playerMedals[p].unlocked.includes('Lenda do Clube') ? 'Épico Unlocked' : 'Épico Locked'}</span>
+                        </div>
+                    </div>
+                    <div class="medal-grid">`;
+
+            // Gerar HTML baseado no objeto de desbloqueios do jogador
+            for (const [rarity, medals] of Object.entries(medalDescriptions)) {
+                for (const [title, desc] of Object.entries(medals)) {
+                    // Limpar título para verificar
+                    const cleanTitle = title.replace(/[⚽🎯🤝🎁🧠🎮⭐🔥🥇📈🏆💯🎨🛡️🌟💎👑🌍]/u, '');
+                    if (playerMedals[p].unlocked.includes(cleanTitle)) {
+                        const icon = title.charAt(0);
+                        const displayTitle = title.slice(1);
+                        html += `
+                            <div class="medal medal-${rarity}">
+                                <span class="medal-rarity">${rarity}</span>
+                                <span class="medal-icon">${icon}</span>
+                                <span class="medal-title">${displayTitle}</span>
+                                <span class="medal-desc">${desc}</span>
+                            </div>`;
+                    }
+                }
+            }
+            
+            // Adicionar as bloqueadas com visual desbotado (como no Pro Clubs)
+            if (p === 'luigi') {
+                 html += `<div class="medal bg-gray-700 opacity-40"><span class="medal-title">Rei das Assistências</span><span class="medal-desc">100 Assistências (Locked)</span></div>`;
+            }
+
+            html += `</div></div>`;
+            return html;
+        }
+
         function openGallery(p, title) { 
             const m = document.getElementById('galleryModal'); 
             const c = document.getElementById('modalContent'); 
             document.getElementById('galleryTitle').innerText = title + ": " + p; 
-            c.innerHTML = '<div id="videoGrid" class="grid gap-6"></div>';
+            c.innerHTML = '<div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 relative"></div>';
             const g = document.getElementById('videoGrid');
-            if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video></div>`; }); } 
+            if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-800 p-2 rounded-2xl relative"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video></div>`; }); } 
             m.style.display = 'block'; document.body.style.overflow = 'hidden'; 
         }
 
@@ -254,18 +347,23 @@
             const m = document.getElementById('galleryModal'); 
             const c = document.getElementById('modalContent'); 
             document.getElementById('galleryTitle').innerText = "Gráfico de Performance: " + p;
-            c.innerHTML = `
-                <div class="graph-container animate__animated animate__fadeIn text-white italic">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="font-black italic uppercase">${p === 'walison' ? 'INSANITY_SPECTER' : p === 'nicolas' ? 'NssSpecterr' : 'ALKer_Lu'}</span>
-                        <span class="${p === 'walison' ? 'text-emerald-500' : p === 'nicolas' ? 'text-blue-400' : 'text-rose-500'} font-bold uppercase text-[10px] tracking-widest">
+            
+            let graphHTML = `
+                <div class="graph-container animate__animated animate__fadeIn text-white italic relative">
+                    <div class="flex justify-between items-center mb-4 text-xs font-black uppercase relative">
+                        <span>${p === 'walison' ? 'INSANITY_SPECTER' : p === 'nicolas' ? 'NssSpecterr' : 'ALKer_Lu'}</span>
+                        <span class="${p === 'walison' ? 'text-emerald-500' : p === 'nicolas' ? 'text-blue-400' : 'text-rose-500'} tracking-widest relative">
                             Média: ${p === 'walison' ? '8.85' : p === 'nicolas' ? '7.79' : '7.58'} 
-                            ${p === 'walison' ? '📈 Subindo' : p === 'nicolas' ? '➡️ Constante' : '📉 Caindo'}
+                            ${p === 'walison' ? '📈 Subindo' : p === 'nicolas' ? '➡️ Consistente' : '📉 Caindo'}
                         </span>
                     </div>
-                    <img src="${statsGraphs[p]}" class="w-full rounded-xl border border-gray-700 shadow-2xl" alt="Gráfico">
+                    <img src="${statsGraphs[p]}" class="w-full rounded-xl border border-gray-700 shadow-2xl relative" alt="Gráfico">
                 </div>
             `;
+            
+            graphHTML += generateMedalsHTML(p);
+            
+            c.innerHTML = graphHTML;
             m.style.display = 'block'; document.body.style.overflow = 'hidden';
         }
 
