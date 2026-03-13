@@ -24,7 +24,7 @@
 <body>
 
     <nav class="sticky top-0 z-50 nav-blur border-b border-gray-100 py-4">
-        <div class="container mx-auto flex justify-between items-center px-6 text-center">
+        <div class="container mx-auto flex justify-between items-center px-6">
             <h1 class="text-2xl font-black italic tracking-tighter uppercase">BSB SÓ FAR</h1>
             <div class="hidden md:flex space-x-6 font-bold uppercase text-[10px] tracking-[0.2em] text-gray-500">
                 <a href="#inicio" class="hover:text-purple-600">Início</a>
@@ -44,9 +44,7 @@
         <div class="animate__animated animate__fadeIn">
             <span class="text-purple-600 font-bold uppercase tracking-[0.4em] text-xs">Elite da Várzea</span>
             <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter mt-4">QUALIDADE <br><span class="text-gray-300 italic">DUVIDOSA.</span></h2>
-            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">
-                "Onde a bola não rola, ela sobrevive. Nossa tática é baseada na esperança."
-            </p>
+            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">"Nossa tática é baseada na esperança."</p>
         </div>
     </section>
 
@@ -61,7 +59,7 @@
                 </div>
                 <div class="space-y-4 font-bold text-xs uppercase italic text-gray-600">
                     <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Tiki-Taka de Tartaruga: Transição lenta estilo EPTG.</div>
-                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Zaga de Drywall: Parece sólida, mas esfarela no sopro.</div>
+                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">Zaga de Drywall: Parece sólida, mas esfarela.</div>
                 </div>
             </div>
             <div class="p-8 border border-gray-200 rounded-[2.5rem] bg-white text-center shadow-sm font-bold uppercase italic text-sm text-gray-500">
@@ -92,7 +90,6 @@
                         <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 23:45</td><td class="status-v">VITÓRIA</td><td>3 - 1</td><td class="uppercase text-gray-500">Catimba e Cia</td></tr>
                         <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 23:10</td><td class="status-v">VITÓRIA</td><td>4 - 0</td><td class="uppercase text-gray-500">Tiro Curto FC</td></tr>
                         <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 22:45</td><td class="status-d">DERROTA</td><td>1 - 2</td><td class="uppercase text-gray-500">União da EPTG</td></tr>
-                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 11, 23:00</td><td class="status-e">EMPATE</td><td>1 - 1</td><td class="uppercase text-gray-500">Amigos do Eixo Sul</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -110,7 +107,7 @@
 
     <section id="stats" class="py-24 bg-gray-50 text-center font-bold">
         <div class="container mx-auto px-6">
-            <h3 class="section-title italic">Estatísticas Reais</h3>
+            <h3 class="section-title italic">Estatísticas de Carreira</h3>
             <div class="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm mb-12 font-black italic">
                 <table class="w-full text-center">
                     <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold text-center">
@@ -118,6 +115,29 @@
                     </thead>
                     <tbody id="tabela-stats" class="divide-y divide-gray-50">
                         <tr><td colspan="4" class="py-10 text-gray-400 uppercase animate-pulse tracking-widest">Sincronizando com Pro Clubs Head...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="atual-mes" class="py-24 bg-white text-center font-bold">
+        <div class="container mx-auto px-6">
+            <h3 class="section-title">Atual Mês</h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-12 text-black font-black">
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-gray-400 uppercase text-[10px]">Gols do Mês</span><p class="text-4xl mt-2">73</p></div>
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-green-500 uppercase text-[10px]">Vitórias</span><p class="text-4xl mt-2 text-green-600">6</p></div>
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-red-500 uppercase text-[10px]">Derrotas</span><p class="text-4xl mt-2 text-red-600">2</p></div>
+            </div>
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm mb-16 italic uppercase font-black">
+                <table class="w-full text-center">
+                    <thead class="bg-gray-50 text-[10px] uppercase text-purple-600 font-bold">
+                        <tr><th class="py-6 px-8 text-left">Atleta</th><th>Gols (Mês)</th><th>Assists (Mês)</th></tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-50">
+                        <tr><td class="py-6 px-8 text-left">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
+                        <tr><td class="py-6 px-8 text-left text-xl">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
+                        <tr><td class="py-6 px-8 text-left">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -137,14 +157,13 @@
         <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl italic">
             <h3 class="text-3xl font-black mb-10 uppercase text-center text-purple-500 tracking-widest">Plantão BSB SÓ FAR</h3>
             <span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span>
-            <p class="text-gray-300 text-sm mt-4 leading-relaxed">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental na hora do rush. O piloto tá dando tela azul.</p>
+            <p class="text-gray-300 text-sm mt-4 leading-relaxed">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental na hora do rush.</p>
         </div>
     </section>
 
     <div id="galleryModal" class="modal"><div class="max-w-4xl mx-auto mt-20"><div class="flex justify-between items-center mb-6 text-white uppercase font-black italic"><h4 id="galleryTitle">Highlights</h4><button onclick="closeGallery()" class="bg-red-600 px-4 py-1 rounded text-xs">Fechar X</button></div><div id="videoGrid" class="grid gap-6"></div></div></div>
 
     <script>
-        // Função para carregar os dados salvos pelo robô (GitHub Actions)
         async function loadStats() {
             try {
                 const res = await fetch('stats.json?t=' + new Date().getTime());
@@ -154,9 +173,7 @@
                 data.jogadores.forEach(p => {
                     tabela.innerHTML += `<tr><td class="py-6 px-8 text-left uppercase font-black">${p.nome}</td><td>${p.pj}</td><td class="stat-number text-xl">${p.gols}</td><td class="stat-number">${p.ast}</td></tr>`;
                 });
-            } catch (e) { 
-                console.log("Stats.json ainda não gerado ou erro de leitura."); 
-            }
+            } catch (e) { console.log("Aguardando arquivo stats.json..."); }
         }
         loadStats();
 
