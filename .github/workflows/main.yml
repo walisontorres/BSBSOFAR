@@ -1,0 +1,32 @@
+name: Atualizar Stats BSB
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Roda todo dia à meia-noite
+  workflow_dispatch: # Permite que você rode manualmente apertando um botão
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Configurar Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Instalar dependências
+        run: pip install requests beautifulsoup4
+
+      - name: Rodar Script de Atualização
+        run: python update_stats.py
+
+      - name: Salvar mudanças no GitHub
+        run: |
+          git config --global user.name 'BSB Bot'
+          git config --global user.email 'bot@bsbsofar.com'
+          git add stats.json
+          git commit -m "Stats atualizadas automaticamente" || exit 0
+          git push
