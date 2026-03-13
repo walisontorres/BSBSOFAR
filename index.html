@@ -9,15 +9,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { background-color: #fcfcfc; color: #1a1a1a; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        
-        .dark-card { 
-            background: #ffffff; 
-            border: 1px solid #efefef;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 6px 6px 12px #e2e2e2, -6px -6px 12px #ffffff;
-        }
+        .dark-card { background: #ffffff; border: 1px solid #efefef; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 6px 6px 12px #e2e2e2, -6px -6px 12px #ffffff; }
         .dark-card:hover { transform: translateY(-10px); border-color: #8b5cf6; box-shadow: 0 15px 30px rgba(139, 92, 246, 0.1); }
-        
         .stat-number { color: #8b5cf6; font-weight: 800; }
         .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; font-style: italic; margin-bottom: 3rem; text-align: center; }
         .highlight-box { border-left: 4px solid #8b5cf6; padding-left: 1.5rem; margin: 1.5rem 0; }
@@ -35,7 +28,7 @@
                 <a href="#clube" class="hover:text-purple-600">O Clube</a>
                 <a href="#elenco" class="hover:text-purple-600">Elenco</a>
                 <a href="#stats" class="hover:text-purple-600">Estatísticas</a>
-                <a href="#live" class="hover:text-purple-600">Live Tracker</a>
+                <a href="#atual-mes" class="hover:text-purple-600">Atual Mês</a>
             </div>
         </div>
     </nav>
@@ -48,105 +41,101 @@
         <div class="animate__animated animate__fadeIn">
             <span class="text-purple-600 font-bold uppercase tracking-[0.4em] text-xs">Elite da Várzea</span>
             <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter mt-4">QUALIDADE <br><span class="text-gray-300 italic">DUVIDOSA.</span></h2>
-            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">
-                "Onde a bola não rola, ela sobrevive. Nossa tática é baseada na esperança."
-            </p>
+            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">"Onde a bola não rola, ela sobrevive. Nossa tática é baseada na esperança."</p>
         </div>
     </section>
 
     <section id="clube" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6 max-w-5xl">
             <h3 class="section-title">O Clube & A Tática</h3>
-            
-            <div class="grid md:grid-cols-2 gap-12 mb-16 items-start">
+            <div class="grid md:grid-cols-2 gap-12 mb-16 items-start text-left">
                 <div>
                     <h4 class="text-2xl font-black mb-4 uppercase italic">História</h4>
                     <p class="text-gray-600 mb-6 italic">Fundado entre um rage quit e uma pizza gelada para provar que a amizade é mais importante que o talento.</p>
-                    <div class="highlight-box font-bold italic text-sm text-gray-800">
-                        "Estratégia inspirada em Brasília: se errar a tesourinha, vai demorar 20 min pra dar a volta."
-                    </div>
+                    <div class="highlight-box font-bold italic text-sm text-gray-800">"Estratégia inspirada em Brasília: se errar a tesourinha, vai demorar 20 min pra dar a volta."</div>
                 </div>
                 <div class="space-y-4">
-                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-sm">
-                        <span class="font-black uppercase italic">Tiki-Taka de Tartaruga:</span> Transição lenta estilo EPTG.
-                    </div>
-                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-sm">
-                        <span class="font-black uppercase italic">Zaga de Drywall:</span> Parece sólida, mas esfarela no sopro.
-                    </div>
+                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-sm"><span class="font-black uppercase italic">Tiki-Taka de Tartaruga:</span> Transição lenta estilo EPTG.</div>
+                    <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-sm"><span class="font-black uppercase italic">Zaga de Drywall:</span> Parece sólida, mas esfarela no sopro.</div>
                 </div>
             </div>
-
             <div class="p-12 border border-gray-200 rounded-[2.5rem] bg-white text-center shadow-sm">
                 <h4 class="text-2xl font-black mb-4 uppercase italic">🤡 QUALIDADE "PADRÃO LICITAÇÃO"</h4>
-                <div class="text-gray-500 font-bold text-sm">
-                    • Atacantes "Fome Zero" | • Meio-Campo "Tesouro Nacional" | • O "Meta" do Caos
-                </div>
+                <div class="text-gray-500 font-bold text-sm">• Atacantes "Fome Zero" | • Meio-Campo "Tesouro Nacional" | • O "Meta" do Caos</div>
             </div>
         </div>
     </section>
 
-    <section id="elenco" class="py-24 bg-white text-center">
+    <section id="trofeus" class="py-20 bg-white text-center">
+        <h3 class="section-title">Sala de Troféus</h3>
+        <div class="flex justify-center gap-8 opacity-20">
+            <div class="w-20 h-20 bg-gray-200 rounded-full border-4 border-dashed border-gray-400"></div>
+            <div class="w-20 h-20 bg-gray-200 rounded-full border-4 border-dashed border-gray-400"></div>
+        </div>
+        <p class="mt-6 text-gray-400 italic">"Obra atrasada. Troféu em fase de licitação."</p>
+    </section>
+
+    <section id="elenco" class="py-24 bg-gray-50 text-center">
         <h3 class="section-title">O Elenco</h3>
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="dark-card p-6 rounded-3xl">
-                <img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
-                <h4 class="text-2xl font-black italic uppercase">Nicolas</h4>
-                <button onclick="openGallery('nicolas')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
-            </div>
-            <div class="dark-card p-6 rounded-3xl">
-                <img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
-                <h4 class="text-2xl font-black italic uppercase">Walison</h4>
-                <button onclick="openGallery('walison')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
-            </div>
-            <div class="dark-card p-6 rounded-3xl">
-                <img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
-                <h4 class="text-2xl font-black italic uppercase">Luigi</h4>
-                <button onclick="openGallery('luigi')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
-            </div>
+            <div class="dark-card p-6 rounded-3xl"><img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black italic uppercase">Nicolas</h4><button onclick="openGallery('nicolas')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
+            <div class="dark-card p-6 rounded-3xl"><img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black italic uppercase">Walison</h4><button onclick="openGallery('walison')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
+            <div class="dark-card p-6 rounded-3xl"><img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black italic uppercase">Luigi</h4><button onclick="openGallery('luigi')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
         </div>
     </section>
 
-    <section id="live" class="py-24 bg-gray-50 border-y border-gray-200">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="section-title">Live Tracker</h3>
-            <p class="text-[10px] font-black uppercase tracking-widest mb-8 text-gray-400 italic">Sincronizado com Pro Clubs Tracker (ID: 2158921)</p>
-            
-            <div class="max-w-4xl mx-auto bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-gray-200">
-                <iframe 
-                    src="https://proclubstracker.com/club/2158921" 
-                    class="w-full h-[600px] border-none"
-                    loading="lazy">
-                </iframe>
-            </div>
-            <p class="mt-4 text-[9px] text-gray-400 font-bold uppercase tracking-widest">Acesse: proclubstracker.com/club/2158921</p>
-        </div>
-    </section>
-
-    <section id="stats" class="py-24 bg-white">
+    <section id="stats" class="py-24 bg-white text-center font-bold">
         <div class="container mx-auto px-6">
-            <h3 class="section-title">Estatísticas Reais</h3>
-            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm font-bold">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold text-center">
-                        <tr><th class="py-6 px-8 text-left">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-50 text-center italic">
-                        <tr><td class="py-6 px-8 text-left font-black uppercase">Walison</td><td>320</td><td class="stat-number">224</td><td class="stat-number">373</td></tr>
-                        <tr><td class="py-6 px-8 text-left font-black uppercase">Luigi</td><td>202</td><td class="stat-number text-2xl text-blue-600">401</td><td class="stat-number">97</td></tr>
-                        <tr><td class="py-6 px-8 text-left font-black uppercase text-gray-400 text-sm">Nicolas</td><td>229</td><td class="stat-number">110</td><td class="stat-number">114</td></tr>
+            <h3 class="section-title">Estatísticas Reais (Geral)</h3>
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm">
+                <table class="w-full text-left font-bold text-center italic">
+                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold"><tr><th class="py-6 px-8 text-left">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr></thead>
+                    <tbody class="divide-y divide-gray-50">
+                        <tr><td class="py-6 px-8 text-left uppercase font-black">Walison</td><td>320</td><td class="stat-number">224</td><td class="stat-number">373</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase font-black">Luigi</td><td>202</td><td class="stat-number text-2xl text-blue-600">401</td><td class="stat-number">97</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase font-black text-gray-400">Nicolas</td><td>229</td><td class="stat-number">110</td><td class="stat-number">114</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <section id="noticias" class="py-24 bg-black text-white">
+    <section id="live" class="py-24 bg-gray-50 border-y border-gray-200 text-center">
+        <h3 class="section-title">Pro Clubs Tracker Live</h3>
+        <div class="max-w-5xl mx-auto bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-gray-200">
+            <iframe src="https://proclubstracker.com/club/2158921" width="100%" height="600px" frameborder="0"></iframe>
+        </div>
+    </section>
+
+    <section id="atual-mes" class="py-24 bg-white text-center">
         <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-black mb-12 uppercase italic text-center text-purple-500">Plantão BSB SÓ FAR</h3>
-            <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl">
-                <span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span>
-                <p class="text-gray-300 italic text-sm mt-4">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental na hora do rush. O piloto tá dando tela azul.</p>
+            <h3 class="section-title">Atual Mês</h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-12 text-black font-black">
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-gray-400 uppercase text-[10px]">Gols do Mês</span><p class="text-4xl mt-2">73</p></div>
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-green-500 uppercase text-[10px]">Vitórias</span><p class="text-4xl mt-2 text-green-600">6</p></div>
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-red-500 uppercase text-[10px]">Derrotas</span><p class="text-4xl mt-2 text-red-600">2</p></div>
             </div>
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm mb-16">
+                <table class="w-full text-left font-bold text-center"><thead class="bg-gray-50 text-[10px] uppercase text-purple-600 font-bold"><tr><th class="py-6 px-8 text-left">Atleta</th><th>Gols (Mês)</th><th>Assists (Mês)</th></tr></thead>
+                    <tbody class="divide-y divide-gray-50 italic uppercase">
+                        <tr><td class="py-6 px-8 text-left font-black">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
+                        <tr><td class="py-6 px-8 text-left font-black">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
+                        <tr><td class="py-6 px-8 text-left font-black">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="max-w-2xl mx-auto p-1 bg-gradient-to-r from-purple-500 via-yellow-500 to-blue-500 rounded-[2rem]">
+                <div class="bg-white rounded-[1.9rem] p-8 text-center"><h4 class="text-xs font-black uppercase tracking-[0.5em] text-gray-400 mb-6">🏆 Jogador do Mês 🏆</h4>
+                    <div class="flex flex-col items-center"><img src="luigi.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mb-4"><h5 class="text-3xl font-black italic uppercase">Luigi (Magician)</h5><p class="text-gray-500 text-sm mt-2 italic">"43 gols em um mês. O homem esqueceu o que é um passe."</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="noticias" class="py-24 bg-black text-white text-center">
+        <div class="container mx-auto px-6 text-left">
+            <h3 class="text-3xl font-black mb-12 uppercase italic text-center text-purple-500 tracking-widest">Plantão BSB SÓ FAR</h3>
+            <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl"><span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span><h4 class="text-2xl font-black mt-4 mb-6 italic uppercase">Pane no Sistema e um Maestro no Mundo da Lua</h4><p class="text-gray-300 italic text-sm leading-relaxed">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental na hora do rush. O piloto tá dando tela azul.</p></div>
         </div>
     </section>
 
@@ -161,5 +150,6 @@
         function openGallery(p) { const m = document.getElementById('galleryModal'); const g = document.getElementById('videoGrid'); document.getElementById('galleryTitle').innerText = "Highlights: " + p; g.innerHTML = ""; if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video></div>`; }); } m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
         function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; document.body.style.overflow = 'auto'; const v = document.querySelectorAll('video'); v.forEach(x => x.pause()); }
     </script>
+    <footer class="py-12 bg-white text-center text-gray-400 text-[9px] uppercase tracking-[0.4em] font-bold">&copy; 2026 BSB SÓ FAR</footer>
 </body>
 </html>
