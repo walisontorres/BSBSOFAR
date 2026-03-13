@@ -9,21 +9,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { background-color: #fcfcfc; color: #1a1a1a; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        
-        .dark-card { 
-            background: #ffffff; 
-            border: 1px solid #efefef;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 6px 6px 12px #e2e2e2, -6px -6px 12px #ffffff;
-        }
+        .dark-card { background: #ffffff; border: 1px solid #efefef; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 6px 6px 12px #e2e2e2, -6px -6px 12px #ffffff; }
         .dark-card:hover { transform: translateY(-10px); border-color: #8b5cf6; box-shadow: 0 15px 30px rgba(139, 92, 246, 0.1); }
-        
         .stat-number { color: #8b5cf6; font-weight: 800; }
         .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; font-style: italic; margin-bottom: 3rem; text-align: center; }
         .highlight-box { background: #f8f9fa; border-left: 4px solid #8b5cf6; padding: 1.5rem; }
         .nav-blur { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-        
-        /* Modal da Galeria */
         .modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
     </style>
 </head>
@@ -35,10 +26,9 @@
             <div class="hidden md:flex space-x-6 font-bold uppercase text-[10px] tracking-[0.2em] text-gray-500">
                 <a href="#inicio" class="hover:text-purple-600">Início</a>
                 <a href="#clube" class="hover:text-purple-600">O Clube</a>
-                <a href="#trofeus" class="hover:text-purple-600">Troféus</a>
                 <a href="#elenco" class="hover:text-purple-600">Elenco</a>
                 <a href="#stats" class="hover:text-purple-600">Estatísticas</a>
-                <a href="#atual-mes" class="hover:text-purple-600 text-purple-600 font-black">Atual Mês</a>
+                <a href="#atual-mes" class="hover:text-purple-600">Atual Mês</a>
             </div>
         </div>
     </nav>
@@ -81,68 +71,42 @@
         </div>
     </section>
 
-    <section id="trofeus" class="py-20 bg-white text-center">
-        <h3 class="section-title">Sala de Troféus</h3>
-        <div class="flex justify-center gap-8 opacity-20">
-            <div class="w-20 h-20 bg-gray-200 rounded-full border-4 border-dashed border-gray-400"></div>
-            <div class="w-20 h-20 bg-gray-200 rounded-full border-4 border-dashed border-gray-400"></div>
-        </div>
-        <p class="mt-6 text-gray-400 italic">"Obra atrasada. Troféu em fase de licitação."</p>
-    </section>
-
-    <section id="elenco" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="section-title">O Elenco</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="dark-card p-6 rounded-3xl">
-                    <img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
-                    <h4 class="text-2xl font-black italic uppercase">Nicolas</h4>
-                    <span class="text-purple-600 font-bold text-sm block mb-4 uppercase">Nº 10 - O Criador</span>
-                    <button onclick="openGallery('nicolas')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
-                </div>
-                <div class="dark-card p-6 rounded-3xl">
-                    <img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
-                    <h4 class="text-2xl font-black italic uppercase">Walison</h4>
-                    <span class="text-purple-600 font-bold text-sm block mb-4 uppercase">Nº 92 - O Maestro</span>
-                    <button onclick="openGallery('walison')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
-                </div>
-                <div class="dark-card p-6 rounded-3xl">
-                    <img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
-                    <h4 class="text-2xl font-black italic uppercase">Luigi</h4>
-                    <span class="text-blue-500 font-bold text-sm block mb-4 uppercase">Nº 69 - Atacante</span>
-                    <button onclick="openGallery('luigi')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
-                </div>
+    <section id="elenco" class="py-24 bg-gray-50 text-center">
+        <h3 class="section-title">O Elenco</h3>
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="dark-card p-6 rounded-3xl">
+                <img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
+                <h4 class="text-2xl font-black italic uppercase">Nicolas</h4>
+                <span class="text-purple-600 font-bold text-sm block mb-4 uppercase">Nº 10 - O Criador</span>
+                <button onclick="openGallery('nicolas')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
+            </div>
+            <div class="dark-card p-6 rounded-3xl">
+                <img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
+                <h4 class="text-2xl font-black italic uppercase">Walison</h4>
+                <span class="text-purple-600 font-bold text-sm block mb-4 uppercase">Nº 92 - O Maestro</span>
+                <button onclick="openGallery('walison')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
+            </div>
+            <div class="dark-card p-6 rounded-3xl">
+                <img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover">
+                <h4 class="text-2xl font-black italic uppercase">Luigi</h4>
+                <span class="text-blue-500 font-bold text-sm block mb-4 uppercase">Nº 69 - Atacante</span>
+                <button onclick="openGallery('luigi')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button>
             </div>
         </div>
     </section>
 
     <section id="stats" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h3 class="section-title">Estatísticas Reais</h3>
+            <h3 class="section-title">Estatísticas Reais (Geral)</h3>
             <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm">
                 <table class="w-full text-left">
-                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold">
-                        <tr>
-                            <th class="py-6 px-8">Atleta</th>
-                            <th class="py-6 text-center">Jogos</th>
-                            <th class="py-6 text-center">Gols</th>
-                            <th class="py-6 text-center">Assists</th>
-                            <th class="py-6 text-center">MVP</th>
-                        </tr>
+                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold text-center">
+                        <tr><th class="py-6 px-8 text-left">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-50">
-                        <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="walison.png" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500"> Walison</td>
-                            <td class="text-center">300</td><td class="text-center stat-number">201</td><td class="text-center stat-number">342</td><td class="text-center text-yellow-600 font-black">120</td>
-                        </tr>
-                        <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="luigi.png" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500"> Luigi</td>
-                            <td class="text-center">189</td><td class="text-center stat-number">358</td><td class="text-center stat-number">93</td><td class="text-center text-yellow-600 font-black">44</td>
-                        </tr>
-                        <tr>
-                            <td class="py-6 px-8 flex items-center gap-4 font-black italic uppercase"><img src="nicolas.png" class="w-12 h-12 rounded-full object-cover border-2 border-green-500"> Nicolas</td>
-                            <td class="text-center">211</td><td class="text-center stat-number">103</td><td class="text-center stat-number">97</td><td class="text-center text-yellow-600 font-black">6</td>
-                        </tr>
+                    <tbody class="divide-y divide-gray-50 text-center font-bold">
+                        <tr><td class="py-6 px-8 text-left font-black italic uppercase">Walison</td><td>320</td><td class="stat-number">224</td><td class="stat-number">373</td></tr>
+                        <tr><td class="py-6 px-8 text-left font-black italic uppercase">Luigi</td><td>202</td><td class="stat-number text-2xl text-blue-600">401</td><td class="stat-number text-xl">97</td></tr>
+                        <tr><td class="py-6 px-8 text-left font-black italic uppercase">Nicolas</td><td>229</td><td class="stat-number">110</td><td class="stat-number">114</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -153,44 +117,22 @@
         <div class="container mx-auto px-6">
             <h3 class="section-title">Atual Mês</h3>
             <div class="grid md:grid-cols-3 gap-6 mb-12 text-center">
-                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                    <span class="text-gray-400 uppercase text-[10px] font-bold tracking-widest">Gols do Mês</span>
-                    <p class="text-4xl font-black mt-2">--</p>
-                </div>
-                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                    <span class="text-green-500 uppercase text-[10px] font-bold tracking-widest">Vitórias</span>
-                    <p class="text-4xl font-black mt-2 text-green-600">6</p>
-                </div>
-                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                    <span class="text-red-500 uppercase text-[10px] font-bold tracking-widest">Derrotas</span>
-                    <p class="text-4xl font-black mt-2 text-red-600">2</p>
-                </div>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-gray-400 uppercase text-[10px] font-bold">Gols do Mês</span><p class="text-4xl font-black mt-2">73</p></div>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-green-500 uppercase text-[10px] font-bold">Vitórias</span><p class="text-4xl font-black mt-2 text-green-600">6</p></div>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100"><span class="text-red-500 uppercase text-[10px] font-bold">Derrotas</span><p class="text-4xl font-black mt-2 text-red-600">2</p></div>
             </div>
-
-            <div class="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm mb-16">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold">
-                        <tr>
-                            <th class="py-6 px-8">Atleta</th>
-                            <th class="py-6 text-center text-purple-600">Gols (Mês)</th>
-                            <th class="py-6 text-center text-purple-600">Assists (Mês)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-50">
-                        <tr><td class="py-6 px-8 font-black italic uppercase">Walison</td><td class="text-center stat-number text-xl">--</td><td class="text-center stat-number text-xl">--</td></tr>
-                        <tr><td class="py-6 px-8 font-black italic uppercase">Luigi</td><td class="text-center stat-number text-xl">--</td><td class="text-center stat-number text-xl">--</td></tr>
-                        <tr><td class="py-6 px-8 font-black italic uppercase">Nicolas</td><td class="text-center stat-number text-xl">--</td><td class="text-center stat-number text-xl">--</td></tr>
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm mb-16 text-center">
+                <table class="w-full text-left"><thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold text-center"><tr><th class="py-6 px-8 text-left text-purple-600">Atleta</th><th class="text-purple-600">Gols (Mês)</th><th class="text-purple-600">Assists (Mês)</th></tr></thead>
+                    <tbody class="divide-y divide-gray-50 font-bold">
+                        <tr><td class="py-6 px-8 text-left italic uppercase">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
+                        <tr><td class="py-6 px-8 text-left italic uppercase">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
+                        <tr><td class="py-6 px-8 text-left italic uppercase">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
                     </tbody>
                 </table>
             </div>
-
             <div class="max-w-2xl mx-auto p-1 bg-gradient-to-r from-purple-500 via-yellow-500 to-blue-500 rounded-[2rem]">
-                <div class="bg-white rounded-[1.9rem] p-8 text-center">
-                    <h4 class="text-xs font-black uppercase tracking-[0.5em] text-gray-400 mb-6">🏆 Jogador do Mês 🏆</h4>
-                    <div class="flex flex-col items-center">
-                        <img src="walison.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mb-4">
-                        <h5 class="text-3xl font-black italic uppercase italic">Aguardando Dados...</h5>
-                    </div>
+                <div class="bg-white rounded-[1.9rem] p-8 text-center"><h4 class="text-xs font-black uppercase tracking-[0.5em] text-gray-400 mb-6">🏆 Jogador do Mês 🏆</h4>
+                    <div class="flex flex-col items-center"><img src="luigi.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mb-4"><h5 class="text-3xl font-black italic uppercase">Luigi (Magician)</h5><p class="text-gray-500 text-sm mt-2 italic">"43 gols em um mês. O homem esqueceu o que é um botão de passe."</p></div>
                 </div>
             </div>
         </div>
@@ -199,65 +141,18 @@
     <section id="noticias" class="py-24 bg-black text-white">
         <div class="container mx-auto px-6">
             <h3 class="text-3xl font-black mb-12 uppercase italic text-center text-purple-500">Plantão BSB SÓ FAR</h3>
-            <div class="max-w-4xl mx-auto">
-                <div class="p-8 border-l-4 border-purple-600 bg-gray-900/80 rounded-r-3xl animate__animated animate__fadeInLeft">
-                    <span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span>
-                    <h4 class="text-2xl font-black mt-4 mb-6 italic uppercase tracking-tight text-white leading-tight">Pane no Sistema, Chuva de Gols e um Maestro no Mundo da Lua</h4>
-                    <div class="space-y-4 text-gray-300 leading-relaxed italic text-sm md:text-base">
-                        <p>O servidor da EA quase pediu arrego nesta última rodada. Em um surto inexplicável que desafia o nosso tradicional selo de qualidade "Padrão Licitação", o BSB Sófar produziu números assustadores.</p>
-                        <p>Primeiro, o absurdo: <strong>Luigi (Magician)</strong> guardou inacreditáveis 8 gols em uma única partida. Relatórios periciais indicam que ele simplesmente arrancou o botão de passe (X) do controle com um alicate, só para não correr o risco de tocar a bola por acidente. Já <strong>Walison (Insanity)</strong>, cansado da vida de garçom, resolveu comer a própria gorjeta. O homem meteu 4 gols em outro jogo, deixando o resto do time completamente confuso.</p>
-                        <p>Mas o verdadeiro Arquivo X da semana atende por <strong>Nicolas (Maestro)</strong>. O meia viu seu nível (Overall) no PC subir absurdamente. O boneco dele virou um tanque... pena que quem está segurando o controle deixou a cabeça na parada de ônibus. Nicolas tem entrado em campo com a mesma concentração de uma capivara atravessando o Eixo Monumental em horário de pico. O avatar tá upado no máximo, mas o piloto tá dando tela azul. Seguimos.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="max-w-4xl mx-auto"><div class="p-8 border-l-4 border-purple-600 bg-gray-900/80 rounded-r-3xl animate__animated animate__fadeInLeft"><span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span><h4 class="text-2xl font-black mt-4 mb-6 italic uppercase">Pane no Sistema, Chuva de Gols e um Maestro no Mundo da Lua</h4><div class="space-y-4 text-gray-300 leading-relaxed italic text-sm md:text-base"><p>O servidor da EA quase pediu arrego nesta última rodada. Em um surto inexplicável que desafia o nosso tradicional selo de qualidade "Padrão Licitação", o BSB Sófar produziu números assustadores.</p><p>Luigi guardou inacreditáveis 8 gols em uma única partida. Relatórios periciais indicam que ele arrancou o botão de passe (X) com um alicate. Walison resolveu comer a própria gorjeta e meteu 4 gols fominhas. Nicolas (Maestro) viu seu Overall subir absurdamente no PC, mas a cabeça ficou na parada de ônibus da EPTG em horário de pico. O piloto tá dando tela azul. Seguimos.</p></div></div></div>
         </div>
     </section>
 
-    <div id="galleryModal" class="modal">
-        <div class="max-w-5xl mx-auto">
-            <div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
-                <h4 id="galleryTitle" class="text-white text-2xl font-black italic uppercase">Highlights</h4>
-                <button onclick="closeGallery()" class="text-white font-bold bg-red-600 px-4 py-1 rounded text-xs uppercase">Fechar X</button>
-            </div>
-            <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
-        </div>
-    </div>
+    <div id="galleryModal" class="modal"><div class="max-w-5xl mx-auto"><div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-4"><h4 id="galleryTitle" class="text-white text-2xl font-black italic uppercase">Highlights</h4><button onclick="closeGallery()" class="text-white font-bold bg-red-600 px-4 py-1 rounded text-xs uppercase">Fechar X</button></div><div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div></div></div>
 
     <script>
-        const videosData = {
-            nicolas: ["videos/nicolas1.mp4"], 
-            walison: ["videos/walison1.mp4", "videos/walison2.mp4"], 
-            luigi: ["videos/luigi1.mp4"]
-        };
-
-        function openGallery(player) {
-            const modal = document.getElementById('galleryModal');
-            const grid = document.getElementById('videoGrid');
-            document.getElementById('galleryTitle').innerText = "Highlights: " + player;
-            grid.innerHTML = ""; 
-            if(videosData[player]) {
-                videosData[player].forEach(url => {
-                    grid.innerHTML += `
-                        <div class="bg-gray-900 p-2 rounded-2xl shadow-2xl border border-gray-800">
-                            <video controls class="w-full rounded-xl"><source src="${url}" type="video/mp4"></video>
-                            <p class="text-gray-500 text-[9px] mt-3 uppercase font-bold text-center italic">${url.split('/').pop()}</p>
-                        </div>`;
-                });
-            }
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeGallery() {
-            document.getElementById('galleryModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            const videos = document.querySelectorAll('video');
-            videos.forEach(v => v.pause());
-        }
+        const videosData = { nicolas: ["videos/nicolas1.mp4"], walison: ["videos/walison1.mp4", "videos/walison2.mp4"], luigi: ["videos/luigi1.mp4"] };
+        function openGallery(p) { const m = document.getElementById('galleryModal'); const g = document.getElementById('videoGrid'); document.getElementById('galleryTitle').innerText = "Highlights: " + p; g.innerHTML = ""; if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video><p class="text-gray-500 text-[9px] mt-3 uppercase font-bold text-center italic">${u.split('/').pop()}</p></div>`; }); } m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; document.body.style.overflow = 'auto'; const v = document.querySelectorAll('video'); v.forEach(x => x.pause()); }
     </script>
 
-    <footer class="py-12 bg-white text-center text-gray-400 text-[9px] uppercase tracking-[0.4em] font-bold">
-        &copy; 2026 BSB SÓ FAR - Urbanismo Virtual e Caos.
-    </footer>
+    <footer class="py-12 bg-white text-center text-gray-400 text-[9px] uppercase tracking-[0.4em] font-bold">&copy; 2026 BSB SÓ FAR - Urbanismo Virtual e Caos.</footer>
 </body>
 </html>
