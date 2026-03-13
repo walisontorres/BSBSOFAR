@@ -163,27 +163,42 @@
 
     <div id="galleryModal" class="modal"><div class="max-w-4xl mx-auto mt-20"><div class="flex justify-between items-center mb-6 text-white uppercase font-black italic"><h4 id="galleryTitle">Highlights</h4><button onclick="closeGallery()" class="bg-red-600 px-4 py-1 rounded text-xs">Fechar X</button></div><div id="videoGrid" class="grid gap-6"></div></div></div>
 
-    <script>
-        async function loadStats() {
-            try {
-                const res = await fetch('stats.json?t=' + new Date().getTime());
-                const data = await res.json();
-                const tabela = document.getElementById('tabela-stats');
-                tabela.innerHTML = ""; 
-                data.jogadores.forEach(p => {
-                    tabela.innerHTML += `<tr><td class="py-6 px-8 text-left uppercase font-black">${p.nome}</td><td>${p.pj}</td><td class="stat-number text-xl">${p.gols}</td><td class="stat-number">${p.ast}</td></tr>`;
-                });
-            } catch (e) { console.log("Aguardando arquivo stats.json..."); }
+  <script>
+    async function loadStats() {
+        try {
+            // USANDO O LINK DIRETO DO SEU GITHUB PARA EVITAR ERRO DE CAMINHO
+            const githubUser = "walisontorres";
+            const repoName = "BSBSOFAR";
+            const url = `https://raw.githubusercontent.com/${githubUser}/${repoName}/main/stats.json?t=${new Date().getTime()}`;
+            
+            const res = await fetch(url);
+            if (!res.ok) throw new Error("Arquivo não encontrado");
+            
+            const data = await res.json();
+            const tabela = document.getElementById('tabela-stats');
+            tabela.innerHTML = ""; 
+            
+            data.jogadores.forEach(p => {
+                tabela.innerHTML += `<tr>
+                    <td class="py-6 px-8 text-left uppercase font-black">${p.nome}</td>
+                    <td>${p.pj}</td>
+                    <td class="stat-number text-xl">${p.gols}</td>
+                    <td class="stat-number">${p.ast}</td>
+                </tr>`;
+            });
+        } catch (e) { 
+            console.error("Erro:", e);
+            document.getElementById('tabela-stats').innerHTML = `<tr><td colspan="4" class="py-10 text-red-500 uppercase text-xs">Aguardando atualização do robô (GitHub Actions)</td></tr>`;
         }
-        loadStats();
+    }
+    loadStats();
 
-        const videosData = { 
-            nicolas: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/nicolas1.mp4"], 
-            walison: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/walison.mp4"], 
-            luigi: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi.mp4"] 
-        };
-        function openGallery(p) { const m = document.getElementById('galleryModal'); const g = document.getElementById('videoGrid'); document.getElementById('galleryTitle').innerText = "Highlights: " + p; g.innerHTML = ""; if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video></div>`; }); } m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
-        function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; document.body.style.overflow = 'auto'; const v = document.querySelectorAll('video'); v.forEach(x => x.pause()); }
-    </script>
-</body>
-</html>
+    // Mantendo o sistema de galeria
+    const videosData = { 
+        nicolas: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/nicolas1.mp4"], 
+        walison: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/walison.mp4"], 
+        luigi: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi.mp4"] 
+    };
+    function openGallery(p) { const m = document.getElementById('galleryModal'); const g = document.getElementById('videoGrid'); document.getElementById('galleryTitle').innerText = "Highlights: " + p; g.innerHTML = ""; if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video></div>`; }); } m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
+    function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; document.body.style.overflow = 'auto'; const v = document.querySelectorAll('video'); v.forEach(x => x.pause()); }
+</script>
