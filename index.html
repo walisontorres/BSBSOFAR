@@ -18,12 +18,13 @@
         .status-d { color: #ef4444; font-weight: 900; } 
         .modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
         .graph-container { background: #1a1d21; border-radius: 1.5rem; padding: 20px; border: 1px solid #333; }
+        .boletim-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
     </style>
 </head>
 <body>
 
     <nav class="sticky top-0 z-50 nav-blur border-b border-gray-100 py-4">
-        <div class="container mx-auto flex justify-between items-center px-6">
+        <div class="container mx-auto flex justify-between items-center px-6 text-center">
             <h1 class="text-2xl font-black italic tracking-tighter uppercase">BSB SÓ FAR</h1>
             <div class="hidden md:flex space-x-6 font-bold uppercase text-[10px] tracking-[0.2em] text-gray-500">
                 <a href="#inicio" class="hover:text-purple-600">Início</a>
@@ -83,27 +84,45 @@
                             <th class="border-l border-gray-800 px-4">Goleadores</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100 text-sm">
-                        <tr><td class="py-5 px-4 text-left text-gray-400 uppercase">Ontem</td><td class="status-d uppercase">Derrota</td><td>3 - 4</td><td class="uppercase text-gray-500">mundo1123</td><td class="border-l border-gray-100 text-[10px] text-purple-600 px-4 uppercase">Luigi (3)</td></tr>
-                        <tr><td class="py-5 px-4 text-left text-gray-400 uppercase">Ontem</td><td class="status-v uppercase">Vitória</td><td>3 - 0</td><td class="uppercase text-gray-500">TerrÃveis FC</td><td class="border-l border-gray-100 text-[10px] text-purple-600 px-4 uppercase">Luigi (2), Walison (1)</td></tr>
-                        <tr><td class="py-5 px-4 text-left text-gray-400 uppercase">Ontem</td><td class="status-d uppercase">Derrota</td><td>4 - 5</td><td class="uppercase text-gray-500">OmmoPlata</td><td class="border-l border-gray-100 text-[10px] text-purple-600 px-4 uppercase">Luigi (4)</td></tr>
+                    <tbody class="divide-y divide-gray-100 text-sm font-black uppercase">
+                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-d">Derrota</td><td>3 - 4</td><td class="text-gray-500">mundo1123</td><td class="border-l border-gray-100 text-[10px] text-purple-600 px-4">Luigi (3)</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-v">Vitória</td><td>3 - 0</td><td class="text-gray-500">TerrÃveis FC</td><td class="border-l border-gray-100 text-[10px] text-purple-600 px-4">Luigi (2), Walison (1)</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">12/03</td><td class="status-d">Derrota</td><td>4 - 5</td><td class="text-gray-500">OmmoPlata</td><td class="border-l border-gray-100 text-[10px] text-purple-600 px-4">Luigi (4)</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="max-w-4xl mx-auto bg-slate-900 rounded-[2.5rem] p-8 text-white shadow-2xl border border-slate-700">
-                <div class="flex flex-col md:flex-row justify-around items-center gap-8 mb-6">
+                <div class="flex flex-col md:flex-row justify-around items-center gap-8 mb-10 border-b border-slate-800 pb-10">
                     <div class="text-center">
-                        <span class="text-gray-400 uppercase text-[10px] tracking-widest block mb-2">Skill Rating</span>
+                        <span class="text-gray-400 uppercase text-[10px] tracking-widest block mb-2 font-bold">Skill Rating</span>
                         <p class="text-5xl font-black text-yellow-500 italic">1635</p>
-                        <span class="text-[10px] text-gray-500 uppercase font-bold">Melhor: Div 5</span>
+                        <span class="text-[10px] text-gray-500 uppercase font-bold tracking-tighter">Melhor: Div 5</span>
                     </div>
-                    <div class="flex gap-6 md:gap-12 font-black italic">
+                    
+                    <div class="text-left bg-slate-800 p-6 rounded-3xl border border-slate-600 w-full md:w-64">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Boletim Geral</span>
+                            <span class="text-2xl font-black text-yellow-500 italic">C</span>
+                        </div>
+                        <div class="boletim-grid text-[9px] uppercase font-bold italic">
+                            <div class="flex justify-between border-b border-slate-700 pb-1"><span>Ataque</span><span class="text-yellow-500">C</span></div>
+                            <div class="flex justify-between border-b border-slate-700 pb-1"><span>Defesa</span><span class="text-rose-500">F</span></div>
+                            <div class="flex justify-between border-b border-slate-700 pb-1"><span>Consistência</span><span class="text-rose-500">F</span></div>
+                            <div class="flex justify-between border-b border-slate-700 pb-1"><span>Equipe</span><span class="text-emerald-500">A</span></div>
+                            <div class="flex justify-between border-b border-slate-700 pb-1"><span>Mental</span><span class="text-rose-500">F</span></div>
+                            <div class="flex justify-between border-b border-slate-700 pb-1"><span>Exp.</span><span class="text-emerald-500">A+</span></div>
+                        </div>
+                        <p class="text-[8px] mt-4 text-gray-400 lowercase leading-tight">"Mostra potencial, mas precisa de mais disciplina. Continuem praticando!"</p>
+                    </div>
+
+                    <div class="flex gap-6 md:gap-8 font-black italic">
                         <div class="text-center"><p class="text-3xl text-emerald-500">139V</p></div>
                         <div class="text-center"><p class="text-3xl text-amber-500">33E</p></div>
                         <div class="text-center"><p class="text-3xl text-rose-500">148D</p></div>
                     </div>
                 </div>
+
                 <div class="flex justify-center gap-2">
                     <div class="w-8 h-8 bg-rose-600 rounded flex items-center justify-center font-black text-xs">D</div>
                     <div class="w-8 h-8 bg-emerald-600 rounded flex items-center justify-center font-black text-xs">V</div>
@@ -122,19 +141,19 @@
     <section id="elenco" class="py-24 bg-white text-center font-black italic">
         <h3 class="section-title">O Elenco</h3>
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="dark-card p-6 rounded-3xl"><img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover shadow-sm"><h4 class="text-2xl font-black uppercase">Nicolas</h4>
+            <div class="dark-card p-6 rounded-3xl"><img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black uppercase">Nicolas</h4>
                 <div class="space-y-2 mt-4">
                     <button onclick="openGallery('nicolas', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase">Highlights</button>
                     <button onclick="openStats('nicolas')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg">Stats Individuais</button>
                 </div>
             </div>
-            <div class="dark-card p-6 rounded-3xl"><img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover shadow-sm"><h4 class="text-2xl font-black uppercase">Walison</h4>
+            <div class="dark-card p-6 rounded-3xl"><img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black uppercase">Walison</h4>
                 <div class="space-y-2 mt-4">
                     <button onclick="openGallery('walison', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase">Highlights</button>
                     <button onclick="openStats('walison')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg">Stats Individuais</button>
                 </div>
             </div>
-            <div class="dark-card p-6 rounded-3xl"><img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover shadow-sm"><h4 class="text-2xl font-black uppercase">Luigi</h4>
+            <div class="dark-card p-6 rounded-3xl"><img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black uppercase">Luigi</h4>
                 <div class="space-y-2 mt-4">
                     <button onclick="openGallery('luigi', 'Highlights')" class="w-full py-3 bg-black text-white rounded-xl font-black text-[10px] uppercase">Highlights</button>
                     <button onclick="openStats('luigi')" class="w-full py-3 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase shadow-lg">Stats Individuais</button>
@@ -143,18 +162,18 @@
         </div>
     </section>
 
-    <section id="stats-total" class="py-24 bg-gray-50 text-center font-black italic">
+    <section id="carreira" class="py-24 bg-gray-50 text-center font-black italic">
         <div class="container mx-auto px-6">
-            <h3 class="section-title uppercase">Carreira (Total)</h3>
-            <div class="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm mb-12">
-                <table class="w-full text-center">
+            <h3 class="section-title">Carreira (Total)</h3>
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm mb-12">
+                <table class="w-full text-center bg-white uppercase">
                     <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold">
                         <tr><th class="py-6 px-8 text-left uppercase">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
-                        <tr><td class="py-6 px-8 text-left uppercase font-black">Walison</td><td>320</td><td class="stat-number">224</td><td class="stat-number">373</td></tr>
-                        <tr><td class="py-6 px-8 text-left uppercase text-xl font-black">Luigi</td><td>202</td><td class="stat-number text-2xl">401</td><td class="stat-number">97</td></tr>
-                        <tr><td class="py-6 px-8 text-left uppercase font-black">Nicolas</td><td>229</td><td class="stat-number">110</td><td class="stat-number">114</td></tr>
+                        <tr><td class="py-6 px-8 text-left font-black">Walison</td><td>320</td><td class="stat-number">224</td><td class="stat-number">373</td></tr>
+                        <tr><td class="py-6 px-8 text-left text-xl font-black">Luigi</td><td>202</td><td class="stat-number text-2xl">401</td><td class="stat-number">97</td></tr>
+                        <tr><td class="py-6 px-8 text-left font-black">Nicolas</td><td>229</td><td class="stat-number">110</td><td class="stat-number">114</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -171,14 +190,14 @@
             </div>
             
             <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm mb-16 uppercase">
-                <table class="w-full text-center bg-white">
+                <table class="w-full text-center bg-white italic font-black">
                     <thead class="bg-gray-50 text-[10px] uppercase text-purple-600 font-bold">
                         <tr><th class="py-6 px-8 text-left uppercase">Atleta</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
-                        <tr><td class="py-6 px-8 text-left uppercase">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
-                        <tr><td class="py-6 px-8 text-left uppercase text-xl">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
-                        <tr><td class="py-6 px-8 text-left uppercase">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
+                        <tr><td class="py-6 px-8 text-left">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
+                        <tr><td class="py-6 px-8 text-left text-xl">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
+                        <tr><td class="py-6 px-8 text-left">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -195,10 +214,10 @@
     </section>
 
     <section id="noticias" class="py-24 bg-black text-white px-6">
-        <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl italic">
-            <h3 class="text-2xl font-black mb-6 uppercase text-purple-500 tracking-widest">Plantão BSB SÓ FAR</h3>
-            <p class="text-gray-300 text-sm leading-relaxed uppercase font-bold text-[10px] tracking-widest mb-2">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</p>
-            <p class="text-gray-300 text-sm leading-relaxed">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental.</p>
+        <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl italic font-black uppercase">
+            <h3 class="text-2xl font-black mb-6 uppercase text-purple-500 tracking-widest text-center">Plantão BSB SÓ FAR</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-2 text-[10px] tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</p>
+            <p class="text-gray-300 text-[12px] normal-case font-normal italic leading-relaxed">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental.</p>
         </div>
     </section>
 
@@ -231,12 +250,12 @@
             const c = document.getElementById('modalContent'); 
             document.getElementById('galleryTitle').innerText = "Gráfico de Performance: " + p;
             c.innerHTML = `
-                <div class="graph-container animate__animated animate__fadeIn text-white">
+                <div class="graph-container animate__animated animate__fadeIn text-white italic">
                     <div class="flex justify-between items-center mb-4">
                         <span class="font-black italic uppercase">${p === 'walison' ? 'INSANITY_SPECTER' : p === 'nicolas' ? 'NssSpecterr' : 'ALKer_Lu'}</span>
-                        <span class="${p === 'walison' ? 'text-emerald-500' : p === 'nicolas' ? 'text-blue-400' : 'text-rose-500'} font-bold uppercase text-[10px]">
-                            Média: ${p === 'walison' ? '8.85' : p === 'nicolas' ? '7.79' : '7.58'} 
-                            ${p === 'walison' ? '📈 Subindo' : p === 'nicolas' ? '➡️ Consistente' : '📉 Caindo'}
+                        <span class="${p === 'walison' ? 'text-emerald-500' : p === 'nicolas' ? 'text-blue-400' : 'text-rose-500'} font-bold uppercase text-[10px] tracking-widest">
+                            Avg: ${p === 'walison' ? '8.85' : p === 'nicolas' ? '7.79' : '7.58'} 
+                            ${p === 'walison' ? '📈 Subindo' : p === 'nicolas' ? '➡️ Constante' : '📉 Caindo'}
                         </span>
                     </div>
                     <img src="${statsGraphs[p]}" class="w-full rounded-xl border border-gray-700 shadow-2xl" alt="Gráfico">
