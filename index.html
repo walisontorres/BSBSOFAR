@@ -13,7 +13,6 @@
         .dark-card:hover { transform: translateY(-10px); border-color: #8b5cf6; }
         .stat-number { color: #8b5cf6; font-weight: 800; }
         .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; font-style: italic; margin-bottom: 3rem; text-align: center; }
-        .highlight-box { border-left: 4px solid #8b5cf6; padding-left: 1.5rem; margin: 1.5rem 0; }
         .nav-blur { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
         .status-v { color: #10b981; font-weight: 900; } 
         .status-d { color: #ef4444; font-weight: 900; } 
@@ -41,10 +40,12 @@
     </div>
 
     <section id="inicio" class="py-24 flex items-center justify-center text-center px-4 bg-white">
-        <div class="animate__animated animate__fadeIn">
+        <div class="animate__animated animate__fadeIn text-center">
             <span class="text-purple-600 font-bold uppercase tracking-[0.4em] text-xs">Elite da Várzea</span>
             <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter mt-4">QUALIDADE <br><span class="text-gray-300 italic">DUVIDOSA.</span></h2>
-            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">"Nossa tática é baseada na esperança."</p>
+            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed">
+                "Onde a bola não rola, ela sobrevive. Nossa tática é baseada na esperança."
+            </p>
         </div>
     </section>
 
@@ -79,65 +80,68 @@
     </section>
 
     <section id="jogos" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6 max-w-4xl text-center">
-            <h3 class="section-title italic text-center">Jogos Recentes</h3>
-            <div class="overflow-hidden rounded-3xl border border-gray-100 shadow-xl bg-white font-black italic">
+        <div class="container mx-auto px-6 max-w-4xl text-center font-black italic">
+            <h3 class="section-title italic">Jogos Recentes</h3>
+            <div class="overflow-hidden rounded-3xl border border-gray-100 shadow-xl bg-white">
                 <table class="w-full text-center">
                     <thead class="bg-gray-900 text-[10px] uppercase text-gray-400 font-bold">
                         <tr><th class="py-5 px-4 text-left">Data</th><th>Resultado</th><th>Placar</th><th>Oponente</th></tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 text-sm">
-                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 23:45</td><td class="status-v">VITÓRIA</td><td>3 - 1</td><td class="uppercase text-gray-500">Catimba e Cia</td></tr>
-                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 23:10</td><td class="status-v">VITÓRIA</td><td>4 - 0</td><td class="uppercase text-gray-500">Tiro Curto FC</td></tr>
-                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12, 22:45</td><td class="status-d">DERROTA</td><td>1 - 2</td><td class="uppercase text-gray-500">União da EPTG</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12</td><td class="status-v">VITÓRIA</td><td>3 - 1</td><td class="uppercase text-gray-500">Catimba e Cia</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12</td><td class="status-v">VITÓRIA</td><td>4 - 0</td><td class="uppercase text-gray-500">Tiro Curto FC</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 12</td><td class="status-d">DERROTA</td><td>1 - 2</td><td class="uppercase text-gray-500">União da EPTG</td></tr>
+                        <tr><td class="py-5 px-4 text-left text-gray-400">Mar 11</td><td class="status-e">EMPATE</td><td>1 - 1</td><td class="uppercase text-gray-500">Amigos do Eixo Sul</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <section id="elenco" class="py-24 bg-white text-center">
+    <section id="elenco" class="py-24 bg-white text-center font-black italic">
         <h3 class="section-title">O Elenco</h3>
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="dark-card p-6 rounded-3xl text-center"><img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black italic uppercase">Nicolas</h4><button onclick="openGallery('nicolas')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
-            <div class="dark-card p-6 rounded-3xl text-center"><img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black italic uppercase">Walison</h4><button onclick="openGallery('walison')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
-            <div class="dark-card p-6 rounded-3xl text-center"><img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black italic uppercase">Luigi</h4><button onclick="openGallery('luigi')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
+            <div class="dark-card p-6 rounded-3xl"><img src="nicolas.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black uppercase">Nicolas</h4><button onclick="openGallery('nicolas')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
+            <div class="dark-card p-6 rounded-3xl"><img src="walison.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black uppercase">Walison</h4><button onclick="openGallery('walison')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
+            <div class="dark-card p-6 rounded-3xl"><img src="luigi.png" class="rounded-2xl mb-6 w-full aspect-[4/5] object-cover"><h4 class="text-2xl font-black uppercase">Luigi</h4><button onclick="openGallery('luigi')" class="w-full py-3 bg-black text-white rounded-xl font-black uppercase text-[10px] hover:bg-purple-600 transition">Highlights</button></div>
         </div>
     </section>
 
-    <section id="stats" class="py-24 bg-gray-50 text-center font-bold">
+    <section id="stats" class="py-24 bg-gray-50 text-center font-black italic">
         <div class="container mx-auto px-6">
-            <h3 class="section-title italic">Estatísticas de Carreira</h3>
-            <div class="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm mb-12 font-black italic">
+            <h3 class="section-title">Estatísticas de Carreira</h3>
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm mb-12">
                 <table class="w-full text-center">
-                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold text-center">
-                        <tr><th class="py-6 px-8 text-left uppercase">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr>
+                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold">
+                        <tr><th class="py-6 px-8 text-left">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
-                    <tbody id="tabela-stats" class="divide-y divide-gray-50">
-                        <tr><td colspan="4" class="py-10 text-gray-400 uppercase animate-pulse tracking-widest">Sincronizando com Pro Clubs Head...</td></tr>
+                    <tbody class="divide-y divide-gray-50">
+                        <tr><td class="py-6 px-8 text-left uppercase font-black">Walison</td><td>320</td><td class="stat-number">224</td><td class="stat-number">373</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase text-xl font-black">Luigi</td><td>202</td><td class="stat-number text-2xl">401</td><td class="stat-number">97</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase font-black">Nicolas</td><td>229</td><td class="stat-number">110</td><td class="stat-number">114</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <section id="atual-mes" class="py-24 bg-white text-center font-bold">
+    <section id="atual-mes" class="py-24 bg-white text-center font-black italic">
         <div class="container mx-auto px-6">
             <h3 class="section-title">Atual Mês</h3>
-            <div class="grid md:grid-cols-3 gap-6 mb-12 text-black font-black">
+            <div class="grid md:grid-cols-3 gap-6 mb-12 text-black">
                 <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-gray-400 uppercase text-[10px]">Gols do Mês</span><p class="text-4xl mt-2">73</p></div>
                 <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-green-500 uppercase text-[10px]">Vitórias</span><p class="text-4xl mt-2 text-green-600">6</p></div>
                 <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100"><span class="text-red-500 uppercase text-[10px]">Derrotas</span><p class="text-4xl mt-2 text-red-600">2</p></div>
             </div>
-            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm mb-16 italic uppercase font-black">
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm mb-16">
                 <table class="w-full text-center">
                     <thead class="bg-gray-50 text-[10px] uppercase text-purple-600 font-bold">
                         <tr><th class="py-6 px-8 text-left">Atleta</th><th>Gols (Mês)</th><th>Assists (Mês)</th></tr>
                     </thead>
                     <tbody class="divide-y divide-gray-50">
-                        <tr><td class="py-6 px-8 text-left">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
-                        <tr><td class="py-6 px-8 text-left text-xl">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
-                        <tr><td class="py-6 px-8 text-left">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase">Walison</td><td class="stat-number">23</td><td class="stat-number">31</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase text-xl">Luigi</td><td class="stat-number text-2xl">43</td><td class="stat-number">4</td></tr>
+                        <tr><td class="py-6 px-8 text-left uppercase">Nicolas</td><td class="stat-number">7</td><td class="stat-number">17</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -157,48 +161,39 @@
         <div class="max-w-4xl mx-auto border-l-4 border-purple-600 bg-gray-900 p-8 rounded-r-3xl italic">
             <h3 class="text-3xl font-black mb-10 uppercase text-center text-purple-500 tracking-widest">Plantão BSB SÓ FAR</h3>
             <span class="text-purple-500 font-bold uppercase text-xs tracking-widest">🚨 URGENTE: BOLETIM DE OCORRÊNCIA 🚨</span>
-            <p class="text-gray-300 text-sm mt-4 leading-relaxed">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental na hora do rush.</p>
+            <p class="text-gray-300 text-sm mt-4 leading-relaxed">Luigi arrancou o botão de passe com alicate. Nicolas está com a concentração de uma capivara atravessando o Eixo Monumental na hora do rush. O piloto tá dando tela azul.</p>
         </div>
     </section>
 
     <div id="galleryModal" class="modal"><div class="max-w-4xl mx-auto mt-20"><div class="flex justify-between items-center mb-6 text-white uppercase font-black italic"><h4 id="galleryTitle">Highlights</h4><button onclick="closeGallery()" class="bg-red-600 px-4 py-1 rounded text-xs">Fechar X</button></div><div id="videoGrid" class="grid gap-6"></div></div></div>
 
-  <script>
-    async function loadStats() {
-        try {
-            // USANDO O LINK DIRETO DO SEU GITHUB PARA EVITAR ERRO DE CAMINHO
-            const githubUser = "walisontorres";
-            const repoName = "BSBSOFAR";
-            const url = `https://raw.githubusercontent.com/${githubUser}/${repoName}/main/stats.json?t=${new Date().getTime()}`;
-            
-            const res = await fetch(url);
-            if (!res.ok) throw new Error("Arquivo não encontrado");
-            
-            const data = await res.json();
-            const tabela = document.getElementById('tabela-stats');
-            tabela.innerHTML = ""; 
-            
-            data.jogadores.forEach(p => {
-                tabela.innerHTML += `<tr>
-                    <td class="py-6 px-8 text-left uppercase font-black">${p.nome}</td>
-                    <td>${p.pj}</td>
-                    <td class="stat-number text-xl">${p.gols}</td>
-                    <td class="stat-number">${p.ast}</td>
-                </tr>`;
-            });
-        } catch (e) { 
-            console.error("Erro:", e);
-            document.getElementById('tabela-stats').innerHTML = `<tr><td colspan="4" class="py-10 text-red-500 uppercase text-xs">Aguardando atualização do robô (GitHub Actions)</td></tr>`;
-        }
-    }
-    loadStats();
+    <script>
+        const videosData = { 
+            nicolas: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/nicolas1.mp4"], 
+            walison: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/walison.mp4"], 
+            luigi: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi.mp4"] 
+        };
 
-    // Mantendo o sistema de galeria
-    const videosData = { 
-        nicolas: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/nicolas1.mp4"], 
-        walison: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/walison.mp4"], 
-        luigi: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi.mp4"] 
-    };
-    function openGallery(p) { const m = document.getElementById('galleryModal'); const g = document.getElementById('videoGrid'); document.getElementById('galleryTitle').innerText = "Highlights: " + p; g.innerHTML = ""; if(videosData[p]) { videosData[p].forEach(u => { g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video></div>`; }); } m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
-    function closeGallery() { document.getElementById('galleryModal').style.display = 'none'; document.body.style.overflow = 'auto'; const v = document.querySelectorAll('video'); v.forEach(x => x.pause()); }
-</script>
+        function openGallery(p) { 
+            const m = document.getElementById('galleryModal'); 
+            const g = document.getElementById('videoGrid'); 
+            document.getElementById('galleryTitle').innerText = "Highlights: " + p; 
+            g.innerHTML = ""; 
+            if(videosData[p]) { 
+                videosData[p].forEach(u => { 
+                    g.innerHTML += `<div class="bg-gray-900 p-2 rounded-2xl"><video controls class="w-full rounded-xl"><source src="${u}" type="video/mp4"></video></div>`; 
+                }); 
+            } 
+            m.style.display = 'block'; 
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeGallery() { 
+            document.getElementById('galleryModal').style.display = 'none'; 
+            document.body.style.overflow = 'auto'; 
+            const v = document.querySelectorAll('video'); 
+            v.forEach(x => x.pause()); 
+        }
+    </script>
+</body>
+</html>
