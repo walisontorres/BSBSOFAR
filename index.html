@@ -179,9 +179,9 @@
             <div class="max-w-2xl mx-auto p-1 bg-gradient-to-r from-purple-500 via-yellow-500 to-blue-500 rounded-[2.5rem] mt-16 shadow-2xl">
                 <div class="bg-white rounded-[2.4rem] p-10 text-center relative font-black italic">
                     <h4 class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400 mb-6 italic">🏆 Jogador do Mês 🏆</h4>
-                    <img src="luigi.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mx-auto mb-4">
-                    <h5 class="text-3xl font-black italic uppercase text-black">Luigi (Magician)</h5>
-                    <p class="text-gray-500 text-[10px] mt-2 italic uppercase tracking-widest">"O homem esqueceu o que é um passe."</p>
+                    <img id="motm-img" src="luigi.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mx-auto mb-4">
+                    <h5 id="motm-name" class="text-3xl font-black italic uppercase text-black">Luigi</h5>
+                    <p id="motm-desc" class="text-gray-500 text-[10px] mt-2 italic uppercase tracking-widest">"O homem esqueceu o que é um passe."</p>
                 </div>
             </div>
         </div>
@@ -234,7 +234,7 @@
         const basePoints = { walison: 535, luigi: 435, nicolas: 290 };
 
         function updateRank() {
-            // RANK ALL TIME (Gols = 10, Assists = 8)
+            // RANK ALL TIME
             const playersAllTime = [];
             document.querySelectorAll('#carreiraTable tr').forEach(row => {
                 const id = row.getAttribute('data-player');
@@ -252,13 +252,13 @@
                 </div>
             `).join('');
 
-            // RANK DO MÊS (Gols = 10, Assists = 8)
+            // RANK DO MÊS
             const playersMes = [];
             document.querySelectorAll('#mesTable tr').forEach(row => {
                 const nome = row.cells[0].innerText;
                 const gols = parseInt(row.querySelector('.gols-mes').innerText);
                 const assists = parseInt(row.querySelector('.assists-mes').innerText);
-                const score = (gols * 10) + (assists * 8); // No base points for the month
+                const score = (gols * 10) + (assists * 8);
                 playersMes.push({ nome, score });
             });
             playersMes.sort((a, b) => b.score - a.score);
@@ -268,6 +268,23 @@
                     <div class="text-right"><span class="text-2xl font-black text-emerald-500">${p.score.toLocaleString()}</span><span class="text-[10px] block text-gray-500 font-bold uppercase tracking-tighter relative">Pontos do Mês</span></div>
                 </div>
             `).join('');
+
+            // ATUALIZAR JOGADOR DO MÊS AUTOMATICAMENTE
+            if (playersMes.length > 0) {
+                const topPlayer = playersMes[0].nome.trim().toUpperCase();
+                
+                const motmData = {
+                    'WALISON': { img: 'walison.png', desc: '"A máquina de assistências."' },
+                    'LUIGI': { img: 'luigi.png', desc: '"O homem esqueceu o que é um passe."' },
+                    'NICOLAS': { img: 'nicolas.png', desc: '"Frieza e precisão no caos."' }
+                };
+                
+                document.getElementById('motm-name').innerText = topPlayer;
+                if (motmData[topPlayer]) {
+                    document.getElementById('motm-img').src = motmData[topPlayer].img;
+                    document.getElementById('motm-desc').innerText = motmData[topPlayer].desc;
+                }
+            }
         }
 
         const medalDescriptions = {
