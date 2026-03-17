@@ -173,11 +173,11 @@
 
     <section id="atual-mes" class="py-24 bg-gray-50 text-center font-black italic">
         <div class="container mx-auto px-6">
-            <h3 class="section-title">Atual Mês</h3>
+            <h3 class="section-title" id="month-title-1">Atual Mês</h3>
             <div class="grid md:grid-cols-3 gap-6 mb-12 text-black font-black italic">
-                <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-gray-400 uppercase text-[10px]">Gols do Mês</span><p class="text-4xl mt-2">91</p></div>
-                <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-emerald-500 uppercase text-[10px]">Vitórias</span><p class="text-4xl mt-2 text-emerald-600">8</p></div>
-                <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-rose-500 uppercase text-[10px]">Derrotas</span><p class="text-4xl mt-2 text-rose-600">2</p></div>
+                <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-gray-400 uppercase text-[10px]" id="month-title-2">Gols do Mês</span><p class="text-4xl mt-2" id="team-gols-mes">91</p></div>
+                <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-emerald-500 uppercase text-[10px]">Vitórias</span><p class="text-4xl mt-2 text-emerald-600" id="team-wins-mes">8</p></div>
+                <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-rose-500 uppercase text-[10px]">Derrotas</span><p class="text-4xl mt-2 text-rose-600" id="team-losses-mes">2</p></div>
             </div>
             
             <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm mb-16 uppercase bg-white">
@@ -193,7 +193,7 @@
                 </table>
             </div>
 
-            <h3 class="text-2xl font-black uppercase italic mb-8 mt-16 text-center">Rank do Mês</h3>
+            <h3 class="text-2xl font-black uppercase italic mb-8 mt-16 text-center" id="month-title-3">Rank do Mês</h3>
             <div class="max-w-4xl mx-auto bg-slate-900 rounded-[2.5rem] p-10 text-white shadow-2xl border border-slate-800 mb-16">
                 <div class="grid gap-6" id="rankMesList"></div>
                 <p class="mt-8 text-[9px] text-gray-500 uppercase tracking-widest font-black text-center">Base de Pontos: Gol (10pts) | Assistência (8pts)</p>
@@ -201,12 +201,24 @@
 
             <div class="max-w-2xl mx-auto p-1 bg-gradient-to-r from-purple-500 via-yellow-500 to-blue-500 rounded-[2.5rem] mt-16 shadow-2xl">
                 <div class="bg-white rounded-[2.4rem] p-10 text-center relative font-black italic">
-                    <h4 class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400 mb-6 italic">🏆 Jogador do Mês 🏆</h4>
+                    <h4 class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400 mb-6 italic" id="month-title-4">🏆 Jogador do Mês 🏆</h4>
                     <img id="motm-img" src="luigi.png" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl mx-auto mb-4">
                     <h5 id="motm-name" class="text-3xl font-black italic uppercase text-black">Luigi</h5>
                     <p id="motm-desc" class="text-gray-500 text-[10px] mt-2 italic uppercase tracking-widest">"O homem esqueceu o que é um passe."</p>
                 </div>
             </div>
+
+            <h3 class="text-2xl font-black uppercase italic mb-8 mt-24 text-center">Histórico Jogador do Mês</h3>
+            <div class="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm uppercase bg-white max-w-4xl mx-auto">
+                <table class="w-full text-center font-black italic">
+                    <thead class="bg-gray-50 text-[10px] uppercase text-gray-400 font-bold">
+                        <tr><th class="py-6 px-8 text-left uppercase">Mês</th><th>Jogador</th><th>Gols</th><th>Assists</th></tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100" id="historicoTable">
+                        </tbody>
+                </table>
+            </div>
+            
         </div>
     </section>
 
@@ -276,7 +288,80 @@
 
     <script>
         const basePoints = { walison: 535, luigi: 435, nicolas: 290 };
-        let currentChart = null; // Variável para armazenar o gráfico e destruí-lo ao trocar de jogador
+        let currentChart = null; 
+
+        // NOVO SISTEMA DE MESES AUTOMÁTICO
+        const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        const currentDate = new Date();
+        const currentMonthName = monthNames[currentDate.getMonth()];
+
+        // BANCO DE DADOS SIMULADO DOS MESES
+        // Se estivermos em Março, ele lê os dados abaixo. 
+        // Quando virar para Abril e não tiver a chave "Abril" aqui, ele vai zerar a tabela automaticamente!
+        const statsPorMes = {
+            "Março": { 
+                equipe: { gols: 91, vitorias: 8, derrotas: 2 },
+                jogadores: {
+                    "walison": { gols: 28, assists: 45 },
+                    "luigi": { gols: 53, assists: 8 },
+                    "nicolas": { gols: 9, assists: 19 }
+                }
+            }
+        };
+
+        // HISTÓRICO MANUAL DOS MELHORES JOGADORES DOS MESES ANTERIORES
+        const historicoMotm = [
+            { mes: "Fevereiro", jogador: "Walison", gols: 30, assists: 42 }
+        ];
+
+        function applyMonthData() {
+            // Títulos dinâmicos com o mês atual do seu PC/Celular
+            document.getElementById('month-title-1').innerText = "Atual " + currentMonthName;
+            document.getElementById('month-title-2').innerText = "Gols de " + currentMonthName;
+            document.getElementById('month-title-3').innerText = "Rank de " + currentMonthName;
+            document.getElementById('month-title-4').innerText = "🏆 Jogador de " + currentMonthName + " 🏆";
+
+            const dataMes = statsPorMes[currentMonthName];
+
+            // Injeta os dados se o mês existir no nosso "Banco de dados" acima, senão, zera.
+            if (dataMes) {
+                document.getElementById('team-gols-mes').innerText = dataMes.equipe.gols;
+                document.getElementById('team-wins-mes').innerText = dataMes.equipe.vitorias;
+                document.getElementById('team-losses-mes').innerText = dataMes.equipe.derrotas;
+
+                document.querySelectorAll('#mesTable tr').forEach(row => {
+                    const id = row.getAttribute('data-player');
+                    if(dataMes.jogadores[id]) {
+                        row.querySelector('.gols-mes').innerText = dataMes.jogadores[id].gols;
+                        row.querySelector('.assists-mes').innerText = dataMes.jogadores[id].assists;
+                    }
+                });
+            } else {
+                document.getElementById('team-gols-mes').innerText = '0';
+                document.getElementById('team-wins-mes').innerText = '0';
+                document.getElementById('team-losses-mes').innerText = '0';
+
+                document.querySelectorAll('#mesTable tr').forEach(row => {
+                    row.querySelector('.gols-mes').innerText = '0';
+                    row.querySelector('.assists-mes').innerText = '0';
+                });
+            }
+
+            // Renderiza a Nova Tabela de Histórico
+            const histTable = document.getElementById('historicoTable');
+            if (historicoMotm.length > 0) {
+                histTable.innerHTML = historicoMotm.map(h => `
+                    <tr>
+                        <td class="py-6 px-8 text-left uppercase text-gray-500 font-bold">${h.mes}</td>
+                        <td class="text-purple-600 text-lg">${h.jogador}</td>
+                        <td class="stat-number text-lg">${h.gols}</td>
+                        <td class="stat-number text-lg">${h.assists}</td>
+                    </tr>
+                `).join('');
+            } else {
+                histTable.innerHTML = '<tr><td colspan="4" class="py-6 text-gray-400">Nenhum histórico registrado ainda.</td></tr>';
+            }
+        }
 
         function updateRank() {
             // RANK ALL TIME
@@ -314,8 +399,8 @@
                 </div>
             `).join('');
 
-            // ATUALIZAR JOGADOR DO MÊS AUTOMATICAMENTE
-            if (playersMes.length > 0) {
+            // ATUALIZAR JOGADOR DO MÊS AUTOMATICAMENTE (Verifica se há pontos no mês)
+            if (playersMes.length > 0 && playersMes[0].score > 0) {
                 const topPlayer = playersMes[0].nome.trim().toUpperCase();
                 
                 const motmData = {
@@ -329,6 +414,11 @@
                     document.getElementById('motm-img').src = motmData[topPlayer].img;
                     document.getElementById('motm-desc').innerText = motmData[topPlayer].desc;
                 }
+            } else {
+                // Caso a pontuação esteja zerada (início do mês)
+                document.getElementById('motm-name').innerText = "Aguardando...";
+                document.getElementById('motm-desc').innerText = "Nenhum jogo registrado neste mês ainda.";
+                document.getElementById('motm-img').src = "https://via.placeholder.com/150/1a1d21/8b5cf6?text=?";
             }
         }
 
@@ -351,11 +441,16 @@
             luigi: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi.mp4"] 
         };
 
-        // Dados simulados de progressão para o gráfico
         const chartDataProgression = {
             walison: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [40, 52, 60, 53, 28], assists: [65, 80, 95, 102, 45] },
             luigi: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [85, 92, 105, 81, 53], assists: [20, 26, 22, 25, 8] },
             nicolas: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [18, 25, 22, 31, 9], assists: [15, 20, 18, 20, 19] }
+        };
+
+        const fullStatsData = {
+            walison: { jogos: 330, gols: 233, assists: 387, motm: 45, nota: '8.20', passes: '88%', chutes: '52%', defesas: '15', tackles: '45' },
+            luigi: { jogos: 208, gols: 416, assists: 101, motm: 88, nota: '7.58', passes: '61%', chutes: '78%', defesas: '2', tackles: '12' },
+            nicolas: { jogos: 200, gols: 105, assists: 92, motm: 14, nota: '7.10', passes: '83%', chutes: '48%', defesas: '34', tackles: '89' }
         };
 
         function openGallery(p) {
@@ -378,7 +473,12 @@
             const c = document.getElementById('modalContent'); 
             document.getElementById('galleryTitle').innerText = "Performance: " + p.toUpperCase();
             
-            let html = `<div class="graph-container text-white italic"><canvas id="playerChart" class="w-full bg-gray-900 rounded-xl border border-gray-700 shadow-2xl mb-8 p-4"></canvas><div class="bg-gray-900 p-6 rounded-3xl border border-gray-800 relative"><h5 class="text-[10px] font-black uppercase text-gray-400 mb-6 italic relative">Conquistas</h5><div class="medal-grid relative">`;
+            let html = `<div class="graph-container text-white italic">
+                <canvas id="playerChart" class="w-full bg-gray-900 rounded-xl border border-gray-700 shadow-2xl mb-8 p-4"></canvas>
+                
+                <button onclick="openFullReport('${p}')" class="w-full py-4 mb-8 bg-purple-600 text-white rounded-xl font-black text-[12px] uppercase shadow-lg border border-purple-500 hover:bg-purple-700 transition-colors">📊 Ver Relatório Completo</button>
+
+                <div class="bg-gray-900 p-6 rounded-3xl border border-gray-800 relative"><h5 class="text-[10px] font-black uppercase text-gray-400 mb-6 italic relative">Conquistas</h5><div class="medal-grid relative">`;
 
             for (const [rarity, medals] of Object.entries(medalDescriptions)) {
                 for (const [title, desc] of Object.entries(medals)) {
@@ -404,7 +504,6 @@
             
             const ctx = document.getElementById('playerChart').getContext('2d');
             
-            // MELHORIAS APLICADAS APENAS NO CHART.JS
             currentChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -413,30 +512,30 @@
                         { 
                             label: 'Gols', 
                             data: chartDataProgression[p].gols, 
-                            borderColor: '#8b5cf6', // Roxo
-                            backgroundColor: 'rgba(139, 92, 246, 0.2)', // Roxo translúcido para preenchimento
-                            fill: true, // Efeito de área
+                            borderColor: '#8b5cf6',
+                            backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                            fill: true,
                             tension: 0.4, 
                             borderWidth: 3,
-                            pointBackgroundColor: '#ffffff', // Ponto branco
+                            pointBackgroundColor: '#ffffff',
                             pointBorderColor: '#8b5cf6',
                             pointBorderWidth: 2,
                             pointRadius: 4,
-                            pointHoverRadius: 7 // Aumenta ao passar o mouse
+                            pointHoverRadius: 7
                         },
                         { 
                             label: 'Assistências', 
                             data: chartDataProgression[p].assists, 
-                            borderColor: '#10b981', // Verde
-                            backgroundColor: 'rgba(16, 185, 129, 0.2)', // Verde translúcido para preenchimento
-                            fill: true, // Efeito de área
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            fill: true,
                             tension: 0.4, 
                             borderWidth: 3,
-                            pointBackgroundColor: '#ffffff', // Ponto branco
+                            pointBackgroundColor: '#ffffff',
                             pointBorderColor: '#10b981',
                             pointBorderWidth: 2,
                             pointRadius: 4,
-                            pointHoverRadius: 7 // Aumenta ao passar o mouse
+                            pointHoverRadius: 7
                         }
                     ]
                 },
@@ -451,7 +550,7 @@
                             labels: { color: 'white', font: { family: 'Inter', weight: 'bold' } } 
                         },
                         tooltip: {
-                            backgroundColor: 'rgba(15, 23, 42, 0.9)', // Fundo escuro moderno
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
                             titleFont: { family: 'Inter', size: 14, weight: 'bold' },
                             bodyFont: { family: 'Inter', size: 13 },
                             padding: 12,
@@ -475,7 +574,67 @@
             });
         }
 
-        window.onload = updateRank;
+        function openFullReport(p) {
+            const c = document.getElementById('modalContent');
+            const d = fullStatsData[p];
+            document.getElementById('galleryTitle').innerText = "Relatório Completo: " + p.toUpperCase();
+            
+            if(currentChart) {
+                currentChart.destroy();
+                currentChart = null;
+            }
+
+            c.innerHTML = `
+                <div class="text-white font-black italic animate__animated animate__fadeIn">
+                    <button onclick="openStats('${p}')" class="mb-6 text-purple-500 text-[10px] uppercase tracking-widest hover:text-white transition-colors">← Voltar para Gráfico</button>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Partidas</span>
+                            <span class="text-3xl text-white">${d.jogos}</span>
+                        </div>
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Nota Média</span>
+                            <span class="text-3xl ${parseFloat(d.nota) < 8 ? 'text-rose-500' : 'text-emerald-500'}">${d.nota}</span>
+                        </div>
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Melhor em Campo</span>
+                            <span class="text-3xl text-yellow-500">${d.motm}</span>
+                        </div>
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Gols</span>
+                            <span class="text-3xl text-purple-500">${d.gols}</span>
+                        </div>
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Assistências</span>
+                            <span class="text-3xl text-emerald-500">${d.assists}</span>
+                        </div>
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Acerto de Passes</span>
+                            <span class="text-3xl text-white">${d.passes}</span>
+                        </div>
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Precisão Chutes</span>
+                            <span class="text-3xl text-white">${d.chutes}</span>
+                        </div>
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Desarmes</span>
+                            <span class="text-3xl text-gray-400">${d.tackles}</span>
+                        </div>
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-center">
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2">Interceptações</span>
+                            <span class="text-3xl text-gray-400">${d.defesas}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // AGORA EXECUTA O SISTEMA DE MÊS PRIMEIRO E DEPOIS O RANKING
+        window.onload = function() {
+            applyMonthData();
+            updateRank();
+        };
         
         function closeGallery() { 
             document.getElementById('galleryModal').style.display = 'none'; 
