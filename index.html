@@ -378,7 +378,6 @@
             const c = document.getElementById('modalContent'); 
             document.getElementById('galleryTitle').innerText = "Performance: " + p.toUpperCase();
             
-            // Alterado APENAS aqui: Troquei a <img src="..."> pelo <canvas id="playerChart">
             let html = `<div class="graph-container text-white italic"><canvas id="playerChart" class="w-full bg-gray-900 rounded-xl border border-gray-700 shadow-2xl mb-8 p-4"></canvas><div class="bg-gray-900 p-6 rounded-3xl border border-gray-800 relative"><h5 class="text-[10px] font-black uppercase text-gray-400 mb-6 italic relative">Conquistas</h5><div class="medal-grid relative">`;
 
             for (const [rarity, medals] of Object.entries(medalDescriptions)) {
@@ -399,26 +398,78 @@
             c.innerHTML = html;
             m.style.display = 'block'; document.body.style.overflow = 'hidden';
 
-            // Inicialização do Gráfico Chart.js
             if(currentChart) {
-                currentChart.destroy(); // Destroi o gráfico anterior para não sobrepor
+                currentChart.destroy();
             }
+            
             const ctx = document.getElementById('playerChart').getContext('2d');
+            
+            // MELHORIAS APLICADAS APENAS NO CHART.JS
             currentChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: chartDataProgression[p].labels,
                     datasets: [
-                        { label: 'Gols', data: chartDataProgression[p].gols, borderColor: '#8b5cf6', backgroundColor: '#8b5cf6', tension: 0.4, borderWidth: 3 },
-                        { label: 'Assistências', data: chartDataProgression[p].assists, borderColor: '#10b981', backgroundColor: '#10b981', tension: 0.4, borderWidth: 3 }
+                        { 
+                            label: 'Gols', 
+                            data: chartDataProgression[p].gols, 
+                            borderColor: '#8b5cf6', // Roxo
+                            backgroundColor: 'rgba(139, 92, 246, 0.2)', // Roxo translúcido para preenchimento
+                            fill: true, // Efeito de área
+                            tension: 0.4, 
+                            borderWidth: 3,
+                            pointBackgroundColor: '#ffffff', // Ponto branco
+                            pointBorderColor: '#8b5cf6',
+                            pointBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 7 // Aumenta ao passar o mouse
+                        },
+                        { 
+                            label: 'Assistências', 
+                            data: chartDataProgression[p].assists, 
+                            borderColor: '#10b981', // Verde
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)', // Verde translúcido para preenchimento
+                            fill: true, // Efeito de área
+                            tension: 0.4, 
+                            borderWidth: 3,
+                            pointBackgroundColor: '#ffffff', // Ponto branco
+                            pointBorderColor: '#10b981',
+                            pointBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 7 // Aumenta ao passar o mouse
+                        }
                     ]
                 },
                 options: {
                     responsive: true,
-                    plugins: { legend: { labels: { color: 'white', font: { family: 'Inter', weight: 'bold' } } } },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: { 
+                        legend: { 
+                            labels: { color: 'white', font: { family: 'Inter', weight: 'bold' } } 
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)', // Fundo escuro moderno
+                            titleFont: { family: 'Inter', size: 14, weight: 'bold' },
+                            bodyFont: { family: 'Inter', size: 13 },
+                            padding: 12,
+                            cornerRadius: 8,
+                            borderColor: '#334155',
+                            borderWidth: 1
+                        }
+                    },
                     scales: {
-                        x: { ticks: { color: '#94a3b8', font: { family: 'Inter', weight: 'bold' } }, grid: { color: '#334155' } },
-                        y: { ticks: { color: '#94a3b8', font: { family: 'Inter', weight: 'bold' } }, grid: { color: '#334155' } }
+                        x: { 
+                            ticks: { color: '#94a3b8', font: { family: 'Inter', weight: 'bold' } }, 
+                            grid: { color: '#334155', drawBorder: false } 
+                        },
+                        y: { 
+                            beginAtZero: true,
+                            ticks: { color: '#94a3b8', font: { family: 'Inter', weight: 'bold' } }, 
+                            grid: { color: '#334155', drawBorder: false } 
+                        }
                     }
                 }
             });
