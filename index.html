@@ -6,6 +6,7 @@
     <title>BSB SÓ FAR | Site Oficial</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         
@@ -238,20 +239,19 @@
             <h3 class="text-2xl font-black mb-6 uppercase text-purple-500 tracking-widest text-center italic">Plantão BSB SÓ FAR</h3>
             
             <div class="flex flex-col md:flex-row gap-8 items-center mt-8">
-                <img src="luigi_tiktok.png" alt="Luigi A Peste" class="w-full md:w-1/3 rounded-2xl border-2 border-purple-600 shadow-lg object-cover">
                 <div class="text-left space-y-4">
-                    <h4 class="text-xl text-yellow-500 font-black uppercase">De 'A Peste' do TikTok ao 'Em Queda' nos Gramados Virtuais: A Tragédia de Luigi Shelby</h4>
+                    <h4 class="text-xl text-yellow-500 font-black uppercase">MILAGRE EM BRASÍLIA: O ATAQUE VIROU MÁQUINA, MAS A ZAGA DE DRYWALL CONTINUA UMA PENEIRA</h4>
                     <p class="text-gray-300 text-[12px] normal-case font-normal leading-relaxed italic">
-                        O influenciador, filósofo contemporâneo e autoproclamado gângster de piscina, Luigi, tem causado um verdadeiro rebuliço nas redes sociais. Em sua mais recente obra-prima audiovisual no TikTok, ele surge flutuando em águas cristalinas, ostentando óculos futuristas que claramente o impedem de ver o quão mal ele está jogando no Pro Clubs. A legenda, uma citação dramática de Peaky Blinders — "eu não sou a cura eu sou a peste" —, deixou os fãs maravilhados com tamanha profundidade intelectual. Ele realmente encarnou a peste, mas talvez não da forma que imaginava.
+                        Parem as máquinas e chamem o síndico, porque o BSB SÓ FAR está irreconhecível — do meio pra frente, claro. Nas últimas rodadas, a equipe engatou um surto de competência assustador, amassando a Chapocoense por 8 a 3, arrancando uma vitória suada de 5 a 4 contra o Frutas Secas e sobrevivendo a um empate caótico de 5 a 5 com o ChichiCalet. O resultado dessa insanidade? O Skill Rating disparou para 1695, catapultando o time diretamente para a Divisão 8.
                     </p>
                     <p class="text-gray-300 text-[12px] normal-case font-normal leading-relaxed italic">
-                        Afinal, a dicotomia entre o "Thomas Shelby das redes" e o "bagre dos gramados virtuais" é inegável. Enquanto no TikTok ele dita as regras do submundo de plástico, no Pro Clubs Tracker a realidade bate à porta com a sutileza de um carrinho por trás. Os dados são cruéis e não usam filtros: o nível de performance de Luigi está oficialmente "Em Queda". Ostentando uma média amarga de 7,58, ele parece ter esquecido que para ser a peste em campo, primeiro é preciso acertar um passe de dois metros.
+                        O segredo do sucesso? Um ataque que resolveu compensar a total inexistência de um sistema defensivo. Luigi (A Peste) guardou impressionantes 10 gols só nesses três jogos, somando absurdos 53 gols no mês, provando de uma vez por todas que o botão de passe em seu controle está quebrado. Enquanto isso, Walison assumiu a fantasia de garçom premium, distribuindo impressionantes 45 assistências no mês, e Nicolas segue sendo o operário do caos, calculista e letal quando a bola sobra.
                     </p>
                     <p class="text-gray-300 text-[12px] normal-case font-normal leading-relaxed italic">
-                        A situação ganha contornos de tragédia grega quando olhamos para o resto da equipe 'INSANITY'. Seu companheiro de equipe, INSANITY_SPECTER, segue carregando o piano (e possivelmente o próprio Luigi nas costas), ostentando uma majestosa classificação de 8,85 e o cobiçado status "Em Alta". Fica a dúvida: será que a verdadeira praga que Luigi espalha é a queda de rendimento no ataque do time?
+                        Mas não se engane, torcedor. O DNA do clube continua lá, firme e forte. Fiel às suas raízes, a famosa "Zaga de Drywall" provou que o apelido é mais do que merecido, sofrendo absurdos 12 gols em apenas 3 partidas. A tática atual do professor é cristalina: "não importa se vamos tomar 5, desde que a gente faça 6".
                     </p>
                     <p class="text-gray-300 text-[12px] normal-case font-normal leading-relaxed italic">
-                        Enquanto os adversários tremem... mas de tanto rir de suas finalizações, a comunidade segue dividida. Parte exige que ele troque os óculos de sol por óculos de grau para enxergar a bola, enquanto a outra parte apenas aguarda o próximo vídeo conceitual. Resta saber se o nosso anti-herói vai conseguir tirar o time da lama ou se o verdadeiro "crime" de Luigi continuará sendo o seu futebol apresentado nas últimas rodadas.
+                        O maior milagre de todos? O saldo de gols geral do clube (Goal Diff) finalmente respirou e está milagrosamente positivo: +2 (918 gols marcados, 916 sofridos). É para glorificar de pé! Resta saber até quando o pulmão do ataque vai aguentar carregar essa defesa de isopor nas costas na Divisão 8.
                     </p>
                 </div>
             </div>
@@ -276,6 +276,7 @@
 
     <script>
         const basePoints = { walison: 535, luigi: 435, nicolas: 290 };
+        let currentChart = null; // Variável para armazenar o gráfico e destruí-lo ao trocar de jogador
 
         function updateRank() {
             // RANK ALL TIME
@@ -350,6 +351,13 @@
             luigi: ["https://raw.githubusercontent.com/walisontorres/BSBSOFAR/main/luigi.mp4"] 
         };
 
+        // Dados simulados de progressão para o gráfico
+        const chartDataProgression = {
+            walison: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [40, 52, 60, 53, 28], assists: [65, 80, 95, 102, 45] },
+            luigi: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [85, 92, 105, 81, 53], assists: [20, 26, 22, 25, 8] },
+            nicolas: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [18, 25, 22, 31, 9], assists: [15, 20, 18, 20, 19] }
+        };
+
         function openGallery(p) {
             const m = document.getElementById('galleryModal'); 
             const c = document.getElementById('modalContent'); 
@@ -368,8 +376,10 @@
         function openStats(p) {
             const m = document.getElementById('galleryModal'); 
             const c = document.getElementById('modalContent'); 
-            document.getElementById('galleryTitle').innerText = "Performance: " + p;
-            let html = `<div class="graph-container text-white italic"><img src="${p}_graph.png" class="w-full rounded-xl border border-gray-700 shadow-2xl mb-8" onerror="this.src='https://via.placeholder.com/800x400/1a1d21/8b5cf6?text=Gráfico+em+Atualização'"><div class="bg-gray-900 p-6 rounded-3xl border border-gray-800 relative"><h5 class="text-[10px] font-black uppercase text-gray-400 mb-6 italic relative">Conquistas</h5><div class="medal-grid relative">`;
+            document.getElementById('galleryTitle').innerText = "Performance: " + p.toUpperCase();
+            
+            // Alterado APENAS aqui: Troquei a <img src="..."> pelo <canvas id="playerChart">
+            let html = `<div class="graph-container text-white italic"><canvas id="playerChart" class="w-full bg-gray-900 rounded-xl border border-gray-700 shadow-2xl mb-8 p-4"></canvas><div class="bg-gray-900 p-6 rounded-3xl border border-gray-800 relative"><h5 class="text-[10px] font-black uppercase text-gray-400 mb-6 italic relative">Conquistas</h5><div class="medal-grid relative">`;
 
             for (const [rarity, medals] of Object.entries(medalDescriptions)) {
                 for (const [title, desc] of Object.entries(medals)) {
@@ -388,6 +398,30 @@
             html += `</div></div></div>`;
             c.innerHTML = html;
             m.style.display = 'block'; document.body.style.overflow = 'hidden';
+
+            // Inicialização do Gráfico Chart.js
+            if(currentChart) {
+                currentChart.destroy(); // Destroi o gráfico anterior para não sobrepor
+            }
+            const ctx = document.getElementById('playerChart').getContext('2d');
+            currentChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartDataProgression[p].labels,
+                    datasets: [
+                        { label: 'Gols', data: chartDataProgression[p].gols, borderColor: '#8b5cf6', backgroundColor: '#8b5cf6', tension: 0.4, borderWidth: 3 },
+                        { label: 'Assistências', data: chartDataProgression[p].assists, borderColor: '#10b981', backgroundColor: '#10b981', tension: 0.4, borderWidth: 3 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { labels: { color: 'white', font: { family: 'Inter', weight: 'bold' } } } },
+                    scales: {
+                        x: { ticks: { color: '#94a3b8', font: { family: 'Inter', weight: 'bold' } }, grid: { color: '#334155' } },
+                        y: { ticks: { color: '#94a3b8', font: { family: 'Inter', weight: 'bold' } }, grid: { color: '#334155' } }
+                    }
+                }
+            });
         }
 
         window.onload = updateRank;
