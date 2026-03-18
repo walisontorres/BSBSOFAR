@@ -237,9 +237,9 @@
                         <tr><th class="py-6 px-8 text-left uppercase">Atleta</th><th>Jogos</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100" id="carreiraTable">
-                        <tr data-player="walison"><td class="py-6 px-8 text-left">Walison</td><td>330</td><td class="stat-number gols">233</td><td class="stat-number assists">387</td></tr>
-                        <tr data-player="luigi"><td class="py-6 px-8 text-left text-xl">Luigi</td><td>208</td><td class="stat-number text-2xl gols">416</td><td class="stat-number assists">101</td></tr>
-                        <tr data-player="nicolas"><td class="py-6 px-8 text-left">Nicolas</td><td>238</td><td class="stat-number gols">114</td><td class="stat-number assists">117</td></tr>
+                        <tr data-player="walison"><td class="py-6 px-8 text-left">Walison</td><td>339</td><td class="stat-number gols">237</td><td class="stat-number assists">391</td></tr>
+                        <tr data-player="luigi"><td class="py-6 px-8 text-left text-xl">Luigi</td><td>213</td><td class="stat-number text-2xl gols">428</td><td class="stat-number assists">102</td></tr>
+                        <tr data-player="nicolas"><td class="py-6 px-8 text-left">Nicolas</td><td>247</td><td class="stat-number gols">116</td><td class="stat-number assists">123</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -473,10 +473,11 @@
             }
         };
 
+        // NÚMEROS DO NICOLAS ATUALIZADOS AQUI TAMBÉM
         const fullStatsData = {
-            walison: { jogos: 330, gols: 233, assists: 387, motm: 45, nota: '8.20', passes: '88%', chutes: '52%', defesas: '15', tackles: '45' },
-            luigi: { jogos: 208, gols: 416, assists: 101, motm: 88, nota: '7.58', passes: '61%', chutes: '78%', defesas: '2', tackles: '12' },
-            nicolas: { jogos: 238, gols: 114, assists: 117, motm: 14, nota: '7.10', passes: '83%', chutes: '48%', defesas: '34', tackles: '89' }
+            walison: { jogos: 339, gols: 237, assists: 391, motm: 45, nota: '8.20', passes: '88%', chutes: '52%', defesas: '15', tackles: '45' },
+            luigi: { jogos: 213, gols: 428, assists: 102, motm: 88, nota: '7.58', passes: '61%', chutes: '78%', defesas: '2', tackles: '12' },
+            nicolas: { jogos: 247, gols: 116, assists: 123, motm: 14, nota: '7.10', passes: '83%', chutes: '48%', defesas: '34', tackles: '89' }
         };
 
         function openGallery(p) {
@@ -585,7 +586,6 @@
             });
         }
 
-        // FUNÇÃO AUXILIAR PARA CRIAR OS MINI GRÁFICOS NO NOVO FORMATO SOFASCORE
         function createMiniChart(ctxId, dataArray, color) {
             const ctx = document.getElementById(ctxId).getContext('2d');
             const chart = new Chart(ctx, {
@@ -617,7 +617,6 @@
             const d = fullStatsData[p];
             const cd = fullChartDataProgression[p];
             
-            // Títulos personalizados para a aba Sofascore
             const titles = {
                 'walison': 'O Garçom! 🎯🎩',
                 'luigi': 'Máquina de Gols! 🤖⚽',
@@ -631,7 +630,6 @@
             fullReportCharts.forEach(chart => chart.destroy());
             fullReportCharts = [];
 
-            // LAYOUT NOVO - INSPIRADO NO SOFASCORE
             c.innerHTML = `
                 <div class="text-white font-sans animate__animated animate__fadeIn bg-[#0a1a11] -mx-10 -mb-10 p-8 rounded-b-[2.5rem] relative overflow-hidden">
                     <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#10b981 1px, transparent 1px); background-size: 20px 20px;"></div>
@@ -752,7 +750,6 @@
                 </div>
             `;
 
-            // INICIA OS MINI GRÁFICOS APÓS O HTML SER RENDERIZADO
             setTimeout(() => {
                 createMiniChart('mini-nota', cd.nota, parseFloat(d.nota) < 8 ? '#f43f5e' : '#10b981');
                 createMiniChart('mini-gols', cd.gols, '#a855f7');
