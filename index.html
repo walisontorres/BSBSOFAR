@@ -175,7 +175,7 @@
         <div class="container mx-auto px-6">
             <h3 class="section-title" id="month-title-1">Atual Mês</h3>
             <div class="grid md:grid-cols-3 gap-6 mb-12 text-black font-black italic">
-                <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-gray-400 uppercase text-[10px]" id="month-title-2">Gols do Mês</span><p class="text-4xl mt-2" id="team-gols-mes">100</p></div>
+                <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-gray-400 uppercase text-[10px]" id="month-title-2">Gols do Mês</span><p class="text-4xl mt-2" id="team-gols-mes">118</p></div>
                 <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-emerald-500 uppercase text-[10px]">Vitórias</span><p class="text-4xl mt-2 text-emerald-600" id="team-wins-mes">8</p></div>
                 <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm"><span class="text-rose-500 uppercase text-[10px]">Derrotas</span><p class="text-4xl mt-2 text-rose-600" id="team-losses-mes">2</p></div>
             </div>
@@ -186,9 +186,9 @@
                         <tr><th class="py-6 px-8 text-left uppercase">Atleta</th><th>Gols</th><th>Assists</th></tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100" id="mesTable">
-                        <tr data-player="walison"><td class="py-6 px-8 text-left uppercase">Walison</td><td class="stat-number gols-mes">28</td><td class="stat-number assists-mes">45</td></tr>
-                        <tr data-player="luigi"><td class="py-6 px-8 text-left uppercase text-xl">Luigi</td><td class="stat-number text-2xl gols-mes">53</td><td class="stat-number assists-mes">8</td></tr>
-                        <tr data-player="nicolas"><td class="py-6 px-8 text-left uppercase">Nicolas</td><td class="stat-number gols-mes">18</td><td class="stat-number assists-mes">44</td></tr>
+                        <tr data-player="walison"><td class="py-6 px-8 text-left uppercase">Walison</td><td class="stat-number gols-mes">32</td><td class="stat-number assists-mes">49</td></tr>
+                        <tr data-player="luigi"><td class="py-6 px-8 text-left uppercase text-xl">Luigi</td><td class="stat-number text-2xl gols-mes">65</td><td class="stat-number assists-mes">9</td></tr>
+                        <tr data-player="nicolas"><td class="py-6 px-8 text-left uppercase">Nicolas</td><td class="stat-number gols-mes">20</td><td class="stat-number assists-mes">50</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -298,11 +298,11 @@
 
         const statsPorMes = {
             "Março": { 
-                equipe: { gols: 100, vitorias: 8, derrotas: 2 },
+                equipe: { gols: 118, vitorias: 8, derrotas: 2 },
                 jogadores: {
-                    "walison": { gols: 28, assists: 45 },
-                    "luigi": { gols: 53, assists: 8 },
-                    "nicolas": { gols: 18, assists: 44 }
+                    "walison": { gols: 32, assists: 49 },
+                    "luigi": { gols: 65, assists: 9 },
+                    "nicolas": { gols: 20, assists: 50 }
                 }
             }
         };
@@ -449,26 +449,26 @@
         };
 
         const chartDataProgression = {
-            walison: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [40, 52, 60, 53, 28], assists: [65, 80, 95, 102, 45] },
-            luigi: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [85, 92, 105, 81, 53], assists: [20, 26, 22, 25, 8] },
-            nicolas: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [18, 25, 22, 31, 18], assists: [15, 20, 18, 20, 44] }
+            walison: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [40, 52, 60, 53, 32], assists: [65, 80, 95, 102, 49] },
+            luigi: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [85, 92, 105, 81, 65], assists: [20, 26, 22, 25, 9] },
+            nicolas: { labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Atual'], gols: [18, 25, 22, 31, 20], assists: [15, 20, 18, 20, 50] }
         };
 
         // DADOS COMPLETOS PARA OS MINI GRÁFICOS DO RELATÓRIO
         const fullChartDataProgression = {
             walison: {
                 jogos: [60, 65, 70, 68, 67], nota: [7.8, 8.0, 8.1, 8.5, 8.2], motm: [8, 10, 12, 10, 5],
-                gols: [40, 52, 60, 53, 28], assists: [65, 80, 95, 102, 45], passes: [85, 86, 88, 89, 88],
+                gols: [40, 52, 60, 53, 32], assists: [65, 80, 95, 102, 49], passes: [85, 86, 88, 89, 88],
                 chutes: [50, 55, 51, 53, 52], tackles: [8, 10, 12, 9, 6], defesas: [3, 4, 3, 2, 3]
             },
             luigi: {
                 jogos: [40, 45, 50, 45, 28], nota: [7.9, 7.8, 7.5, 7.6, 7.58], motm: [15, 20, 25, 20, 8],
-                gols: [85, 92, 105, 81, 53], assists: [20, 26, 22, 25, 8], passes: [65, 63, 60, 62, 61],
+                gols: [85, 92, 105, 81, 65], assists: [20, 26, 22, 25, 9], passes: [65, 63, 60, 62, 61],
                 chutes: [80, 75, 79, 77, 78], tackles: [2, 3, 2, 4, 1], defesas: [1, 0, 1, 0, 0]
             },
             nicolas: {
                 jogos: [45, 40, 48, 42, 25], nota: [7.0, 7.2, 7.1, 7.3, 7.1], motm: [2, 3, 4, 3, 2],
-                gols: [18, 25, 22, 31, 18], assists: [15, 20, 18, 20, 44], passes: [80, 82, 85, 81, 83],
+                gols: [18, 25, 22, 31, 20], assists: [15, 20, 18, 20, 50], passes: [80, 82, 85, 81, 83],
                 chutes: [45, 48, 50, 46, 48], tackles: [15, 20, 18, 22, 14], defesas: [6, 8, 7, 9, 4]
             }
         };
